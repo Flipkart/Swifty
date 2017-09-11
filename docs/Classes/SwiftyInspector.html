@@ -14,7 +14,7 @@
     <a title="SwiftyInspector Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Swifty Docs</a> (76% documented)</p>
+        <p><a href="../index.html">Swifty Docs</a> (89% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -55,15 +55,6 @@
                 <a href="../Classes/SwiftyInspector.html">SwiftyInspector</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SwiftyNetworkTask.html">SwiftyNetworkTask</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/SwiftyParsingInterceptor.html">SwiftyParsingInterceptor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/Task.html">Task</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/WebServiceError.html">WebServiceError</a>
               </li>
             </ul>
@@ -71,9 +62,6 @@
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums/Result.html">Result</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Enums/SwiftyErrorCodes.html">SwiftyErrorCodes</a>
               </li>
@@ -106,14 +94,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Structs.html">Structs</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Structs.html#/s:V6Swifty21NetworkResourceMetric">NetworkResourceMetric</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="../Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -130,7 +110,20 @@
         <section>
           <section class="section">
             <h1>SwiftyInspector</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SwiftyInspector</span><span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
+
+                </div>
+              </div>
+            <p>Swifty Inspector is way to view the log of all requests that have gone through Swifty, and view their request and response parameters, including their <code>URLSessionTaskMetrics</code>.</p>
+
+<p>To show the Swifty Inspector, present the <code>UINavigationController</code> returned from the <code>SwiftyInspecter.shared.presentableInspector()</code> method.</p>
+
+<blockquote>
+<p>Swifty Inspector only collects and displays information in the <code>DEBUG</code> compiler configuration.
+Only available on iOS 10+.</p>
+</blockquote>
 
           </section>
           <section class="section task-group-section">
@@ -149,8 +142,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The shared instance of the Swifty Inspector.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">shared</span> <span class="o">=</span> <span class="kt">SwiftyInspector</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -168,27 +169,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the Swifty Inspector&rsquo;s View Controller.</p>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC6Swifty15SwiftyInspector3addFVS_21NetworkResourceMetricT_"></a>
-                    <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC6Swifty15SwiftyInspector3addFVS_21NetworkResourceMetricT_">add(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">presentableInspector</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UINavigationController</span></code></pre>
 
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>UINavigationController - The <code>SwiftyInspector&#39;s UIViewController</code> wrapped in a <code>UINavigationController</code></p>
                       </div>
                     </section>
                   </div>
@@ -209,6 +203,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SwiftyInspector</span><span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -227,6 +229,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SwiftyInspector</span><span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -247,6 +257,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SwiftyInspector</span><span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -265,6 +283,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SwiftyInspector</span><span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -285,6 +311,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SwiftyInspector</span><span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -303,6 +337,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SwiftyInspector</span><span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -323,6 +365,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SwiftyInspector</span><span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -341,6 +391,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SwiftyInspector</span><span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

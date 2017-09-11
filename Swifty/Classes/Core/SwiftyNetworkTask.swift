@@ -10,7 +10,7 @@
 import Foundation
 
 /// Swifty Network Task
-public class SwiftyNetworkTask: Task {
+class SwiftyNetworkTask: Task {
     
     /// Network Resource
     public var resource: NetworkResource
@@ -26,12 +26,12 @@ public class SwiftyNetworkTask: Task {
         return self.resource.request as URLRequest
     }
     
-    /// Description
+    /// Print's the resource's description
     public var description: String {
         return resource.description
     }
     
-    /// Initializes the Swifty Network Task.
+    /// Initializes the Swifty Network Task
     ///
     /// - Parameters:
     ///   - resource: NetworkResource
@@ -45,7 +45,7 @@ public class SwiftyNetworkTask: Task {
     }
     
     /// Runs the Swifty Network Task.
-    override public func run() {
+    override func run() {
         ///Check for creation errors if any.
         guard self.resource.creationError == nil else {
             ///There is a creation error. Therfore finish the current task.

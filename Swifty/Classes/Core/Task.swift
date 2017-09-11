@@ -12,14 +12,14 @@ import Foundation
 ///
 /// - success: for the associated NetworkResponse
 /// - error: for the associated NetworkResponse
-public enum Result {
+enum Result {
     case success(NetworkResponse)
     case error(NetworkResponse)
 }
 
 
 // Task: An abstraction over a GCD work item which offers an asynchronous finish block.
-open class Task {
+class Task {
     
     /// Public initializer.
     public init(){ }
@@ -67,7 +67,7 @@ open class Task {
     /// Executes the given completion block absed on the result.
     ///
     /// - Parameter result: Result
-    public func finish(with result: Result) {
+    func finish(with result: Result) {
         switch result {
         case .success(let value):
             onValueBlock?(value)

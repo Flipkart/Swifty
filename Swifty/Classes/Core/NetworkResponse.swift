@@ -8,29 +8,34 @@
 import Foundation
 
 
-/// Response Parser
+/// The protocol for creating a Response Parser
 public protocol ResponseParser {
+    /**
+     Custom Response parser need to implement this method. When done deserializing the NetworkResponse's data, they have to set it to the NetworkResponse's result variable. 
+     
+     Any error thrown here while parsing will fail the NetworkResponse, and call the failure block with the thrown error.
+    */
     func parse(response: NetworkResponse) throws
 }
 
 /// Network Response
 @objc public class NetworkResponse: NSObject {
-    /// HTTPURLResponse Response
+    /// The HTTPURLResponse receieved from the network
     public var response : HTTPURLResponse?
     
-    /// Response Data
+    /// The raw Data receieved from the network
     public var data: Data?
     
-    /// Response Error
+    /// Error that response encountered (if any)
     public var error: NSError?
     
-    /// The parsers set parsing results in this variable
+    /// The result of the response serialization
     public var result: Any?
     
-    /// Response Parses
+    /// The ResponseParser that Swifty should use to serialize this repsonse
     public var parser: ResponseParser?
     
-    /// Initializes the network response.
+    /// Initializes the network response
     ///
     /// - Parameters:
     ///   - response: HTTPURLResponse?

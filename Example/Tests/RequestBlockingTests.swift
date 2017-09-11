@@ -170,10 +170,6 @@ class RequestBlockingTests : XCTestCase {
         
         let errorDomain = "SwiftConditionTests"
         
-        let task = SimpleTask()
-        task.onValue { _ in
-        }
-        
         let constraint = TestConstraint(2, failureError: NSError(domain: errorDomain , code: 1, userInfo: nil))
         let manager = NetworkInterface(constraints: [constraint])
         
@@ -195,23 +191,6 @@ class RequestBlockingTests : XCTestCase {
         }
     }
     
-}
-
-class LongRunningTask: Task {
-        
-    public var hasLongTaskFinished = false
-    
-    override func run(){
-        sleep(5)
-        self.hasLongTaskFinished = true
-        self.finish(with: .success(NetworkResponse(response: nil, data: nil)))
-    }
-}
-
-class SimpleTask: Task {
-    override func run() {
-        self.finish(with: .success(NetworkResponse(response: nil, data: nil)))
-    }
 }
 
 class TestConstraint: Constraint {

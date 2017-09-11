@@ -68,9 +68,9 @@ open class Constraint {
      
      > This method is thread-safe, so you don't need to worry about multiple threads calling this method at the same time. Swifty internally locks access to this method to one resource at a time.
 
+     - Parameter resource: NetworkResource
+     - Returns: Bool
     */
-    /// - Parameter resource: NetworkResource
-    /// - Returns: Bool
     open func isConstraintSatisfied(for resource: NetworkResource) -> Bool {
         fatalError("Must Be Subclassed")
     }
@@ -84,8 +84,8 @@ open class Constraint {
      
      **When done, make sure the `finish` method is called to let Swifty continue the tasks that were waiting on this Constraint.**
      
+     - Parameter resource: NetworkResource
      */
-    /// - Parameter resource: NetworkResource
     open func satisfyConstraint(for resource: NetworkResource) {
         fatalError("Must Be Subclassed")
     }
@@ -93,8 +93,10 @@ open class Constraint {
     /** Informs Swifty that the constraint has finished.
      - If the constraint finishes `without` error, then the tasks waiting on this Constraint begin executing (subject to satisfaction of the task's other constraints).
      - If the constraint finishes `with` error, then the tasks waiting on this Constraint also fail with the this error.
-    */
-    /// - Parameter error: NSError?
+    
+     
+     - Parameter error: NSError?
+     */
     public func finish(with error: Error?) {
         synchronizer.sync {
             self.state = .notExecuting

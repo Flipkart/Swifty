@@ -6,7 +6,7 @@ Swifty is a modern take on how iOS apps should do networking. Written in Swift, 
 
 1. Where do I keep my network requests?
 2. Where do I write my custom OAuth/Authentication/Session logic? Or how do I manage things like Session across my requests?
-3. How should I do actual the networking? URLSession?
+3. How should I do the actual networking? URLSession?
 
 ## Where do I keep my network requests?
 
@@ -195,7 +195,7 @@ class ErrorCheckingInterceptor: ResponseInterceptor {
 - Each of your network requests pass through all the interceptors, both ```RequestInterceptors``` and ```ResponseInterceptors```.
 - The requests pass through the interceptors *in the order* that you provide them to Swifty.
 
-## How should I do actual the networking? URLSession?
+## How should I do the actual networking? URLSession?
 
 Swifty is built on top of URLSession, and is what powers the actual network communication in all the above constructs.
 

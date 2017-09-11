@@ -14,7 +14,7 @@
     <a title="WebServiceErrorCodes Enum Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Swifty Docs</a> (76% documented)</p>
+        <p><a href="../index.html">Swifty Docs</a> (89% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -55,15 +55,6 @@
                 <a href="../Classes/SwiftyInspector.html">SwiftyInspector</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SwiftyNetworkTask.html">SwiftyNetworkTask</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/SwiftyParsingInterceptor.html">SwiftyParsingInterceptor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/Task.html">Task</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/WebServiceError.html">WebServiceError</a>
               </li>
             </ul>
@@ -71,9 +62,6 @@
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums/Result.html">Result</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Enums/SwiftyErrorCodes.html">SwiftyErrorCodes</a>
               </li>
@@ -106,14 +94,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Structs.html">Structs</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Structs.html#/s:V6Swifty21NetworkResourceMetric">NetworkResourceMetric</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="../Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -138,15 +118,6 @@
               </div>
             <p>WebServiceErrorCodes</p>
 
-<ul>
-<li>emptyBaseURL: Base URL is empty.</li>
-<li>invalidBaseURL: Base URL is invalid.</li>
-<li>invalidURL: URL is empty.</li>
-<li>fieldsEncodingFailure: Errors while encoding fields.</li>
-<li>invalidQueryStringWithURL: URL is invalid after adding query.</li>
-<li>jsonEncodingFailure: Errors while encoding json.</li>
-</ul>
-
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -164,14 +135,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Nil Network Interface on Resource.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WebServiceErrorCodes</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">noNetworkInterface</span></code></pre>
 
                         </div>
                       </div>
@@ -195,14 +166,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Base URL is empty.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WebServiceErrorCodes</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">emptyBaseURL</span></code></pre>
 
                         </div>
                       </div>
@@ -226,14 +197,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Base URL is invalid.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WebServiceErrorCodes</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">invalidBaseURL</span></code></pre>
 
                         </div>
                       </div>
@@ -257,14 +228,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>URL is empty/invalid.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WebServiceErrorCodes</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">invalidURL</span></code></pre>
 
                         </div>
                       </div>
@@ -288,14 +259,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Error while encoding the given fields.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WebServiceErrorCodes</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">fieldsEncodingFailure</span></code></pre>
 
                         </div>
                       </div>
@@ -319,14 +290,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>URL is invalid after adding query.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WebServiceErrorCodes</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">invalidQueryStringWithURL</span></code></pre>
 
                         </div>
                       </div>
@@ -350,14 +321,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Errors while encoding the given JSON.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">WebServiceErrorCodes</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">jsonEncodingFailure</span></code></pre>
 
                         </div>
                       </div>

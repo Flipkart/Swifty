@@ -10,13 +10,13 @@ import Foundation
 
 
 /// Built-In response interceptor which runs the given response through it's expected ResponseParser.
-public class SwiftyParsingInterceptor: ResponseInterceptor {
+class SwiftyParsingInterceptor: ResponseInterceptor {
     
     /// Intercepts the network response, runs throught it's expected ResponseParses and gives back the NetworkResponse.
     ///
     /// - Parameter response: NetworkResponse
     /// - Returns: NetworkResponse
-    public func intercept(response: NetworkResponse) -> NetworkResponse {
+    func intercept(response: NetworkResponse) -> NetworkResponse {
         do {
             try response.parser?.parse(response: response)
         } catch let error {
@@ -26,7 +26,7 @@ public class SwiftyParsingInterceptor: ResponseInterceptor {
     }
 }
 
-/// Serializes the network response to JSON and throws SwiftyError if any.
+/// Serializes the network response to JSON and throws an error if the parsing fails.
 struct JSONParser: ResponseParser {
     
     let readingOptions: JSONSerialization.ReadingOptions

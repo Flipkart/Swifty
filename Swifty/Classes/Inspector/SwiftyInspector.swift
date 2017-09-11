@@ -9,23 +9,39 @@
 import Foundation
 
 @available(iOS 10.0, *)
-public struct NetworkResourceMetric {
+struct NetworkResourceMetric {
     let task: URLSessionTask
     let metrics: URLSessionTaskMetrics
 }
 
+/**
+ Swifty Inspector is way to view the log of all requests that have gone through Swifty, and view their request and response parameters, including their `URLSessionTaskMetrics`.
+ 
+ To show the Swifty Inspector, present the `UINavigationController` returned from the `SwiftyInspecter.shared.presentableInspector()` method.
+ 
+ > Swifty Inspector only collects and displays information in the `DEBUG` compiler configuration.
+ > Only available on iOS 10+.
+ */
 @available(iOS 10.0, *)
 public class SwiftyInspector: UITableViewController {
     
+    /**
+     The shared instance of the Swifty Inspector.
+    */
     public static let shared = SwiftyInspector()
     
+    /**
+     Get the Swifty Inspector's View Controller.
+     
+    - Returns: UINavigationController - The `SwiftyInspector's UIViewController` wrapped in a `UINavigationController`
+    */
     public static func presentableInspector() -> UINavigationController {
         return UINavigationController(rootViewController: SwiftyInspector.shared)
     }
     
     var metrics = [NetworkResourceMetric]()
     
-    public func add(_ metric: NetworkResourceMetric) {
+    func add(_ metric: NetworkResourceMetric) {
         self.metrics.insert(metric, at: 0)
         self.tableView.reloadData()
     }
@@ -44,7 +60,7 @@ public class SwiftyInspector: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Network Requests: Latest First"
     }
     

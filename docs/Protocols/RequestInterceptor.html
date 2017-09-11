@@ -14,7 +14,7 @@
     <a title="RequestInterceptor Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Swifty Docs</a> (76% documented)</p>
+        <p><a href="../index.html">Swifty Docs</a> (89% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -55,15 +55,6 @@
                 <a href="../Classes/SwiftyInspector.html">SwiftyInspector</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SwiftyNetworkTask.html">SwiftyNetworkTask</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/SwiftyParsingInterceptor.html">SwiftyParsingInterceptor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/Task.html">Task</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/WebServiceError.html">WebServiceError</a>
               </li>
             </ul>
@@ -71,9 +62,6 @@
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums/Result.html">Result</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Enums/SwiftyErrorCodes.html">SwiftyErrorCodes</a>
               </li>
@@ -106,14 +94,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Structs.html">Structs</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Structs.html#/s:V6Swifty21NetworkResourceMetric">NetworkResourceMetric</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="../Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -136,7 +116,15 @@
 
                 </div>
               </div>
-            <p>Request Interceptor.</p>
+            <p>Request Interceptors are called just before a request is about to fire over the network. Request Interceptors are called <strong>after</strong> all the constraints of a request a satisfied, but just <strong>before</strong> a request is about to go over the network. This makes them especially useful to add parameters to the requests they need to succeed.</p>
+
+<p>Your interceptors are always called <strong>in the order</strong> they are passed into the Swifty Initializer. Also, each interceptor&rsquo;s result is then sent into the next one, that is, the interceptors are <strong>executed serially</strong>.</p>
+
+<blockquote>
+<p>You should not do too much work synchronously in your request interceptors, since your requests have to wait for the interceptors before firing over the network. If you need to do long running tasks before requests, try using a <code><a href="../Classes/Constraint.html">Constraint</a></code> instead.</p>
+</blockquote>
+
+<p>To create a <code>RequestInterceptor</code>, simply create a class/struct that conforms to the <code>RequestInterceptor</code> protocol, and implement the one required method: <code>intercept(resource: NetworkResource)</code></p>
 
           </section>
           <section class="section task-group-section">
@@ -155,7 +143,27 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Modifies the given intermediate network resource.</p>
+                        <p>This method gives you the chance to modify the network resource just before it fires over the network.</p>
+
+<p>You can use all the same modifiers here like <code>.header()</code> or <code>.query()</code> as you can use in the WebService.</p>
+
+<p><strong>Special Case:</strong></p>
+
+<ul>
+<li>If you want to modify the body of the network resource here, you need to cast the given resource into a NetworkResourceWithBody first before you use those method:</li>
+</ul>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">BodyModifyingInterceptor</span><span class="p">:</span> <span class="kt">RequestInterceptor</span> <span class="p">{</span>
+
+<span class="kd">func</span> <span class="nf">intercept</span><span class="p">(</span><span class="nv">resource</span><span class="p">:</span> <span class="kt">NetworkResource</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span> <span class="p">{</span>
+
+    <span class="c1">// Cast the NetworkResource into the more specialized type NetworkResourceWithBody</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">resource</span> <span class="o">=</span> <span class="n">resource</span> <span class="k">as?</span> <span class="kt">NetworkResourceWithBody</span> <span class="p">{</span>
+       <span class="c1">// You can use the body encoding methods here like `.json()` or `.data()`</span>
+    <span class="p">}</span>
+
+   <span class="k">return</span> <span class="n">resource</span>
+<span class="p">}</span>
+</code></pre>
 
                       </div>
                       <div class="declaration">

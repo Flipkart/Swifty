@@ -14,7 +14,7 @@
     <a title="ResponseInterceptor Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Swifty Docs</a> (76% documented)</p>
+        <p><a href="../index.html">Swifty Docs</a> (89% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -55,15 +55,6 @@
                 <a href="../Classes/SwiftyInspector.html">SwiftyInspector</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SwiftyNetworkTask.html">SwiftyNetworkTask</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/SwiftyParsingInterceptor.html">SwiftyParsingInterceptor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/Task.html">Task</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/WebServiceError.html">WebServiceError</a>
               </li>
             </ul>
@@ -71,9 +62,6 @@
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums/Result.html">Result</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Enums/SwiftyErrorCodes.html">SwiftyErrorCodes</a>
               </li>
@@ -106,14 +94,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Structs.html">Structs</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Structs.html#/s:V6Swifty21NetworkResourceMetric">NetworkResourceMetric</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="../Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -136,7 +116,19 @@
 
                 </div>
               </div>
-            <p>Response Interceptor.</p>
+            <p>Response Interceptors are called just before a response is going to be returned back to the caller.</p>
+
+<blockquote>
+<p>Examples of things you can do here:</p>
+
+<ul>
+<li>Collect/Log statistics about the failure rate of responses by counting the number of errors</li>
+<li>Update your session information from every response, if they have any</li>
+<li>You can even force <code>succeed</code> or force <code>fail</code> your responses in Response Interceptors</li>
+</ul>
+</blockquote>
+
+<p>You should not do too much work synchronously in your response interceptors, since your responses have to wait for the interceptors before reaching back the caller. If you have to do long running tasks here, try dispatching them instead of running them synchronously, so that at least the <code>intercept</code> method returns quickly.</p>
 
           </section>
           <section class="section task-group-section">
@@ -155,7 +147,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Modifies the given intermediate network response.</p>
+                        <p>This method gives you the chance to modify the network response just before it returns back to the original caller.</p>
+
+<p><strong>Special Modifiers:</strong></p>
+
+<ul>
+<li><p>You can force <code>fail</code> or force <code>succeed</code> a response here using the methods <code>.fail()</code> or <code>.succeed()</code> on NetworkResponse</p></li>
+</ul>
 
                       </div>
                       <div class="declaration">

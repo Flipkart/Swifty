@@ -13,7 +13,7 @@
     <a title="Swifty  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">Swifty Docs</a> (76% documented)</p>
+        <p><a href="index.html">Swifty Docs</a> (89% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -54,15 +54,6 @@
                 <a href="Classes/SwiftyInspector.html">SwiftyInspector</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SwiftyNetworkTask.html">SwiftyNetworkTask</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/SwiftyParsingInterceptor.html">SwiftyParsingInterceptor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/Task.html">Task</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/WebServiceError.html">WebServiceError</a>
               </li>
             </ul>
@@ -70,9 +61,6 @@
           <li class="nav-group-name">
             <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Enums/Result.html">Result</a>
-              </li>
               <li class="nav-group-task">
                 <a href="Enums/SwiftyErrorCodes.html">SwiftyErrorCodes</a>
               </li>
@@ -105,14 +93,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Structs.html">Structs</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Structs.html#/s:V6Swifty21NetworkResourceMetric">NetworkResourceMetric</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -137,7 +117,7 @@
 <ol>
 <li>Where do I keep my network requests?</li>
 <li>Where do I write my custom OAuth/Authentication/Session logic? Or how do I manage things like Session across my requests?</li>
-<li>How should I do actual the networking? URLSession?</li>
+<li>How should I do the actual networking? URLSession?</li>
 </ol>
 <h2 id='where-do-i-keep-my-network-requests' class='heading'>Where do I keep my network requests?</h2>
 
@@ -325,7 +305,7 @@
 <li>Each of your network requests pass through all the interceptors, both <code>RequestInterceptors</code> and <code>ResponseInterceptors</code>.</li>
 <li>The requests pass through the interceptors <em>in the order</em> that you provide them to Swifty.</li>
 </ul>
-<h2 id='how-should-i-do-actual-the-networking-urlsession' class='heading'>How should I do actual the networking? URLSession?</h2>
+<h2 id='how-should-i-do-the-actual-networking-urlsession' class='heading'>How should I do the actual networking? URLSession?</h2>
 
 <p>Swifty is built on top of URLSession, and is what powers the actual network communication in all the above constructs.</p>
 
