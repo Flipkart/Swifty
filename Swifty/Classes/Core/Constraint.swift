@@ -24,7 +24,7 @@ enum TaskState {
 /// Constraint: Constraints are tasks which can hold network requests from starting until they are satisfied.
 open class Constraint {
     
-    /// Public init.
+    /// Public initializer
     public init(){}
     
     /// Synchronizer - makes sure that constraint evaluation is thread-safe.

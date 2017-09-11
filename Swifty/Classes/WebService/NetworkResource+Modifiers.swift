@@ -23,10 +23,10 @@ public enum URLSessionTaskPriority: Float {
 }
 
 
-// MARK: - Request Modifiers
 public extension NetworkResource {
 
 // MARK: - Request Modifiers
+    
     /// Adds the given header to the resource, or updates it's value if it already exists.
     ///
     /// - Parameters:

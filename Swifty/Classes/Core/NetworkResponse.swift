@@ -22,8 +22,11 @@ public protocol ResponseParser {
     func parse(response: NetworkResponse) throws
 }
 
-/// Network Response
+/// The NetworkResponse class contains the Data, URLResponse, Error (if any) and possibly the serialized response for a given resource.
 @objc public class NetworkResponse: NSObject {
+
+// MARK: - Properties
+    
     /// The HTTPURLResponse receieved from the network
     public var response : HTTPURLResponse?
     
@@ -39,6 +42,8 @@ public protocol ResponseParser {
     /// The ResponseParser that Swifty should use to serialize this repsonse
     public var parser: ResponseParser?
     
+// MARK: - Initializers
+    
     /// Initializes the network response
     ///
     /// - Parameters:
@@ -52,6 +57,8 @@ public protocol ResponseParser {
         self.error = error
         self.parser = parser
     }
+    
+// MARK: - Modifiers
     
     /// Forcefully succeeds the response, with the given response and data. This internally sets the error to nil. This is especially useful in response interceptors.
     ///

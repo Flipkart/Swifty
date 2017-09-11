@@ -16,7 +16,9 @@ public class NetworkResourceWithBody: NetworkResource {}
 
 
 public extension NetworkResourceWithBody {
+    
 // MARK: - Request Modifiers
+    
     /// Sets the HTTP Body of the resource with form encoded data
     ///
     /// Internally sets the Content-Type header of the resource to "application/x-www-form-urlencoded"

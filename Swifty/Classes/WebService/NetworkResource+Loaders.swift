@@ -13,7 +13,9 @@ import Foundation
 
 
 extension NetworkResource {
+    
 // MARK: - Resource Load Methods
+    
     /// Loads the network resource, and calls the completion block with an unserialized NetworkResponse
     ///
     /// - Parameter completion: completion block to be executed when resource is successfully loaded.
@@ -53,7 +55,9 @@ extension NetworkResource {
 
 
 extension NetworkResource {
+    
 // MARK: - Resource Load Methods (with Parsing)
+    
     /// Loads the network resource, and calls the successBlock with the parsed JSON, or the failure block with the error.
     ///
     /// - Parameters:

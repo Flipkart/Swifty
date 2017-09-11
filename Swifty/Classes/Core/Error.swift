@@ -12,10 +12,8 @@
 import Foundation
 
 
-/// Swifty Error Code
+/// Swifty Error Codes
 ///
-
-
 public enum SwiftyErrorCodes: Int {
     /// JSON Parsing failure.
     case jsonParsingFailure = 10
@@ -23,7 +21,7 @@ public enum SwiftyErrorCodes: Int {
     case responseValidation
 }
 
-/// WebServiceErrorCodes
+/// WebService Error Codes
 ///
 public enum WebServiceErrorCodes: Int {
     /// Nil Network Interface on Resource.
@@ -42,7 +40,7 @@ public enum WebServiceErrorCodes: Int {
     case jsonEncodingFailure
 }
 
-/// WebService error
+/// Errors that can occur in the WebService domain
 public class WebServiceError {
     
     /// WebService error domain
@@ -93,7 +91,7 @@ public class WebServiceError {
     }
 }
 
-/// Swifty Error
+/// Errors that can occur in the Swifty domain
 public class SwiftyError {
     /// Error Domain
     static let errorDomain = "SwiftyErrorDomain"

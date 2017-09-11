@@ -17,6 +17,7 @@ import Foundation
 public class NetworkResource: NSObject {
     
 // MARK: - Properties
+    
     /// The actual NSMutableURLRequest this resource wraps over
     public let request: NSMutableURLRequest
     
@@ -42,6 +43,7 @@ public class NetworkResource: NSObject {
     var creationError: NSError?
     
 // MARK: - Initializers
+    
     /// Initializes the Network Resource with the given URL, and HTTP Method.
     ///
     /// - Parameters:
@@ -81,6 +83,7 @@ public class NetworkResource: NSObject {
     }
     
 // MARK: - Utilities
+    
     /// The resource's parameters in readable format, including the URL, Headers, Method, and the HTTP Body
     public override var description: String {
         var body = "Empty"
