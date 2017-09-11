@@ -1,0 +1,137 @@
+//
+//  NetworkManager.swift
+//  Pods
+//
+//  Created by Siddharth Gupta on 28/11/16.
+//
+//
+
+import Foundation
+
+/// Swifty Success Block
+public typealias SwiftySuccessBlock = (NetworkResponse) -> Void
+
+/// Swifty Failure Block
+public typealias SwiftyFailureBlock = (NetworkResponse) -> Void
+
+/// Swifty: The main entry point to the networking infrastructure. Keeps track of the constraints and interceptors and services the requests with it's URLSession while taking care of all the attributes of the network resource.
+@objc final public class Swifty: NSObject {
+    
+    /// Swifty's shared instance: It's highly recommended you create your own Swifty instances with your customizations (Constraints, Interceptors) instead of using the shared instance.
+    public static let shared = Swifty()
+    
+    /// The URLSession of this Swifty instance
+    let session: URLSession
+    
+    /// Request Interceptors: Array of the user provided request interceptors which will be executed in order on a background thread.
+    let requestInterceptors: [RequestInterceptor]
+    
+    /// Response Interceptors: Array of the user provided response interceptors which will be executed in order on a background thread.
+    let responseInterceptors: [ResponseInterceptor]
+    
+    /// Constraints: Array of Constaints which can make requests wait until they are satisfied.
+    let constraints: [Constraint]
+    
+    /// Built in Interceptors to supplement Swifty's network functionality
+    let requiredInterceptors: [ResponseInterceptor] = [ValidationInterceptor(), SwiftyParsingInterceptor()]
+    
+    /// Concurrent Network Queue having a utility QOS.
+    let networkQueue = DispatchQueue(label: "swifty.networkOperations", qos: .utility, attributes: [.concurrent])
+    
+    /// Initialize Swifty with the given URLSession, Constraints, and Request & Response Interceptors
+    ///
+    /// The constraints and interceptors passed in these arguments will run in same order as passed in these arrays.
+    ///
+    /// - Parameters:
+    ///   - session: URLSession
+    ///   - constraints: Array of Constraints.
+    ///   - requestInterceptors: Array of Request Interceptors.
+    ///   - responseInterceptors: Array of Response Interceptors.
+    public init(session: URLSession,
+                constraints: [Constraint] = [],
+                requestInterceptors: [RequestInterceptor] = [],
+                responseInterceptors: [ResponseInterceptor] = []) {
+        self.session = session
+        self.constraints = constraints
+        self.requestInterceptors = requestInterceptors
+        self.responseInterceptors = requiredInterceptors + responseInterceptors
+        super.init()
+    }
+    
+    /// Initialize Swifty with the given URLSessionConfiguration, Constraints, Request Interceptors & Response Interceptors
+    ///
+    /// The constraints and interceptors passed in these arguments will run in same order as passed in these arrays.
+    ///
+    /// - Parameters:
+    ///   - configuration: URLSessionConfiguration (Defaults to URLSessionConfiguration.default)
+    ///   - constraints: Array of Constraints.
+    ///   - requestInterceptors: Array of Request Interceptors.
+    ///   - responseInterceptors: Array of Response Interceptors.
+    public convenience init(configuration: URLSessionConfiguration = URLSessionConfiguration.default,
+                            constraints: [Constraint] = [],
+                            requestInterceptors: [RequestInterceptor] = [],
+                            responseInterceptors: [ResponseInterceptor] = []) {
+
+        #if DEBUG
+            let session = URLSession(configuration: configuration, delegate: SwiftyURLSessionDelegate.shared, delegateQueue: nil)
+        #else
+            let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
+        #endif
+        
+        self.init(session: session, constraints: constraints, requestInterceptors: requestInterceptors, responseInterceptors: responseInterceptors)
+    }
+    
+    /// Adds a network resource to run on the Swifty Queue.
+    ///
+    /// This is what is called internally when you use .load() method or any variant of the .load() method on a NetworkResource
+    ///
+    /// - Parameters:
+    ///   - resource: NetworkResource
+    ///   - successBlock: SwiftySuccessBlock
+    ///   - failureBlock: SwiftyFailureBlock
+    public func add(_ resource: NetworkResource, successBlock: @escaping SwiftySuccessBlock, failureBlock: @escaping SwiftyFailureBlock){
+        let task = SwiftyNetworkTask(resource: resource, session: session, interceptors: self.requestInterceptors)
+        // Swifty Enters the group
+        task.group.enter()
+        // Evaluate Conditions
+        if(resource.canHaveConstraints){
+            constraints.forEach { (conditionManager) in
+                task.group.enter()
+                conditionManager.satisfy(for: task, on: self.networkQueue)
+            }
+        }
+        //On Response
+        task.onValue { (networkResponse) in
+            var interceptedResponse = networkResponse
+            self.responseInterceptors.forEach { interceptedResponse = $0.intercept(response: interceptedResponse) }
+            successBlock(interceptedResponse)
+        }
+        //On Error
+        task.onError { (networkResponse) in
+            var interceptedResponse = networkResponse
+            self.responseInterceptors.forEach { interceptedResponse = $0.intercept(response: interceptedResponse) }
+            failureBlock(interceptedResponse)
+        }
+        // Task starts on the network queue.
+        task.start(on: networkQueue)
+        // Swifty Exits the group to let the task begin, provided all constraints satisfied
+        task.group.leave()
+    }
+    
+    ///Cancelling and invalidating the session.
+    deinit {
+        session.invalidateAndCancel()
+    }
+}
+
+// MARK: - WebServiceNetworkInterface.
+extension Swifty: WebServiceNetworkInterface {
+    /// Conforms Swifty's shared instance to the WebServiceNetworkInterface protocol, making it easy to use directly with a WebService.
+    public func loadResource(resource: NetworkResource, completion: @escaping (NetworkResponse) -> Void) {
+        Swifty.shared.add(resource, successBlock: { (networkResponse) in
+            completion(networkResponse)
+        }, failureBlock: { (networkResponse) in
+            completion(networkResponse)
+        })
+    }
+}

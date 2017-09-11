@@ -1,0 +1,16 @@
+source 'git@github.com:Flipkart/fk-private-cocoapods.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+use_frameworks!
+platform :ios, '8.0'
+
+target 'Swifty_Example' do
+  pod 'Swifty', :path => '../'
+
+  target 'Swifty_Tests' do
+  	pod 'Alamofire'
+    inherit! :search_paths
+
+    
+  end
+end

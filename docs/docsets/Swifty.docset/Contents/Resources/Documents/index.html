@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Swifty  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Swifty  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Swifty Docs</a> (76% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Swifty Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Swifty  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/BaseResource.html">BaseResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Constraint.html">Constraint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NetworkResource.html">NetworkResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NetworkResourceWithBody.html">NetworkResourceWithBody</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NetworkResponse.html">NetworkResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Swifty.html">Swifty</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SwiftyError.html">SwiftyError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SwiftyInspector.html">SwiftyInspector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SwiftyNetworkTask.html">SwiftyNetworkTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SwiftyParsingInterceptor.html">SwiftyParsingInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Task.html">Task</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/WebServiceError.html">WebServiceError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/Result.html">Result</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SwiftyErrorCodes.html">SwiftyErrorCodes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/URLSessionTaskPriority.html">URLSessionTaskPriority</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/WebServiceErrorCodes.html">WebServiceErrorCodes</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/RequestInterceptor.html">RequestInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ResponseInterceptor.html">ResponseInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ResponseParser.html">ResponseParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/WebService.html">WebService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/WebServiceNetworkInterface.html">WebServiceNetworkInterface</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs.html#/s:V6Swifty21NetworkResourceMetric">NetworkResourceMetric</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:6Swifty18SwiftyFailureBlock">SwiftyFailureBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:6Swifty18SwiftySuccessBlock">SwiftySuccessBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <p><img src="https://scontent.fblr2-1.fna.fbcdn.net/v/t35.0-12/21584053_10214788660659945_608537924_o.png?oh=fe24e0e4f024ea88283dcda8de04fae7&oe=59B5FEF0" alt="Swifty Logo"></p>
+
+<p>Swifty is a modern take on how iOS apps should do networking. Written in Swift, it offers a <strong>declarative</strong> way to write your network requests and organise them, abstracting the networking away from the call-site, while giving you full control into every aspect of the actual network communication.</p>
+<h2 id='swifty-is-built-to-primarily-answer-three-common-questions-developers-ask-when-building-a-modern-app' class='heading'>Swifty is built to primarily answer three common questions developers ask when building a modern app:</h2>
+
+<ol>
+<li>Where do I keep my network requests?</li>
+<li>Where do I write my custom OAuth/Authentication/Session logic? Or how do I manage things like Session across my requests?</li>
+<li>How should I do actual the networking? URLSession?</li>
+</ol>
+<h2 id='where-do-i-keep-my-network-requests' class='heading'>Where do I keep my network requests?</h2>
+
+<p>Swifty offers a protocol called <code>WebService</code> which helps you write your network requests in a type-safe and expressive way. </p>
+
+<p>You start by <strong>creating a class</strong>, putting in your <strong>server&rsquo;s base URL</strong> &amp; a network interface, and begin writing your <strong>network requests as functions</strong>:</p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">GithubAPI</span><span class="p">:</span> <span class="kt">WebService</span> <span class="p">{</span>
+
+    <span class="cm">/* Your Server's Base URL */</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">serverURL</span> <span class="o">=</span> <span class="s">"https://api.github.com"</span>
+
+    <span class="cm">/* What this WebService will use to actually make the network calls */</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">networkInterface</span><span class="p">:</span> <span class="kt">WebServiceNetworkInterface</span> <span class="o">=</span> <span class="kt">Swifty</span><span class="o">.</span><span class="n">shared</span>
+
+    <span class="cm">/* Your network requests, as type-safe functions: */</span>
+
+    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getAPIStatus</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s">"status"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getRespositories</span><span class="p">(</span><span class="k">for</span> <span class="nv">user</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s">"repositories"</span><span class="p">)</span>
+                 <span class="o">.</span><span class="nf">query</span><span class="p">(</span><span class="s">"user"</span><span class="p">:</span> <span class="n">user</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">createGist</span><span class="p">(</span><span class="n">with</span> <span class="nv">body</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="nf">post</span><span class="p">(</span><span class="s">"gists"</span><span class="p">)</span>
+                 <span class="o">.</span><span class="nf">json</span><span class="p">(</span><span class="s">"body"</span><span class="p">:</span> <span class="n">body</span><span class="p">)</span>    
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+<h4 id='a-few-things-to-notice-above' class='heading'>A few things to notice above:</h4>
+
+<ul>
+<li>Each of your network request functions return a <code>NetworkResource</code>. This is basically a <strong>wrapper over <code>URLRequest</code></strong>, with extra stuff to support this cool syntax and other features.</li>
+<li>You write each request starting with the <code>server</code> variable (which is the server URL you defined above converted into a <code>NetworkResource</code>), chaining methods to it like <code>.get()</code>, <code>.post</code>, and <code>.query()</code> to create the actual request. The full list of these modifiers is available here.</li>
+<li>The variable <code>networkInterface</code> is a way of telling this <code>WebService</code> what library to use to <em>actually make the network request</em>. For this example, we&rsquo;re directly using Swifty. We talk more about how to customize this here.</li>
+</ul>
+
+<blockquote>
+<p><strong>Super Cool Stuff</strong>: These chaining methods are compile time checks, for example, you can&rsquo;t chain a <code>.json()</code> to a GET request, because it doesn&rsquo;t support a body payload 😎 </p>
+</blockquote>
+<h3 id='usage' class='heading'>Usage</h3>
+
+<p>Requests written in <strong>WebService</strong> are accessible from both <strong>Swift</strong> and <strong>Objective-C</strong> callers!</p>
+<h4 id='swift' class='heading'>Swift</h4>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span> <span class="p">{</span>
+
+    <span class="k">override</span> <span class="nf">viewDidLoad</span><span class="p">(){</span>
+
+        <span class="kt">GithubAPI</span><span class="o">.</span><span class="nf">getStatus</span><span class="p">()</span><span class="o">.</span><span class="nf">load</span><span class="p">(){</span> <span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+            <span class="c1">// Do something with the response</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id='objective-c' class='heading'>Objective-C</h4>
+<pre class="highlight plaintext"><code>
+@implementation ViewController: UIViewController {
+
+- (void) viewDidLoad {
+
+    [GithubAPI getStatus] load:^(NSURLResponse *response, id data, NSError *error){
+        // Do something with the response
+    }];
+
+}
+
+@end
+</code></pre>
+
+<blockquote>
+<p><em>These are examples, please don&rsquo;t directly write networking code in your view controllers :)</em></p>
+</blockquote>
+<h2 id='where-do-i-write-my-custom-oauth-authentication-session-logic' class='heading'>Where do I write my custom OAuth/Authentication/Session logic?</h2>
+
+<p>Modern Apps usually access APIs that are behind authentication or rate limiting systems, and they need to send these tokens with every request they send.</p>
+
+<p>This is normally a convoluted process: First, check if we already have a valid token. If we don&rsquo;t, we need to get one, and then start attaching it to every request we send. And of course, take care of the error conditions in all these cases. This process can quickly lead to a code duplication and callback hell at multiple places if not done properly.</p>
+
+<p>Swifty understands this requirement, and provides constructs to effectively encapsulate these into thread-safe processes using <code>Constraints</code> &amp; <code>Interceptors</code></p>
+
+<hr>
+<h3 id='constraints' class='heading'>Constraints</h3>
+
+<p>Constraints are tasks which can <em>hold</em> network requests from starting until they are satisfied. </p>
+
+<blockquote>
+<p><em>Constraints can be any task, not just network requests: they can even be simple things like asking for location access permission before firing a request.</em></p>
+</blockquote>
+
+<p>A common use of a constraint would be an <strong>OAuth Constraint</strong>, which makes sure you have an OAuth token before your requests start.</p>
+
+<p>To create a constraint, just subclass <code>Constraint</code>, and override the two required methods:</p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">OAuthConstraint</span><span class="p">:</span> <span class="kt">Constraint</span> <span class="p">{</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">isConstraintSatisfied</span><span class="p">(</span><span class="k">for</span> <span class="nv">resource</span><span class="p">:</span> <span class="kt">NetworkResource</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="c1">// return false if we don't have the OAuth Token</span>
+        <span class="c1">// return true if we already have the OAuth Token</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">satisfyConstraint</span><span class="p">(</span><span class="k">for</span> <span class="nv">resource</span><span class="p">:</span> <span class="kt">NetworkResource</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Get the OAuth token from the server</span>
+        <span class="c1">// Make sure to call finish() when done</span>
+        <span class="nf">finish</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id='how-does-it-work' class='heading'>How does it work?</h4>
+
+<ul>
+<li>Swifty will automatically call your Constraint&rsquo;s <code>isConstraintSatisfied</code> for every resource that passes through it. This method is synchronous but thread-safe, and needs to return <code>true</code> or <code>false</code>:
+
+<ul>
+<li>If your return <code>true</code>, then the request will resume, subject to the satisfaction of other constraints.</li>
+<li>In you return <code>false</code>, Swifty will asynchronously call your <code>satisfyConstraint</code> method, and here you can perform any operation as required. Just make sure you call <code>finish</code> when done, so that Swifty can resume the requests that were waiting on your constraint.
+
+<ul>
+<li>You can even finish with an <code>error</code>. If you do, the requests that were waiting on your constraint, will automatically fail with the same error.</li>
+</ul></li>
+</ul></li>
+<li>You can decide what to do in both these methods selectively based on the requests, since the NetworkResource is passed as an argument each time when these are called.</li>
+</ul>
+
+<hr>
+<h3 id='interceptors' class='heading'>Interceptors</h3>
+
+<p>Interceptors are methods which are called before and after every request. There are two types: <code>Request Intereptors</code> and <code>Response Interceptors</code></p>
+<h4 id='request-interceptors' class='heading'>Request Interceptors</h4>
+
+<p>Request Interceptors are called just before a request is about to fire over the network. Request Interceptors are called <strong>after</strong> all the constraints of a request a satisfied, but just <strong>before</strong> a request is about to go over the network. This makes them especially useful to add parameters to the requests they need to succeed. </p>
+
+<p>For example, an interceptor can be used to attach an OAuth token that a constraint might have just receieved from a server. </p>
+
+<p>To create a <code>RequestInterceptor</code>, simply create a class/struct that conforms to the <code>RequestInterceptor</code> protocol, and implement the one required method:</p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">OAuthTokenAddingInterceptor</span><span class="p">:</span> <span class="kt">RequestInterceptor</span> <span class="p">{</span>
+
+    <span class="kd">func</span> <span class="nf">intercept</span><span class="p">(</span><span class="nv">resource</span><span class="p">:</span> <span class="kt">NetworkResource</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span> <span class="p">{</span>
+
+        <span class="c1">// Get the token from where your Constraint might have saved it, this is just an example here: </span>
+        <span class="k">let</span> <span class="nv">token</span> <span class="o">=</span> <span class="kt">Keychain</span><span class="o">.</span><span class="nf">string</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="s">"OAuth"</span><span class="p">)</span>
+
+        <span class="c1">// Attach it to the resource:</span>
+        <span class="n">resource</span><span class="o">.</span><span class="nf">header</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="s">"Token"</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="n">token</span><span class="p">)</span>
+
+        <span class="c1">// Return the modified resource</span>
+        <span class="k">return</span> <span class="n">resource</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+<h4 id='response-interceptors' class='heading'>Response Interceptors</h4>
+
+<p>Response Interceptors are called just before a response is going to be returned back to the caller. </p>
+
+<p>You can do a lot of things here, for example:</p>
+
+<ul>
+<li>Collect/Log statistics about the failure rate of responses by counting the number of errors</li>
+<li>Update your session information from every response, if they have any</li>
+<li>You can even force <code>succeed</code> or force <code>fail</code> your responses in Response Interceptors</li>
+</ul>
+
+<p>For the <em>sake of example</em>, if your API considers a 204 response a failure, we can create a <code>ResponseInterceptor</code> to check for this status code in every response, and force fail responses if encountered. </p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ErrorCheckingInterceptor</span><span class="p">:</span> <span class="kt">ResponseInterceptor</span> <span class="p">{</span>
+
+    <span class="kd">func</span> <span class="nf">intercept</span><span class="p">(</span><span class="nv">response</span><span class="p">:</span> <span class="kt">NetworkResponse</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResponse</span> <span class="p">{</span>
+
+        <span class="c1">// Check for the 204 status code in the response </span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">statusCode</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">response</span><span class="p">?</span><span class="o">.</span><span class="n">statusCode</span><span class="p">,</span> <span class="n">statusCode</span> <span class="o">==</span> <span class="mi">204</span> <span class="p">{</span>
+            <span class="c1">// Fail the response with a responseValidation error</span>
+            <span class="n">response</span><span class="o">.</span><span class="nf">fail</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kt">SwiftyError</span><span class="o">.</span><span class="nf">responseValidation</span><span class="p">())</span> <span class="c1">// Now this response will invoke the failureBlock, instead of the successBlock of the caller.</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">response</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+<h4 id='things-to-note-about-interceptors' class='heading'>Things to note about Interceptors:</h4>
+
+<ul>
+<li>Each of your network requests pass through all the interceptors, both <code>RequestInterceptors</code> and <code>ResponseInterceptors</code>.</li>
+<li>The requests pass through the interceptors <em>in the order</em> that you provide them to Swifty.</li>
+</ul>
+<h2 id='how-should-i-do-actual-the-networking-urlsession' class='heading'>How should I do actual the networking? URLSession?</h2>
+
+<p>Swifty is built on top of URLSession, and is what powers the actual network communication in all the above constructs.</p>
+
+<p>Swifty abstracts away URLSession&rsquo;s little details, while still giving you granular control where it matters.</p>
+
+<p>When you&rsquo;re done writing your requests with <code>WebService</code>, and have put in your business logic in <code>Constraints</code> &amp; <code>Interceptors</code>, you bring it all together with an instance of Swifty. To do this, we recommend you keep an instance of Swifty in your app, instead of using Swifty&rsquo;s shared instance. </p>
+
+<p>Here&rsquo;s an example that initialises a Swifty with the constraints and interceptors we talk about above, using a singleton <code>NetworkBridge</code> in your app:</p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NetworkBridge</span><span class="p">:</span> <span class="kt">WebServiceNetworkInterface</span> <span class="p">{</span>
+
+    <span class="cm">/* Make this class a singleton */</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">shared</span> <span class="o">=</span> <span class="kt">NetworkBridge</span><span class="p">()</span>
+
+    <span class="cm">/* Our instance of Swifty, with our customisations */</span>
+    <span class="k">let</span> <span class="nv">swifty</span> <span class="o">=</span> <span class="kt">Swifty</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="kt">URLSessionConfiguration</span><span class="o">.</span><span class="k">default</span><span class="p">,</span>
+                <span class="nv">options</span><span class="p">:[</span>
+                     <span class="o">.</span><span class="kt">Constraints</span><span class="p">([</span><span class="kt">OAuthConstraint</span><span class="p">()]),</span>
+                     <span class="o">.</span><span class="kt">RequestInterceptors</span><span class="p">([</span><span class="kt">OAuthTokenAddingInterceptor</span><span class="p">()]),</span>
+                     <span class="o">.</span><span class="kt">ResponseInterceptors</span><span class="p">([</span><span class="kt">ErrorCheckingInterceptor</span><span class="p">()])</span>
+                    <span class="p">])</span>
+
+    <span class="cm">/* Conform to the WebServiceNetworkInterface protocol */</span>                
+    <span class="kd">func</span> <span class="nf">loadResource</span><span class="p">(</span><span class="nv">resource</span><span class="p">:</span> <span class="kt">NetworkResource</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">NetworkResponse</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">swifty</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span> <span class="nv">successBlock</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">networkResponse</span><span class="p">)</span> <span class="k">in</span>
+            <span class="nf">completion</span><span class="p">(</span><span class="n">networkResponse</span><span class="p">)</span>
+        <span class="p">},</span> <span class="nv">failureBlock</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">networkResponse</span><span class="p">)</span> <span class="k">in</span>
+            <span class="nf">completion</span><span class="p">(</span><span class="n">networkResponse</span><span class="p">)</span>
+        <span class="p">})</span>
+        <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+
+<p>Notice that <code>NetworkBridge</code> also conforms to the <code>WebServiceNetworkInterface</code> protocol by implementing the <code>loadResource</code> method: This is to make this Swifty instance usable by <code>WebService</code>. </p>
+
+<p>This <code>loadResource</code> method is used when we set our earlier WebService&rsquo;s <code>networkInterface</code> property to our <code>NetworkBridge</code>, to make it start using the <code>Swifty</code> we created inside our <code>NetworkBridge</code></p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">GithubAPI</span><span class="p">:</span> <span class="kt">WebService</span> <span class="p">{</span>
+
+    <span class="o">...</span>
+
+    <span class="cm">/* What this WebService will use to actually make the network calls */</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">networkInterface</span><span class="p">:</span> <span class="kt">WebServiceNetworkInterface</span> <span class="o">=</span> <span class="kt">NetworkBridge</span><span class="o">.</span><span class="n">shared</span>
+
+    <span class="o">...</span>
+
+<span class="p">}</span>
+</code></pre>
+
+<p>And that&rsquo;s it! Everything comes together, and all your <code>WebService</code> requests go through your <code>Swifty&#39;s</code> customised pipeline of <code>Constraints</code> and <code>Interceptors</code>, when you call <code>.load()</code> on them.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<p>To integrate Swifty into your Xcode project using CocoaPods, specify it in your <code>Podfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'Swifty'</span>
+</code></pre>
+
+<p>Then, run the following command:</p>
+<pre class="highlight shell"><code><span class="gp">$ </span>pod install
+</code></pre>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 8.0+</li>
+<li>Swift 3.1+</li>
+</ul>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/Flipkart/Swifty" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2017-09-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NetworkResourceWithBody Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/NetworkResourceWithBody" class="dashAnchor"></a>
+    <a title="NetworkResourceWithBody Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Swifty Docs</a> (76% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Swifty Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        NetworkResourceWithBody Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BaseResource.html">BaseResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Constraint.html">Constraint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NetworkResource.html">NetworkResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NetworkResourceWithBody.html">NetworkResourceWithBody</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NetworkResponse.html">NetworkResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Swifty.html">Swifty</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwiftyError.html">SwiftyError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwiftyInspector.html">SwiftyInspector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwiftyNetworkTask.html">SwiftyNetworkTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwiftyParsingInterceptor.html">SwiftyParsingInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Task.html">Task</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/WebServiceError.html">WebServiceError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Result.html">Result</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SwiftyErrorCodes.html">SwiftyErrorCodes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/URLSessionTaskPriority.html">URLSessionTaskPriority</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/WebServiceErrorCodes.html">WebServiceErrorCodes</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/RequestInterceptor.html">RequestInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ResponseInterceptor.html">ResponseInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ResponseParser.html">ResponseParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/WebService.html">WebService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/WebServiceNetworkInterface.html">WebServiceNetworkInterface</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V6Swifty21NetworkResourceMetric">NetworkResourceMetric</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:6Swifty18SwiftyFailureBlock">SwiftyFailureBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:6Swifty18SwiftySuccessBlock">SwiftySuccessBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>NetworkResourceWithBody</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NetworkResourceWithBody</span><span class="p">:</span> <span class="kt"><a href="../Classes/NetworkResource.html">NetworkResource</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>A subclass of NetworkResource, with support for carrying a request body.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC6Swifty23NetworkResourceWithBody6fieldsFGVs10DictionarySSP__S0_"></a>
+                    <a name="//apple_ref/swift/Method/fields(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC6Swifty23NetworkResourceWithBody6fieldsFGVs10DictionarySSP__S0_">fields(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the HTTP Body of the resource with form encoded data</p>
+
+<p>Internally sets the Content-Type header of the resource to <q>application/x-www-form-urlencoded</q></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">fields</span><span class="p">(</span><span class="n">_</span> <span class="nv">dictionary</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Any</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResourceWithBody</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dictionary</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Dictionary containing key value pairs</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>NetworkResourceWithBody</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC6Swifty23NetworkResourceWithBody4dataFTV10Foundation4Data8mimeTypeGSqSS__S0_"></a>
+                    <a name="//apple_ref/swift/Method/data(_:mimeType:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC6Swifty23NetworkResourceWithBody4dataFTV10Foundation4Data8mimeTypeGSqSS__S0_">data(_:mimeType:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the HTTP Body of the resource to the given Data</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">data</span><span class="p">(</span><span class="n">_</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">mimeType</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResourceWithBody</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data to be sent</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>mimeType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>MIME/Content-Type to be set in the resource&rsquo;s headers</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>NetworkResourceWithBody</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC6Swifty23NetworkResourceWithBody4jsonFT4bodyGVs10DictionaryVs11AnyHashableP__7optionsVCSo17JSONSerialization14WritingOptions_S0_"></a>
+                    <a name="//apple_ref/swift/Method/json(body:options:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC6Swifty23NetworkResourceWithBody4jsonFT4bodyGVs10DictionaryVs11AnyHashableP__7optionsVCSo17JSONSerialization14WritingOptions_S0_">json(body:options:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the HTTP Body as JSON</p>
+
+<p>Internally sets the Content-Type header of the resource to <q>application/json</q></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">json</span><span class="p">(</span><span class="nv">body</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">AnyHashable</span><span class="p">,</span> <span class="kt">Any</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="kt">JSONSerialization</span><span class="o">.</span><span class="kt">WritingOptions</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kt">NetworkResourceWithBody</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>body</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>key-value pairs</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>options</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>JSONSerialization.WritingOptions, empty [] by default.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>NetworkResourceWithBody</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC6Swifty23NetworkResourceWithBody9jsonArrayFT5arrayGSaP__7optionsVCSo17JSONSerialization14WritingOptions_S0_"></a>
+                    <a name="//apple_ref/swift/Method/jsonArray(array:options:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC6Swifty23NetworkResourceWithBody9jsonArrayFT5arrayGSaP__7optionsVCSo17JSONSerialization14WritingOptions_S0_">jsonArray(array:options:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the HTTP Body as JSON Array</p>
+
+<p>Internally sets the Content-Type header of the resource to <q>application/json</q></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">jsonArray</span><span class="p">(</span><span class="nv">array</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">Any</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="kt">JSONSerialization</span><span class="o">.</span><span class="kt">WritingOptions</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kt">NetworkResourceWithBody</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>body</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Array</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>options</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>JSONSerialization.WritingOptions, empty [] by default.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>NetworkResourceWithBody</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/Flipkart/Swifty" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2017-09-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
