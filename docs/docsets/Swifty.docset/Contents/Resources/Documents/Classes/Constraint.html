@@ -136,7 +136,7 @@
 
                 </div>
               </div>
-            <p>Constraint: Defines constraints for the Network Requests.</p>
+            <p>Constraint: Constraints are tasks which can hold network requests from starting until they are satisfied.</p>
 
           </section>
           <section class="section task-group-section">
@@ -182,7 +182,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Determines whether the constraint is satisfied for the given Network Resource or not.</p>
+                        <p>This method is called on your constraint for every resource (with <code>canHaveConstraints = true</code>) that passes through Swifty.</p>
+
+<p>This is where you decide if you need to perform some action for the given resource to satisfy your constraint. Based on the decision, this method needs to return <code>true</code> or <code>false</code>:</p>
+
+<ul>
+<li>If you return <code>true</code>, then the given resource will not wait for this Constraint.</li>
+<li>In you return <code>false</code>, then the given resource will start waiting for this Constraint, and Swifty will asynchronously call your <code>satisfyConstraint</code> method.</li>
+</ul>
+
+<blockquote>
+<p>This method is called synchronously on a background thread.</p>
+
+<p>This method is thread-safe, so you don&rsquo;t need to worry about multiple threads calling this method at the same time. Swifty internally locks access to this method to one resource at a time.</p>
+</blockquote>
 
                       </div>
                       <div class="declaration">
@@ -205,16 +218,12 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>NetworkResource</p>
+                                  
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>Bool</p>
                       </div>
                     </section>
                   </div>
@@ -232,7 +241,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Satisfies constrsaints for a given Network Resource.</p>
+                        <p>This method is called asynchronously when the <code>isConstraintSatisfied</code> method returns false.</p>
+
+<p>This is where the actual operation can be performed. The operation can be any task, not just a network request.</p>
+
+<blockquote>
+<p>This method is always called on a background thread. Use <code>DispatchQueue.main.async</code> if you want to do something on the main thread.</p>
+</blockquote>
+
+<p><strong>When done, make sure the <code>finish</code> method is called to let Swifty continue the tasks that were waiting on this Constraint.</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -255,7 +272,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>NetworkResource</p>
+                                  
                                 </div>
                               </td>
                             </tr>
@@ -278,9 +295,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Informs Swifty that the constraint has finished.
-If the constraint finishes without error, then the dependent tasks begin executing.
-If the constraint finishes with error, then the dependent task also fails with the corresponding error.</p>
+                        <p>Informs Swifty that the constraint has finished.</p>
+
+<ul>
+<li>If the constraint finishes <code>without</code> error, then the tasks waiting on this Constraint begin executing (subject to satisfaction of the task&rsquo;s other constraints).</li>
+<li>If the constraint finishes <code>with</code> error, then the tasks waiting on this Constraint also fail with the this error.</li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -303,7 +323,7 @@ If the constraint finishes with error, then the dependent task also fails with t
                               </td>
                               <td>
                                 <div>
-                                  <p>NSError?</p>
+                                  
                                 </div>
                               </td>
                             </tr>

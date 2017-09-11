@@ -9,15 +9,16 @@
 import Foundation
 
 /// Task State
+/// Tracks the current state of Constraint execution
 ///
-/// - executing: currently being executed.
-/// - notExecuting: Not being executed.
 enum TaskState {
+    /// - executing: Currently being executed / satisfied
     case executing
+    /// - notExecuting: Not being executed / satisfied
     case notExecuting
 }
 
-/// Constraint: Defines constraints for the Network Requests.
+/// Constraint: Constraints are tasks which can hold network requests from starting until they are satisfied.
 open class Constraint {
     
     /// Public init.
@@ -56,24 +57,43 @@ open class Constraint {
         }
     }
     
-    /// Determines whether the constraint is satisfied for the given Network Resource or not.
-    ///
+    /**
+     This method is called on your constraint for every resource (with `canHaveConstraints = true`) that passes through Swifty.
+     
+     This is where you decide if you need to perform some action for the given resource to satisfy your constraint. Based on the decision, this method needs to return ```true``` or ```false```:
+    - If you return ```true```, then the given resource will not wait for this Constraint.
+    - In you return ```false```, then the given resource will start waiting for this Constraint, and Swifty will asynchronously call your ```satisfyConstraint``` method.
+    
+     > This method is called synchronously on a background thread.
+     
+     > This method is thread-safe, so you don't need to worry about multiple threads calling this method at the same time. Swifty internally locks access to this method to one resource at a time.
+
+    */
     /// - Parameter resource: NetworkResource
     /// - Returns: Bool
     open func isConstraintSatisfied(for resource: NetworkResource) -> Bool {
         fatalError("Must Be Subclassed")
     }
     
-    /// Satisfies constrsaints for a given Network Resource.
-    ///
+    /**
+     This method is called asynchronously when the `isConstraintSatisfied` method returns false.
+     
+     This is where the actual operation can be performed. The operation can be any task, not just a network request.
+     
+     > This method is always called on a background thread. Use `DispatchQueue.main.async` if you want to do something on the main thread.
+     
+     **When done, make sure the `finish` method is called to let Swifty continue the tasks that were waiting on this Constraint.**
+     
+     */
     /// - Parameter resource: NetworkResource
     open func satisfyConstraint(for resource: NetworkResource) {
         fatalError("Must Be Subclassed")
     }
     
-    /// Informs Swifty that the constraint has finished.
-    /// If the constraint finishes without error, then the dependent tasks begin executing.
-    /// If the constraint finishes with error, then the dependent task also fails with the corresponding error.
+    /** Informs Swifty that the constraint has finished.
+     - If the constraint finishes `without` error, then the tasks waiting on this Constraint begin executing (subject to satisfaction of the task's other constraints).
+     - If the constraint finishes `with` error, then the tasks waiting on this Constraint also fail with the this error.
+    */
     /// - Parameter error: NSError?
     public func finish(with error: Error?) {
         synchronizer.sync {
