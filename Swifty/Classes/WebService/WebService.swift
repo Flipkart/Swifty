@@ -1,9 +1,12 @@
 //
-//  WebService.swift
-//  Pods
 //
-//  Created by Siddharth Gupta on 16/03/17.
+// Swifty (https://github.com/Flipkart/Swifty)
 //
+// Copyright 2017 Flipkart Internet Pvt. Ltd.
+// Apache License
+// Version 2.0, January 2004
+//
+// See https://github.com/Flipkart/Swifty/blob/master/LICENSE for the full license
 //
 
 import Foundation

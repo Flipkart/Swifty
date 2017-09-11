@@ -1,9 +1,12 @@
 //
-//  RequestMetricsDetailView.swift
-//  URLSessionMetrics
 //
-//  Created by Daniel Miedema on 6/16/16.
-//  Copyright © 2016 dmiedema. All rights reserved.
+// Swifty (https://github.com/Flipkart/Swifty)
+//
+// Copyright 2017 Flipkart Internet Pvt. Ltd.
+// Apache License
+// Version 2.0, January 2004
+//
+// See https://github.com/Flipkart/Swifty/blob/master/LICENSE for the full license
 //
 
 import UIKit
