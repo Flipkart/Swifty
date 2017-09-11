@@ -9,21 +9,21 @@
 import Foundation
 
 
-/// URLSessionTaskPriority
-///
-/// - low: low priority (0.1).
-/// - normal: normal priority (0.5).
-/// - high: high priority (1.0).
+/// An enum that encapsulates the values considered significant by URLSession for defining task priority.
 public enum URLSessionTaskPriority: Float {
+    /// low priority (0.1) as defined in URLSessionTask
     case low = 0.1
+    /// normal priority (0.5) as defined in URLSessionTask
     case normal = 0.5
+    /// high priority (1.0) as defined in URLSessionTask
     case high = 1.0
 }
 
 
 // MARK: - Request Modifiers
 public extension NetworkResource {
-    
+
+// MARK: - Request Modifiers
     /// Adds the given header to the resource, or updates it's value if it already exists.
     ///
     /// - Parameters:
@@ -136,17 +136,6 @@ public extension NetworkResource {
     /// Checks whether the resource has the given tag
     func hasTag(_ tag: String) -> Bool {
         return self.tags.contains(tag)
-    }
-    
-    
-    /* Utilities */
-    
-    /*!
-     * Prints the request parameters in readable format, including the URL, Headers, Method, and the HTTP Body
-     */
-    @discardableResult func printDetails() -> NetworkResource {
-        print(self.description)
-        return self
     }
     
     /// Sets the Content-Type header of the resource.

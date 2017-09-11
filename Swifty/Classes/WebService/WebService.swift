@@ -27,16 +27,26 @@ import Foundation
 /// You start by creating a class, putting in your server's base URL & a network interface, and begin writing your network requests as functions
 @objc public protocol WebService {
     
-    /// Base URL
+    /**
+     The Base URL of the server. Needs to have a `scheme (http/https)`, and a URL.
+     
+     Example: https://example.com
+     
+     A trailing forward slash in **not required** at the end of the URL.
+    */
     static var serverURL: String { get set }
     
-    /// WebServiceNetworkInterface
+    /// The network interface this WebService will use to communicate with the network.
+    ///
+    /// > This is usually a class conforming to the `WebServiceNetworkInterface` protocol, holding an instance of `Swifty` with your custom `Interceptors` and `Constraints`.
     static var networkInterface: WebServiceNetworkInterface { get set }
 }
 
 extension WebService {
     
     /// A BaseResource created from the server URL of the WebService
+    ///
+    /// Use this as the starting point while creating requests in your WebService.
     static public var server: BaseResource {
         if let url = URL(string: serverURL) {
             return BaseResource(request: NSMutableURLRequest(url: url), networkInterface: networkInterface)
@@ -44,7 +54,7 @@ extension WebService {
         return BaseResource(predisposition: WebServiceError.invalidBaseURL(url: "Your WebService \(self) has an Invalid Server Base URL | Please make sure you specifiy a scheme (http/https) and a valid path with URL Allowed Characters, a trailing slash is not required."))
     }
     
-    /// Can be used to use a custom base URL for a given request, instead of the using the WebService's Server URL
+    /// Can be used to have a custom base URL for a request, instead of the using the WebService's Server URL
     ///
     /// - Parameter baseURL: String
     /// - Returns: BaseResource

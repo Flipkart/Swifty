@@ -14,7 +14,7 @@
     <a title="WebService Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Swifty Docs</a> (89% documented)</p>
+        <p><a href="../index.html">Swifty Docs</a> (92% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -137,7 +137,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Base URL</p>
+                        <p>The Base URL of the server. Needs to have a <code>scheme (http/https)</code>, and a URL.</p>
+
+<p>Example: <a href="https://example.com">https://example.com</a></p>
+
+<p>A trailing forward slash in <strong>not required</strong> at the end of the URL.</p>
 
                       </div>
                       <div class="declaration">
@@ -164,7 +168,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>WebServiceNetworkInterface</p>
+                        <p>The network interface this WebService will use to communicate with the network.</p>
+
+<blockquote>
+<p>This is usually a class conforming to the <code><a href="../Protocols/WebServiceNetworkInterface.html">WebServiceNetworkInterface</a></code> protocol, holding an instance of <code><a href="../Classes/Swifty.html">Swifty</a></code> with your custom <code>Interceptors</code> and <code>Constraints</code>.</p>
+</blockquote>
 
                       </div>
                       <div class="declaration">
@@ -200,6 +208,8 @@
                       <div class="abstract">
                         <p>A BaseResource created from the server URL of the WebService</p>
 
+<p>Use this as the starting point while creating requests in your WebService.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -228,7 +238,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Can be used to use a custom base URL for a given request, instead of the using the WebService&rsquo;s Server URL</p>
+                        <p>Can be used to have a custom base URL for a request, instead of the using the WebService&rsquo;s Server URL</p>
 
                       </div>
                       <div class="declaration">

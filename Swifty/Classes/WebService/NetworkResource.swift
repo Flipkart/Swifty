@@ -13,6 +13,7 @@ import Foundation
 /// It provides the chaining modifier syntax and also stores attributes and directions for Swifty to run the given network request.
 public class NetworkResource: NSObject {
     
+// MARK: - Properties
     /// The actual NSMutableURLRequest this resource wraps over
     public let request: NSMutableURLRequest
     
@@ -37,6 +38,7 @@ public class NetworkResource: NSObject {
     /// Creation error
     var creationError: NSError?
     
+// MARK: - Initializers
     /// Initializes the Network Resource with the given URL, and HTTP Method.
     ///
     /// - Parameters:
@@ -75,12 +77,22 @@ public class NetworkResource: NSObject {
         self.init(request: (request as! NSMutableURLRequest))
     }
     
-    /// A detailed description of the NetworkResource like it's URL, Method, Headers, and it's Body Payload
+// MARK: - Utilities
+    /// The resource's parameters in readable format, including the URL, Headers, Method, and the HTTP Body
     public override var description: String {
         var body = "Empty"
         if let bodyData = self.request.httpBody, let bodyString = String(data: bodyData, encoding: .utf8) {
             body = bodyString
         }
         return "URL: \(self.request.url!)\nMethod: \(self.request.httpMethod)\nHeaders: \(String(describing: self.request.allHTTPHeaderFields))\nBody: \(body)\n\n"
+    }
+    
+    /**
+     Prints the resource's parameters in readable format, including the URL, Headers, Method, and the HTTP Body
+     */
+    @discardableResult
+    public func printDetails() -> NetworkResource {
+        print(self.description)
+        return self
     }
 }

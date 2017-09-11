@@ -41,9 +41,8 @@ import Foundation
     }
 }
 
-// MARK: - HTTP Method Modifiers
 public extension BaseResource {
-    
+// MARK: - Request Modifiers
     /// Sets the HTTP Method of the request to GET and returns a NetworkResource.
     ///
     /// The path relative to the server URL should be passed as the argument. The first forward slash is not required.

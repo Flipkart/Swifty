@@ -55,34 +55,6 @@
       "symbol": "SwiftyInspector.tableView(_:willDisplay:forRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
-    },
-    {
-      "file": "/Users/siddharth.gupta/Desktop/Swifty/Swifty/Classes/WebService/NetworkResource+Modifiers.swift",
-      "line": 18,
-      "symbol": "URLSessionTaskPriority.low",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/siddharth.gupta/Desktop/Swifty/Swifty/Classes/WebService/NetworkResource+Modifiers.swift",
-      "line": 19,
-      "symbol": "URLSessionTaskPriority.normal",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/siddharth.gupta/Desktop/Swifty/Swifty/Classes/WebService/NetworkResource+Modifiers.swift",
-      "line": 20,
-      "symbol": "URLSessionTaskPriority.high",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/siddharth.gupta/Desktop/Swifty/Swifty/Classes/WebService/NetworkResource+Modifiers.swift",
-      "line": 147,
-      "symbol": "NetworkResource.printDetails()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
     }
   ],
   "source_directory": "/Users/siddharth.gupta/Desktop/Swifty"
