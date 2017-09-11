@@ -2,56 +2,56 @@
   "warnings": [
     {
       "file": "/Users/siddharth.gupta/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 49,
+      "line": 52,
       "symbol": "SwiftyInspector.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/siddharth.gupta/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 63,
+      "line": 66,
       "symbol": "SwiftyInspector.tableView(_:titleForHeaderInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/siddharth.gupta/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 67,
+      "line": 70,
       "symbol": "SwiftyInspector.numberOfSections(in:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/siddharth.gupta/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 71,
+      "line": 74,
       "symbol": "SwiftyInspector.tableView(_:numberOfRowsInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/siddharth.gupta/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 75,
+      "line": 78,
       "symbol": "SwiftyInspector.tableView(_:cellForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/siddharth.gupta/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 103,
+      "line": 106,
       "symbol": "SwiftyInspector.tableView(_:heightForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/siddharth.gupta/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 107,
+      "line": 110,
       "symbol": "SwiftyInspector.tableView(_:didSelectRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/siddharth.gupta/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 112,
+      "line": 115,
       "symbol": "SwiftyInspector.tableView(_:willDisplay:forRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
