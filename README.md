@@ -49,8 +49,8 @@ class GithubAPI: WebService {
 
 #### A few things to notice above: 
 - Each of your network request functions return a ```NetworkResource```. This is basically a **wrapper over ```URLRequest```**, with extra stuff to support this cool syntax and other features.
-- You write each request starting with the ```server``` variable (which is the server URL you defined above converted into a ```NetworkResource```), chaining methods to it like ```.get()```, ```.post```, and ```.query()``` to create the actual request. The full list of these modifiers is available here.
-- The variable ```networkInterface``` is a way of telling this ```WebService``` what library to use to *actually make the network request*. For this example, we're directly using Swifty. We talk more about how to customize this here.
+- You write each request starting with the ```server``` variable (which is the server URL you defined above converted into a ```NetworkResource```), chaining methods to it like ```.get()```, ```.post```, and ```.query()``` to create the actual request. The full list of these modifiers is [available here](https://flipkart.github.io/Swifty/Classes/NetworkResource.html).
+- The variable ```networkInterface``` is a way of telling this ```WebService``` what library to use to *actually make the network request*. For this example, we're directly using Swifty.
 
 > **Super Cool Stuff**: These chaining methods are compile time checks, for example, you can't chain a ```.json()``` to a GET request, because it doesn't support a body payload 😎 
 
@@ -201,43 +201,11 @@ class ErrorCheckingInterceptor: ResponseInterceptor {
 
 ## How should I do the actual networking? URLSession?
 
-Swifty is built on top of URLSession, and is what powers the actual network communication in all the above constructs.
+Swifty is built on top of `URLSession`, and is what powers the actual network communication in all the above constructs.
 
 Swifty abstracts away URLSession's little details, while still giving you granular control where it matters.
 
-When you're done writing your requests with ```WebService```, and have put in your business logic in ```Constraints``` & ```Interceptors```, you bring it all together with an instance of Swifty. To do this, we recommend you keep an instance of Swifty in your app, instead of using Swifty's shared instance. 
-
-Here's an example that initialises a Swifty with the constraints and interceptors we talk about above, using a singleton ```NetworkBridge``` in your app:
-
-~~~swift
-class NetworkBridge: WebServiceNetworkInterface {
-
-	/* Make this class a singleton */
-	static let shared = NetworkBridge()
-
-	/* Our instance of Swifty, with our customisations */
-	let swifty = Swifty(configuration: URLSessionConfiguration.default,
-			    options:[
-				     .Constraints([OAuthConstraint()]),
-				     .RequestInterceptors([OAuthTokenAddingInterceptor()]),
-				     .ResponseInterceptors([ErrorCheckingInterceptor()])
-				    ])
-				    
-	/* Conform to the WebServiceNetworkInterface protocol */				
-	func loadResource(resource: NetworkResource, completion: @escaping (NetworkResponse) -> Void) {
-		self.swifty.add(resource, successBlock: { (networkResponse) in
-		    completion(networkResponse)
-		}, failureBlock: { (networkResponse) in
-		    completion(networkResponse)
-		})
-    	}
-
-}
-~~~
-
-Notice that `NetworkBridge` also conforms to the `WebServiceNetworkInterface` protocol by implementing the `loadResource` method: This is to make this Swifty instance usable by `WebService`. 
-
-This `loadResource` method is used when we set our earlier WebService's ```networkInterface``` property to our `NetworkBridge`, to make it start using the `Swifty` we created inside our `NetworkBridge`
+Remember that `networkInterface` property on your WebService? When you're done writing your requests in your `WebService`, and have put in your business logic in `Constraints` & `Interceptors`, you bring it all together by adding your customisations into the initializer of `Swifty` in your `WebService`!
 
 ~~~swift
 class GithubAPI: WebService {
@@ -245,7 +213,9 @@ class GithubAPI: WebService {
 	...
 		
 	/* What this WebService will use to actually make the network calls */
-	static var networkInterface: WebServiceNetworkInterface = NetworkBridge.shared
+	static var networkInterface: WebServiceNetworkInterface = Swifty(constraints: [OAuthConstraint()], 
+	   requestInterceptors: [OAuthTokenAddingInterceptor()],
+	   responseInterceptors: [ErrorCheckingInterceptor()])
 		
 	...
 	
@@ -254,6 +224,9 @@ class GithubAPI: WebService {
 
 And that's it! Everything comes together, and all your ```WebService``` requests go through your ```Swifty's``` customised pipeline of ```Constraints``` and ```Interceptors```, when you call ```.load()``` on them.
 
+## API Documentation
+
+The full documentation for Swifty is [available here.](https://flipkart.github.io/Swifty)
 
 ## Installation
 
