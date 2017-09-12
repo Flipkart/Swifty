@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1245C97B1EB5181D0091F532 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245C97A1EB5181D0091F532 /* NetworkManager.swift */; };
 		126926811E9F7D50007B0C29 /* ResourceExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1269267F1E9F7CD0007B0C29 /* ResourceExtensionTests.swift */; };
 		128100FC1E4C788F00C2A006 /* RequestBlockingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128100FA1E4C783200C2A006 /* RequestBlockingTests.swift */; };
 		12B884471E87D3BC001457E3 /* InterceptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B884461E87D3BC001457E3 /* InterceptorTests.swift */; };
@@ -37,7 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1245C97A1EB5181D0091F532 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1269267F1E9F7CD0007B0C29 /* ResourceExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceExtensionTests.swift; sourceTree = "<group>"; };
 		128100FA1E4C783200C2A006 /* RequestBlockingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBlockingTests.swift; sourceTree = "<group>"; };
 		12B884461E87D3BC001457E3 /* InterceptorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterceptorTests.swift; sourceTree = "<group>"; };
@@ -92,17 +90,9 @@
 			children = (
 				16C7039A1F64318200BF4E30 /* HTTPBinWebService.swift */,
 				16C703A01F643CF600BF4E30 /* IPHeaderInterceptor.swift */,
-				16C7039F1F643CDD00BF4E30 /* Constraints */,
-			);
-			name = WebService;
-			sourceTree = "<group>";
-		};
-		16C7039F1F643CDD00BF4E30 /* Constraints */ = {
-			isa = PBXGroup;
-			children = (
 				16C7039C1F643CC000BF4E30 /* IPConstraint.swift */,
 			);
-			name = Constraints;
+			name = WebService;
 			sourceTree = "<group>";
 		};
 		1AAB1FCEEFAAA964C1999F71 /* Frameworks */ = {
@@ -140,7 +130,6 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				1245C97A1EB5181D0091F532 /* NetworkManager.swift */,
 				16C7039E1F643CC700BF4E30 /* WebService */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -418,7 +407,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1245C97B1EB5181D0091F532 /* NetworkManager.swift in Sources */,
 				16C7039D1F643CC000BF4E30 /* IPConstraint.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				16C703A11F643CF600BF4E30 /* IPHeaderInterceptor.swift in Sources */,

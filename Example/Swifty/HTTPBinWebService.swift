@@ -12,13 +12,13 @@ import Swifty
 class HTTPBin: WebService {
     
     static var serverURL = "https://httpbin.org"
-    static var networkInterface: WebServiceNetworkInterface = NetworkManager.shared
+    static var networkInterface: WebServiceNetworkInterface = Swifty(constraints: [IPConstraint()],
+                                                                     requestInterceptors: [IPHeaderInterceptor()])
    
 // MARK: Network Requests
     
     static func getMyIP() -> NetworkResource {
         return server.get("ip")
-                     .tag("ipRequest") /// Tagged so that the IP constraint doesn't block its's own request
     }
     
     static func postRequest(with jsonBody: [String: Any]) -> NetworkResource {

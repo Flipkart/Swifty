@@ -131,7 +131,7 @@ public typealias SwiftyFailureBlock = (NetworkResponse) -> Void
 extension Swifty: WebServiceNetworkInterface {
     /// Conforms Swifty's shared instance to the WebServiceNetworkInterface protocol, making it easy to use directly with a WebService.
     public func loadResource(resource: NetworkResource, completion: @escaping (NetworkResponse) -> Void) {
-        Swifty.shared.add(resource, successBlock: { (networkResponse) in
+        self.add(resource, successBlock: { (networkResponse) in
             completion(networkResponse)
         }, failureBlock: { (networkResponse) in
             completion(networkResponse)

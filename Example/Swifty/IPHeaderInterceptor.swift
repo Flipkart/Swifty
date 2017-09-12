@@ -13,12 +13,12 @@ class IPHeaderInterceptor: RequestInterceptor {
     
     func intercept(resource: NetworkResource) -> NetworkResource {
         
-        if(resource.hasTag("ipRequest")){
-            return resource
+        if let currentIP = IPConstraint.currentIP {
+            print("IPHeaderInterceptor: Added IP Header into the request \(resource.request.url!.absoluteString)")
+            resource.header(key: "IP", value: currentIP)
         }
         
-        print("IPHeaderInterceptor: Added IP Header into the request \(resource.request.url!.absoluteString)")
-        return resource.header(key: "IP", value: IPConstraint.currentIP)
+        return resource
     }
     
 }

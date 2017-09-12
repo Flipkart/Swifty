@@ -12,12 +12,12 @@
 import Foundation
 
 
-/// WebServiceNetworkInterface: A protocol which lets any object become a bridge between a webservice and the internet.
+/// WebServiceNetworkInterface: A protocol which lets any object become a bridge between a webservice and the internet. Instances of Swifty conform to this protocol by default
 ///
 /// Conformance to this only requires the implementation of one method: loadResource(resource: completion:)
 @objc public protocol WebServiceNetworkInterface: class {
     
-    /// Implement this method to tell a WebService what to do when .load() is called on it's NetworkResource. The NetworkResource on which the .load() method is called comes in as an argument, and any networking library can be used to fire the resource's internal request over the network, and then a NetworkResponse can be created from the internet's response, and passed into the completion closure.
+    /// Implement this method to tell a WebService what to do when .load() is called on it's NetworkResource. The NetworkResource on which the .load() method is called comes in as an argument, and any networking library can be used to fire the resource's internal request over the network, create a NetworkResponse from the actual response, and passed into the completion closure.
     ///
     /// - Parameters:
     ///   - resource: NetworkResource
@@ -27,7 +27,7 @@ import Foundation
 
 /// WebService is a protocol which helps you write your network requests in a declarative, type-safe and expressive way.
 ///
-/// You start by creating a class, putting in your server's base URL & a network interface, and begin writing your network requests as functions
+/// You start by creating a class, putting in your server's **base URL** & a **network interface**, and begin writing your **network requests as functions**
 @objc public protocol WebService {
     
     /**

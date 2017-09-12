@@ -19,10 +19,6 @@ class IPConstraint: Constraint {
     
     override func isConstraintSatisfied(for resource: NetworkResource) -> Bool {
         
-        guard !resource.hasTag("ipRequest") else {
-            return true
-        }
-        
         if let _ = IPConstraint.currentIP {
             return true
         }
