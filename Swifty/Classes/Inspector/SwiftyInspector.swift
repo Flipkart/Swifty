@@ -46,7 +46,9 @@ public class SwiftyInspector: UITableViewController {
     
     func add(_ metric: NetworkResourceMetric) {
         self.metrics.insert(metric, at: 0)
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     public override func viewDidLoad() {
@@ -63,7 +65,7 @@ public class SwiftyInspector: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    override public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Network Requests: Latest First"
     }
     
@@ -89,8 +91,6 @@ public class SwiftyInspector: UITableViewController {
         if let urlResponse = metric.task.response as? HTTPURLResponse {
             statusCode = String(urlResponse.statusCode)
         }
-        
-        
         
         let detailText = " Status Code: \(statusCode) RTT:  \(round(metric.metrics.taskInterval.duration * 1000)) ms "
         
@@ -120,17 +120,12 @@ public class SwiftyInspector: UITableViewController {
             statusCode = String(urlResponse.statusCode)
         }
         
+        cell.detailTextLabel?.backgroundColor = UIColor(hex: "c0392b")
         
         if let intStatus = Int(statusCode){
             if intStatus/100 == 2 {
                 cell.detailTextLabel?.backgroundColor = UIColor(hex: "2ecc71")
             }
-            else {
-                cell.detailTextLabel?.backgroundColor = UIColor(hex: "c0392b")
-            }
-        }
-        else {
-            cell.detailTextLabel?.backgroundColor = UIColor(hex: "c0392b")
         }
         
         cell.detailTextLabel?.layer.cornerRadius = 2
