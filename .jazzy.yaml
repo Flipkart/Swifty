@@ -1,0 +1,8 @@
+author: Siddharth Gupta
+author_url: https://github.com/biocross
+github_url: https://github.com/Flipkart/Swifty
+root_url: https://flipkart.github.io/Swifty
+module: Swifty
+output: docs
+theme: fullwidth
+xcodebuild_arguments: [-workspace, 'Example/Swifty.xcworkspace', -scheme, 'Swifty']
