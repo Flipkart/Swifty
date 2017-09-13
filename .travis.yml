@@ -1,0 +1,36 @@
+language: objective-c
+osx_image: xcode8.3
+podfile: Example/Podfile
+os: osx
+branches:
+  only:
+    - master
+env:
+  global:
+  - LC_CTYPE=en_US.UTF-8
+  - LANG=en_US.UTF-8
+  - WORKSPACE=Example/Swifty.xcworkspace
+  - IOS_FRAMEWORK_SCHEME="Swifty"
+  - EXAMPLE_SCHEME="Swifty_Example"
+  matrix:
+    - DESTINATION="OS=10.3.1,name=iPhone 7 Plus"   SCHEME="$IOS_FRAMEWORK_SCHEME"      RUN_TESTS="YES" POD_LINT="YES"
+    - DESTINATION="OS=9.0,name=iPhone 6"           SCHEME="$IOS_FRAMEWORK_SCHEME"      RUN_TESTS="YES" POD_LINT="NO"
+    - DESTINATION="OS=8.1,name=iPhone 4S"          SCHEME="$IOS_FRAMEWORK_SCHEME"      RUN_TESTS="YES" POD_LINT="NO"
+script:
+  - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -showsdks
+
+  # Build Framework in Debug
+  - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
+
+  # Build Framework in Release and Run Tests if specified
+  - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
+
+  # Build Example in Release & Run Tests
+  - xcodebuild -workspace "$WORKSPACE" -scheme "$EXAMPLE_SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO test | xcpretty;
+
+  # Run `pod lib lint` if specified
+  - if [ $POD_LINT == "YES" ]; then
+      pod lib lint;
+    fi
