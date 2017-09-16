@@ -27,12 +27,37 @@ public extension NetworkResource {
 
 // MARK: - Request Modifiers
     
+    /// Adds the given credentials as a Basic HTTP Hidden Authorization Header into to the resource.
+    ///
+    /// The `username` and `password` are **base64 encoded** before being set into the `Authorization` header of request.
+    ///
+    /// - Parameters:
+    ///   - user: The username
+    ///   - password: The password
+    /// - Returns: NetworkResource
+    @discardableResult func authorizationHeader(username: String, password: String) -> NetworkResource {
+        
+        ///Checking for creation error
+        guard self.creationError == nil else {
+            return self
+        }
+        
+        if let data = "\(username):\(password)".data(using: .utf8) {
+            let credential = data.base64EncodedString(options: [])
+            self.header(key: "Authorization", value: "Basic \(credential)")
+        } else {
+            print("NetworkResource: Failed to encode authorization header for \(username): \(password)")
+        }
+        
+        return self
+    }
+    
     /// Adds the given header to the resource, or updates it's value if it already exists.
     ///
     /// - Parameters:
     ///   - key: header name
     ///   - value: header value
-    /// - Returns: Network Resource
+    /// - Returns: NetworkResource
     @discardableResult func header(key: String, value: String?) -> NetworkResource {
         
         ///Checking for creation error
@@ -57,7 +82,6 @@ public extension NetworkResource {
     /// - Parameter dictionary: Dictionary of header elements.
     /// - Returns: NetworkResource
     @discardableResult func headers(_ dictionary: Dictionary<String, String>) -> NetworkResource {
-        
         
         guard self.creationError == nil else {
             return self
@@ -102,7 +126,9 @@ public extension NetworkResource {
     
 // MARK: - Request Options Modifiers
     
-    /// Sets whether the request should pass through Constraints or not. False by default.
+    /// Sets whether the request should wait for Constraints or not. `false` by default.
+    ///
+    /// If false, this request will not call any of the given Constraint's methods, and will directly go the the Request Interceptors.
     @discardableResult func canHaveConstraints(_ flag: Bool) -> NetworkResource {
         ///Checking for creation error
         guard self.creationError == nil else {
@@ -113,7 +139,7 @@ public extension NetworkResource {
         return self
     }
     
-    /// Sets the priority for the resource to be passed on to URLSession while excuting, defailts to normal priority (0.5)
+    /// Sets the priority for the resource to be passed on to URLSession while excuting, defaults to normal priority (0.5)
     @discardableResult func priority(_ p: URLSessionTaskPriority) -> NetworkResource {
         self.priority = p
         return self
