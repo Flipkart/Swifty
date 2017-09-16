@@ -4,111 +4,141 @@
     <title>Swifty Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
+
     <a name="//apple_ref/swift/Class/Swifty" class="dashAnchor"></a>
+
     <a title="Swifty Class Reference"></a>
-    <header>
-      <div class="content-wrapper">
-        <p><a href="../index.html">Swifty Docs</a> (92% documented)</p>
-      </div>
-    </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="../index.html">Swifty Reference</a>
-        <img id="carat" src="../img/carat.png" />
-        Swifty Class Reference
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          Swifty Docs
+        </a>
+         (92% documented)
       </p>
-    </div>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/Flipkart/Swifty">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fflipkart%2Egithub%2Eio%2Fdocsets%2FSwifty%2Exml">
+            <img class="header-icon" src="../img/dash.png"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">Swifty Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      Swifty Class Reference
+    </p>
+
     <div class="content-wrapper">
-      <nav class="sidebar">
+      <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a href="../Classes.html">Classes</a>
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/BaseResource.html">BaseResource</a>
+                <a class="nav-group-task-link" href="../Classes/BaseResource.html">BaseResource</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Constraint.html">Constraint</a>
+                <a class="nav-group-task-link" href="../Classes/Constraint.html">Constraint</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/NetworkResource.html">NetworkResource</a>
+                <a class="nav-group-task-link" href="../Classes/NetworkResource.html">NetworkResource</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/NetworkResourceWithBody.html">NetworkResourceWithBody</a>
+                <a class="nav-group-task-link" href="../Classes/NetworkResourceWithBody.html">NetworkResourceWithBody</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/NetworkResponse.html">NetworkResponse</a>
+                <a class="nav-group-task-link" href="../Classes/NetworkResponse.html">NetworkResponse</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Swifty.html">Swifty</a>
+                <a class="nav-group-task-link" href="../Classes/Swifty.html">Swifty</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SwiftyError.html">SwiftyError</a>
+                <a class="nav-group-task-link" href="../Classes/SwiftyError.html">SwiftyError</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SwiftyInspector.html">SwiftyInspector</a>
+                <a class="nav-group-task-link" href="../Classes/SwiftyInspector.html">SwiftyInspector</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/WebServiceError.html">WebServiceError</a>
+                <a class="nav-group-task-link" href="../Classes/WebServiceError.html">WebServiceError</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums/SwiftyErrorCodes.html">SwiftyErrorCodes</a>
+                <a class="nav-group-task-link" href="../Enums/SwiftyErrorCodes.html">SwiftyErrorCodes</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/URLSessionTaskPriority.html">URLSessionTaskPriority</a>
+                <a class="nav-group-task-link" href="../Enums/URLSessionTaskPriority.html">URLSessionTaskPriority</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/WebServiceErrorCodes.html">WebServiceErrorCodes</a>
+                <a class="nav-group-task-link" href="../Enums/WebServiceErrorCodes.html">WebServiceErrorCodes</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Protocols.html">Protocols</a>
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/RequestInterceptor.html">RequestInterceptor</a>
+                <a class="nav-group-task-link" href="../Protocols/RequestInterceptor.html">RequestInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ResponseInterceptor.html">ResponseInterceptor</a>
+                <a class="nav-group-task-link" href="../Protocols/ResponseInterceptor.html">ResponseInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ResponseParser.html">ResponseParser</a>
+                <a class="nav-group-task-link" href="../Protocols/ResponseParser.html">ResponseParser</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/WebService.html">WebService</a>
+                <a class="nav-group-task-link" href="../Protocols/WebService.html">WebService</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/WebServiceNetworkInterface.html">WebServiceNetworkInterface</a>
+                <a class="nav-group-task-link" href="../Protocols/WebServiceNetworkInterface.html">WebServiceNetworkInterface</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Typealiases.html">Typealiases</a>
+            <a class="nav-group-name-link" href="../Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:6Swifty18SwiftyFailureBlock">SwiftyFailureBlock</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:6Swifty18SwiftyFailureBlock">SwiftyFailureBlock</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:6Swifty18SwiftySuccessBlock">SwiftySuccessBlock</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:6Swifty18SwiftySuccessBlock">SwiftySuccessBlock</a>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
       <article class="main-content">
-        <section>
-          <section class="section">
+
+        <section class="section">
+          <div class="section-content">
             <h1>Swifty</h1>
               <div class="declaration">
                 <div class="language">
@@ -118,10 +148,13 @@
               </div>
             <p>Swifty: The main entry point to the networking infrastructure. Keeps track of the constraints and interceptors and services the requests with it&rsquo;s URLSession while taking care of all the attributes of the network resource.</p>
 
-          </section>
-          <section class="section task-group-section">
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
             <div class="task-group">
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -398,7 +431,7 @@
               </ul>
             </div>
             <div class="task-group">
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -428,14 +461,15 @@
                 </li>
               </ul>
             </div>
-          </section>
+          </div>
         </section>
-        <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://github.com/Flipkart/Swifty" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2017-09-12)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-        </section>
+
       </article>
     </div>
+    <section class="footer">
+      <p>&copy; 2017 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2017-09-13)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
   </body>
 </div>
 </html>
