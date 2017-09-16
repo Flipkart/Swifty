@@ -1,8 +1,0 @@
-.DS_Store
-xcuserdata/
-.idea/
-xcshareddata/
-Pods/
-Podfile.lock
-*.xcworkspace
-Manifest.lock
