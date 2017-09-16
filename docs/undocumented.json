@@ -2,35 +2,35 @@
   "warnings": [
     {
       "file": "/Users/sids/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 52,
+      "line": 54,
       "symbol": "SwiftyInspector.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/sids/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 66,
+      "line": 68,
       "symbol": "SwiftyInspector.tableView(_:titleForHeaderInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/sids/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 70,
+      "line": 72,
       "symbol": "SwiftyInspector.numberOfSections(in:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/sids/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 74,
+      "line": 76,
       "symbol": "SwiftyInspector.tableView(_:numberOfRowsInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/sids/Desktop/Swifty/Swifty/Classes/Inspector/SwiftyInspector.swift",
-      "line": 78,
+      "line": 80,
       "symbol": "SwiftyInspector.tableView(_:cellForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

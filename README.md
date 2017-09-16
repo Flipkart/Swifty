@@ -51,7 +51,7 @@ class GithubAPI: WebService {
 
 #### A few things to notice above: 
 - Each of your network request functions return a ```NetworkResource```. This is basically a **wrapper over ```URLRequest```**, with extra stuff to support this cool syntax and other features.
-- You write each request starting with the ```server``` variable (which is the server URL you defined above converted into a ```NetworkResource```), chaining methods to it like ```.get()```, ```.post```, and ```.query()``` to create the actual request. The full list of these modifiers is [available here](https://flipkart.github.io/Swifty/Classes/NetworkResource.html).
+- You write each request starting with the ```server``` variable (which is the server URL you defined above converted into a ```NetworkResource```), chaining methods to it like ```.get()```, ```.post```, and ```.query()``` to create the actual request. The full list of these modifiers is [available here](https://flipkart.github.io/Swifty/Classes/NetworkResourceWithBody.html).
 - The variable ```networkInterface``` is a way of telling this ```WebService``` what library to use to *actually make the network request*. For this example, we're directly using Swifty.
 
 > **Super Cool Stuff**: These chaining methods are compile time checks, for example, you can't chain a ```.json()``` to a GET request, because it doesn't support a body payload 😎 
