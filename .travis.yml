@@ -24,6 +24,10 @@ script:
   # Build Framework in Release and Run Tests if specified
   - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
 
+  # Build Example Projects and Run it's tests
+  - xcodebuild -workspace "$WORKSPACE" -scheme "$EXAMPLE_SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO test | xcpretty;
+
+
   # Run `pod lib lint` if specified
   - if [ $POD_LINT == "YES" ]; then
       pod lib lint;
