@@ -1,7 +1,9 @@
 ![Swifty Logo](https://raw.githubusercontent.com/Flipkart/Swifty/master/Swifty.png)
 
+[![Build Status](https://travis-ci.org/Flipkart/Swifty.svg?branch=master)](https://travis-ci.org/Flipkart/Swifty)
 [![Version](https://img.shields.io/cocoapods/v/Swifty.svg?style=flat)](http://cocoapods.org/pods/Swifty)
 [![Platform](https://img.shields.io/cocoapods/p/Swifty.svg?style=flat)](http://cocoapods.org/pods/Swifty)
+[![Docs](https://img.shields.io/badge/Docs-awesome-12a49f.svg)](https://flipkart.github.io/Swifty)
 [![License](https://img.shields.io/cocoapods/l/Swifty.svg?style=flat)](http://cocoapods.org/pods/Swifty)
 
 Swifty is a modern take on how iOS apps should do networking. Written in Swift, it offers a **declarative** way to write your network requests and organise them, abstracting the networking away from the call-site, while giving you full control into every aspect of the actual network communication.
