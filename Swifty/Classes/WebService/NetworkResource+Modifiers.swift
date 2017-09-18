@@ -113,7 +113,8 @@ public extension NetworkResource {
             return self
         }
         
-        let URLWithQueryParams = baseURL + "?" + getQuery(dictionary)
+        let separator = baseURL.contains("?") ? "&" : "?"
+        let URLWithQueryParams = baseURL + separator + getQuery(dictionary)
         
         if let url = URL(string: URLWithQueryParams) {
             self.request.url = url
