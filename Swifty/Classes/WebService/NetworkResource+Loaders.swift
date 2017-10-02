@@ -70,7 +70,12 @@ extension NetworkResource {
             if let json = networkResponse.result {
                 successBlock(json)
             } else {
-                failureBlock(networkResponse.error!)
+                if let error = networkResponse.error {
+                    failureBlock(error)
+                } else {
+                    /// No error + No parsed response means a 204/205 Response
+                    successBlock(networkResponse.data)
+                }
             }
         }
     }

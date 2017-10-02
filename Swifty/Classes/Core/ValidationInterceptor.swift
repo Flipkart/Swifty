@@ -33,17 +33,22 @@ struct ValidationInterceptor: ResponseInterceptor {
         
         /// Valid Status Codes Check
         if(!validStatusCodes.contains(httpResponse.statusCode)) {
-            response.fail(error: SwiftyError.responseValidation(reason: "HTTP Status Code \(httpResponse.statusCode)"))
+            response.fail(error: SwiftyError.responseValidation(reason: "HTTP Status Code \(httpResponse.statusCode)", statusCode: httpResponse.statusCode))
+            return response
         }
         
         /// Valid Empty Status Codes Check
         if(response.data?.count == 0 && !emptyStatusCodes.contains(httpResponse.statusCode)){
             response.fail(error: SwiftyError.responseValidation(reason: "Empty Data Received"))
+            return response
         }
         
         /// Data Nil Setting in case of Empty Status Code, instead of data with zero count
         if(emptyStatusCodes.contains(httpResponse.statusCode)){
             response.succeed(response: response.response, data: nil)
+            // Do Not try to parse the empty data
+            response.parser = nil
+            return response
         }
         
         return response

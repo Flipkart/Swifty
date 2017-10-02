@@ -102,8 +102,8 @@ public class SwiftyError {
     }
     
     /// Response Validation failure
-    public static func responseValidation(reason: String) -> NSError {
-        return NSError(domain: SwiftyError.errorDomain, code:  SwiftyErrorCodes.responseValidation.rawValue, userInfo: self.userInfo(description: "Response Validation Failed with reason: \(reason)"))
+    public static func responseValidation(reason: String, statusCode: Int = SwiftyErrorCodes.responseValidation.rawValue) -> NSError {
+        return NSError(domain: SwiftyError.errorDomain, code: statusCode, userInfo: self.userInfo(description: "Response Validation Failed with reason: \(reason)"))
     }
     
     /* User Info Helper */

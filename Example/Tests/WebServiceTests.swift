@@ -12,7 +12,7 @@ import Swifty
 
 class TestWebService: WebService {
     static var serverURL = "https://httpbin.org"
-    static var networkInterface: WebServiceNetworkInterface = Swifty.shared
+    static var networkInterface: WebServiceNetworkInterface = Swifty()
     
     static func getAwesomeData(for user: String) -> NetworkResource {
         return server.get("get").query(["user": user])
@@ -32,6 +32,14 @@ class TestWebService: WebService {
     
     static func postRequest() -> NetworkResourceWithBody {
         return server.post("post")
+    }
+    
+    static func getIP() -> NetworkResource {
+        return server.get("ip")
+    }
+    
+    static func get(statusCode: Int) -> NetworkResource {
+         return server.get("/status/\(statusCode)")
     }
     
     static func baseResource() -> BaseResource {
@@ -158,6 +166,52 @@ class WebServiceTests: XCTestCase {
         XCTAssertEqual(resource.request.url?.absoluteString, "https://httpbin.org/get?\(key1)=\(value1)&\(key2)=\(value2)")
         XCTAssertNotNil(bodyResource)
         XCTAssertEqual(bodyResource.request.url?.absoluteString, "https://httpbin.org/post?\(key1)=\(value1)&\(key2)=\(value2)")
+    }
+    
+    func testJSONParser() {
+        
+        let expectation = self.expectation(description: "Got the IP in response")
+        
+        TestWebService.getIP().loadJSON(successBlock: { (json) in
+            if let json = json as? [String: Any], let _ = json["origin"] as? String {
+                expectation.fulfill()
+            }
+        }) { (error) in
+            
+        }
+        
+        self.waitForExpectations(timeout: 4, handler: nil)
+    }
+    
+    func testSimpleError() {
+        
+        let statusCode = 400
+        let expectation = self.expectation(description: "Got the expected Error and Status Code")
+        
+        TestWebService.get(statusCode: statusCode).loadJSON(successBlock: { (json) in
+            
+        }) { (error) in
+            XCTAssertNotNil(error)
+            XCTAssertEqual(error.code, statusCode)
+            expectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 4, handler: nil)
+    }
+    
+    func testSucessFor204() {
+        
+        let statusCode = 204
+        let expectation = self.expectation(description: "Got Success for 204 Status code with nil data")
+        
+        TestWebService.get(statusCode: statusCode).loadJSON(successBlock: { (json) in
+            XCTAssertNil(json, "Should Recieve nil data for HTTP Status Code 204")
+            expectation.fulfill()
+        }) { (error) in
+            print(error)
+        }
+        
+        self.waitForExpectations(timeout: 4, handler: nil)
     }
     
 }

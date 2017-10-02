@@ -35,7 +35,15 @@ struct JSONParser: ResponseParser {
     let readingOptions: JSONSerialization.ReadingOptions
     
     func parse(response: NetworkResponse) throws {
+        
+        /// If the response already has an error, attach the parsed error into the NSError's user info property.
+        /// We do this seprately because we don't want, for example, a JSON parsing error of the errored response to override the original error. Hence the try? during JSON parsing here.
         guard response.error == nil else {
+            if let data = response.data, data.count > 0 {
+                if let json = try? JSONSerialization.jsonObject(with: data, options: readingOptions) as? [AnyHashable: Any] {
+                    response.error = NSError(domain: response.error?.domain ?? SwiftyError.errorDomain, code: response.error?.code ?? SwiftyErrorCodes.responseValidation.rawValue, userInfo: json)
+                }
+            }
             throw response.error!
         }
         
