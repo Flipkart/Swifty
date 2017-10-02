@@ -1,5 +1,4 @@
 # Contributing to Swifty
---
 
 Firstly, thank you for considering contributing to Swifty WebService. It’s people like you that help make Swifty the best it ever can be.
 
