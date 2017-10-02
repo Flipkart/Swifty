@@ -27,7 +27,7 @@ public class NetworkInterface: WebServiceNetworkInterface {
     }
 }
 
-class RequestInterceptorTests: XCTestCase {
+class InterceptorTests: XCTestCase {
     
     var request: URLRequest {
         var request = URLRequest(url: URL(string: "https://httpbin.org/get")!)
@@ -35,9 +35,9 @@ class RequestInterceptorTests: XCTestCase {
         return request
     }
     
-    func testSimpleHeaderAddingInterceptor() {
+    func testSimpleRequestInterceptor() {
         
-        let taskFinished = self.expectation(description: "SingleInterceptor")
+        let taskFinished = self.expectation(description: "Single Request Interceptor")
         
         let key = "Simple"
         let value = "Value"
@@ -67,10 +67,9 @@ class RequestInterceptorTests: XCTestCase {
         }
     }
     
-    
-    func testMultipleInterceptors() {
-        let gotHeaders = self.expectation(description: "MultipleInterceptors_GotHeaders")
-        let gotQueryParams = self.expectation(description: "MultipleInterceptors_GotQueryParams")
+    func testMultipleRequestInterceptors() {
+        let gotHeaders = self.expectation(description: "Multiple Interceptors: Got Headers")
+        let gotQueryParams = self.expectation(description: "Multiple Interceptors: Got Query Params")
         
         let key = "Simple"
         let value = "Value"
@@ -103,8 +102,64 @@ class RequestInterceptorTests: XCTestCase {
             }
         }
     }
+    
+    func testSimpleResponseInterceptor() {
+        
+        let taskFinished = self.expectation(description: "Single Response Interceptor")
+        
+        let interceptors = [ForceFailing204ResponseInterceptor()]
+        let interface = NetworkInterface(responseInterceptors: interceptors)
+        
+        let request = URLRequest(url: URL(string: "https://httpbin.org/status/204")!)
+        let resource = NetworkResource(request: request as! NSMutableURLRequest, networkInterface: interface)
+        
+        resource.loadJSON(successBlock: { (response) in
+            XCTFail("Response did not pass the interceptor, or the interceptor did not work as intended.")
+        }) { (error) in
+            XCTAssertNotNil(error)
+            XCTAssertEqual(error.domain, ForceFailing204ResponseInterceptor.domain)
+            taskFinished.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                print("Test Failed Error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func testMultipleResponseInterceptors() {
+        
+        let taskFinished = self.expectation(description: "Multiple Response Interceptors")
+        
+        let interceptors: [ResponseInterceptor] = [ForceFailing204ResponseInterceptor(), ForceSucceedingResponseInterceptor()]
+        let interface = NetworkInterface(responseInterceptors: interceptors)
+        
+        let request = URLRequest(url: URL(string: "https://httpbin.org/status/204")!)
+        let resource = NetworkResource(request: request as! NSMutableURLRequest, networkInterface: interface)
+        
+        resource.load { (networkResponse) in
+            
+            guard (networkResponse.error == nil) else {
+                XCTFail()
+                return
+            }
+            
+            XCTAssertNil(networkResponse.data) /// Should be an empty body, because of 204
+            XCTAssertNotNil(networkResponse.response)
+            XCTAssertEqual(networkResponse.response?.statusCode, 204)
+            taskFinished.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                print("Test Failed Error: \(error.localizedDescription)")
+            }
+        }
+    }
 }
 
+/// Request Interceptor: Adds the given header to the request
 struct SimpleRequestInterceptor: RequestInterceptor {
     let freshHeader: Dictionary<String, String>
     
@@ -113,6 +168,7 @@ struct SimpleRequestInterceptor: RequestInterceptor {
     }
 }
 
+/// Request Interceptor: Adds the given query params to the request
 struct QueryParamsAddingInterceptor: RequestInterceptor {
     let queryParams: Dictionary<String, String>
     
@@ -120,3 +176,31 @@ struct QueryParamsAddingInterceptor: RequestInterceptor {
         return resource.query(queryParams)
     }
 }
+
+/// Response Interceptor: Force fails all HTTP Status Code 204 Responses
+struct ForceFailing204ResponseInterceptor: ResponseInterceptor {
+    
+    static let domain = "ForceFailedInterceptorErrorDomain"
+    
+    func intercept(response: NetworkResponse) -> NetworkResponse {
+        if let httpResponse = response.response, httpResponse.statusCode == 204 {
+            response.fail(error: NSError(domain: ForceFailing204ResponseInterceptor.domain, code: 0, userInfo: nil))
+        }
+        
+        return response
+    }
+}
+
+/// Response Interceptor: Force succeeds all responses with an Error Domain equal to: ForceFailedInterceptorErrorDomain
+struct ForceSucceedingResponseInterceptor: ResponseInterceptor {
+    
+    func intercept(response: NetworkResponse) -> NetworkResponse {
+        
+        if let error = response.error, error.domain == ForceFailing204ResponseInterceptor.domain {
+            response.succeed(response: response.response, data: response.data)
+        }
+        return response
+    }
+}
+
+

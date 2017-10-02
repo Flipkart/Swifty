@@ -11,7 +11,7 @@ import XCTest
 import Swifty
 
 
-class RequestBlockingTests : XCTestCase {
+class ConstraintTests : XCTestCase {
     
     var manager : Swifty?
     var dependencyComplete = false
@@ -22,7 +22,7 @@ class RequestBlockingTests : XCTestCase {
         return request
     }
     
-    func testSimpleBlockingCondition() {
+    func testSimpleConstraint() {
         
         let taskExpectation = self.expectation(description: "Task Done After Constraint Satisfied")
         
@@ -53,7 +53,7 @@ class RequestBlockingTests : XCTestCase {
         }
     }
     
-    func testOneTestWaitingOnTwoConstaints() {
+    func testResourceWaitingOnTwoConstraints() {
         
         let taskExpectation = self.expectation(description: "Task Done After Constraint Satisfied")
         
@@ -122,7 +122,7 @@ class RequestBlockingTests : XCTestCase {
         }
     }
 
-    func testMultipleTasksWaitingForSameTask() {
+    func testMultipleResourcesWaitingForSameConstraint() {
         let expectation = self.expectation(description: "Tasks waited for the long running task")
         let constraint = TestConstraint(3)
         let manager = NetworkInterface(constraints: [constraint])

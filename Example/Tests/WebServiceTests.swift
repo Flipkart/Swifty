@@ -168,6 +168,19 @@ class WebServiceTests: XCTestCase {
         XCTAssertEqual(bodyResource.request.url?.absoluteString, "https://httpbin.org/post?\(key1)=\(value1)&\(key2)=\(value2)")
     }
     
+    func testComplexQueryModifier() {
+        let params: Dictionary <String, Any> = ["param": "value", "query": "param", "array": ["1", "2", "3"]]
+        let expectedQuery = "array=1,2,3&param=value&query=param"
+        
+        let resource = TestWebService.getRequest().query(params)
+        let bodyResource = TestWebService.postRequest().query(params)
+        
+        XCTAssertNotNil(resource)
+        XCTAssertEqual(resource.request.url?.absoluteString, "https://httpbin.org/get?\(expectedQuery)")
+        XCTAssertNotNil(bodyResource)
+        XCTAssertEqual(bodyResource.request.url?.absoluteString, "https://httpbin.org/post?\(expectedQuery)")
+    }
+    
     func testJSONParser() {
         
         let expectation = self.expectation(description: "Got the IP in response")

@@ -103,16 +103,14 @@ public typealias SwiftyFailureBlock = (NetworkResponse) -> Void
                 conditionManager.satisfy(for: task, on: self.networkQueue)
             }
         }
-        //On Response
+
         task.onValue { (networkResponse) in
-            var interceptedResponse = networkResponse
-            self.responseInterceptors.forEach { interceptedResponse = $0.intercept(response: interceptedResponse) }
+            let interceptedResponse = self.responseInterceptors.reduce(networkResponse, { $1.intercept(response: $0) })
             successBlock(interceptedResponse)
         }
-        //On Error
+
         task.onError { (networkResponse) in
-            var interceptedResponse = networkResponse
-            self.responseInterceptors.forEach { interceptedResponse = $0.intercept(response: interceptedResponse) }
+            let interceptedResponse = self.responseInterceptors.reduce(networkResponse, { $1.intercept(response: $0) })
             failureBlock(interceptedResponse)
         }
         // Task starts on the network queue.
