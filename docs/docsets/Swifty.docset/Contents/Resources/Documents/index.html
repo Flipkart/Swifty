@@ -88,7 +88,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SwiftyErrorCodes.html">SwiftyErrorCodes</a>
@@ -122,13 +122,13 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Typealiases.html">Typealiases</a>
+            <a class="nav-group-name-link" href="Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Typealiases.html#/s:6Swifty18SwiftyFailureBlock">SwiftyFailureBlock</a>
+                <a class="nav-group-task-link" href="Typealiases.html#/s:6Swifty0A12FailureBlocka">SwiftyFailureBlock</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Typealiases.html#/s:6Swifty18SwiftySuccessBlock">SwiftySuccessBlock</a>
+                <a class="nav-group-task-link" href="Typealiases.html#/s:6Swifty0A12SuccessBlocka">SwiftySuccessBlock</a>
               </li>
             </ul>
           </li>
@@ -157,7 +157,7 @@
 </ol>
 <h2 id='where-do-i-keep-my-network-requests' class='heading'>Where do I keep my network requests?</h2>
 
-<p>Swifty offers a protocol called <code>WebService</code> which helps you write your network requests in a type-safe and expressive way. </p>
+<p>Swifty offers a protocol called <code><a href="Protocols/WebService.html">WebService</a></code> which helps you write your network requests in a type-safe and expressive way. </p>
 
 <p>You start by <strong>creating a class</strong>, putting in your <strong>server&rsquo;s base URL</strong> &amp; a network interface, and begin writing your <strong>network requests as functions</strong>:</p>
 <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">GithubAPI</span><span class="p">:</span> <span class="kt">WebService</span> <span class="p">{</span>
@@ -189,9 +189,9 @@
 <h4 id='a-few-things-to-notice-above' class='heading'>A few things to notice above:</h4>
 
 <ul>
-<li>Each of your network request functions return a <code>NetworkResource</code>. This is basically a <strong>wrapper over <code>URLRequest</code></strong>, with extra stuff to support this cool syntax and other features.</li>
-<li>You write each request starting with the <code>server</code> variable (which is the server URL you defined above converted into a <code>NetworkResource</code>), chaining methods to it like <code>.get()</code>, <code>.post</code>, and <code>.query()</code> to create the actual request. The full list of these modifiers is <a href="https://flipkart.github.io/Swifty/Classes/NetworkResourceWithBody.html">available here</a>.</li>
-<li>The variable <code>networkInterface</code> is a way of telling this <code>WebService</code> what library to use to <em>actually make the network request</em>. For this example, we&rsquo;re directly using Swifty.</li>
+<li>Each of your network request functions return a <code><a href="Classes/NetworkResource.html">NetworkResource</a></code>. This is basically a <strong>wrapper over <code>URLRequest</code></strong>, with extra stuff to support this cool syntax and other features.</li>
+<li>You write each request starting with the <code>server</code> variable (which is the server URL you defined above converted into a <code><a href="Classes/NetworkResource.html">NetworkResource</a></code>), chaining methods to it like <code>.get()</code>, <code>.post</code>, and <code>.query()</code> to create the actual request. The full list of these modifiers is <a href="https://flipkart.github.io/Swifty/Classes/NetworkResourceWithBody.html">available here</a>.</li>
+<li>The variable <code>networkInterface</code> is a way of telling this <code><a href="Protocols/WebService.html">WebService</a></code> what library to use to <em>actually make the network request</em>. For this example, we&rsquo;re directly using Swifty.</li>
 </ul>
 
 <blockquote>
@@ -249,7 +249,7 @@
 
 <p>A common use of a constraint would be an <strong>OAuth Constraint</strong>, which makes sure you have an OAuth token before your requests start.</p>
 
-<p>To create a constraint, just subclass <code>Constraint</code>, and override the two required methods:</p>
+<p>To create a constraint, just subclass <code><a href="Classes/Constraint.html">Constraint</a></code>, and override the two required methods:</p>
 <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">OAuthConstraint</span><span class="p">:</span> <span class="kt">Constraint</span> <span class="p">{</span>
 
     <span class="k">override</span> <span class="kd">func</span> <span class="nf">isConstraintSatisfied</span><span class="p">(</span><span class="k">for</span> <span class="nv">resource</span><span class="p">:</span> <span class="kt">NetworkResource</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
@@ -290,7 +290,7 @@
 
 <p>For example, an interceptor can be used to attach an OAuth token that a constraint might have just receieved from a server. </p>
 
-<p>To create a <code>RequestInterceptor</code>, simply create a class/struct that conforms to the <code>RequestInterceptor</code> protocol, and implement the one required method:</p>
+<p>To create a <code><a href="Protocols/RequestInterceptor.html">RequestInterceptor</a></code>, simply create a class/struct that conforms to the <code><a href="Protocols/RequestInterceptor.html">RequestInterceptor</a></code> protocol, and implement the one required method:</p>
 <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">OAuthTokenAddingInterceptor</span><span class="p">:</span> <span class="kt">RequestInterceptor</span> <span class="p">{</span>
 
     <span class="kd">func</span> <span class="nf">intercept</span><span class="p">(</span><span class="nv">resource</span><span class="p">:</span> <span class="kt">NetworkResource</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span> <span class="p">{</span>
@@ -319,7 +319,7 @@
 <li>You can even force <code>succeed</code> or force <code>fail</code> your responses in Response Interceptors</li>
 </ul>
 
-<p>For the <em>sake of example</em>, if your API considers a 204 response a failure, we can create a <code>ResponseInterceptor</code> to check for this status code in every response, and force fail responses if encountered. </p>
+<p>For the <em>sake of example</em>, if your API considers a 204 response a failure, we can create a <code><a href="Protocols/ResponseInterceptor.html">ResponseInterceptor</a></code> to check for this status code in every response, and force fail responses if encountered. </p>
 <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ErrorCheckingInterceptor</span><span class="p">:</span> <span class="kt">ResponseInterceptor</span> <span class="p">{</span>
 
     <span class="kd">func</span> <span class="nf">intercept</span><span class="p">(</span><span class="nv">response</span><span class="p">:</span> <span class="kt">NetworkResponse</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResponse</span> <span class="p">{</span>
@@ -347,7 +347,7 @@
 
 <p>Swifty abstracts away URLSession&rsquo;s little details, while still giving you granular control where it matters.</p>
 
-<p>Remember that <code>networkInterface</code> property on your WebService? When you&rsquo;re done writing your requests in your <code>WebService</code>, and have put in your business logic in <code>Constraints</code> &amp; <code>Interceptors</code>, you bring it all together by adding your customisations into the initializer of <code>Swifty</code> in your <code>WebService</code>!</p>
+<p>Remember that <code>networkInterface</code> property on your WebService? When you&rsquo;re done writing your requests in your <code><a href="Protocols/WebService.html">WebService</a></code>, and have put in your business logic in <code>Constraints</code> &amp; <code>Interceptors</code>, you bring it all together by adding your customisations into the initializer of <code><a href="Classes/Swifty.html">Swifty</a></code> in your <code><a href="Protocols/WebService.html">WebService</a></code>!</p>
 <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">GithubAPI</span><span class="p">:</span> <span class="kt">WebService</span> <span class="p">{</span>
 
     <span class="o">...</span>
@@ -362,7 +362,7 @@
 <span class="p">}</span>
 </code></pre>
 
-<p>And that&rsquo;s it! Everything comes together, and all your <code>WebService</code> requests go through your <code>Swifty&#39;s</code> customised pipeline of <code>Constraints</code> and <code>Interceptors</code>, when you call <code>.load()</code> on them.</p>
+<p>And that&rsquo;s it! Everything comes together, and all your <code><a href="Protocols/WebService.html">WebService</a></code> requests go through your <code>Swifty&#39;s</code> customised pipeline of <code>Constraints</code> and <code>Interceptors</code>, when you call <code>.load()</code> on them.</p>
 <h2 id='api-documentation' class='heading'>API Documentation</h2>
 
 <p>The full documentation for Swifty is <a href="https://flipkart.github.io/Swifty">available here.</a></p>
@@ -390,8 +390,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2017-09-20)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2017-10-02)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
