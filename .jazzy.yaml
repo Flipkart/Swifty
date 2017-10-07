@@ -5,4 +5,4 @@ root_url: https://flipkart.github.io/Swifty
 module: Swifty
 output: docs
 theme: fullwidth
-xcodebuild_arguments: [-workspace, 'Example/Swifty.xcworkspace', -scheme, 'Swifty']
+xcodebuild_arguments: [-project, 'Swifty.xcodeproj', -scheme, 'Swifty-iOS']

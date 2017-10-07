@@ -91,9 +91,9 @@ class ConstraintTests : XCTestCase {
             }
         }
     }
-
+    
     func testConcurrentBlocking() {
-   
+        
         let expectation = self.expectation(description: "All tasks completed")
         var taskCount : Int = 2
         let timeout : Double = Double(taskCount) * Double(10)
@@ -121,7 +121,7 @@ class ConstraintTests : XCTestCase {
             }
         }
     }
-
+    
     func testMultipleResourcesWaitingForSameConstraint() {
         let expectation = self.expectation(description: "Tasks waited for the long running task")
         let constraint = TestConstraint(3)
@@ -156,7 +156,7 @@ class ConstraintTests : XCTestCase {
                 }
             })
         }
-       
+        
         self.waitForExpectations(timeout: 10) { (error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
@@ -219,5 +219,5 @@ class TestConstraint: Constraint {
     }
     
 }
- 
+
 

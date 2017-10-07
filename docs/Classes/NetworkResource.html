@@ -460,202 +460,6 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Resource%20Load%20Methods"></a>
-                <a name="//apple_ref/swift/Section/Resource Load Methods" class="dashAnchor"></a>
-                <a href="#/Resource%20Load%20Methods">
-                  <h3 class="section-name">Resource Load Methods</h3>
-                </a>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@CM@Swifty@objc(cs)NetworkResource(im)loadWithCompletion:"></a>
-                    <a name="//apple_ref/swift/Method/load(completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@Swifty@objc(cs)NetworkResource(im)loadWithCompletion:">load(completion:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Loads the network resource, and calls the completion block with an unserialized NetworkResponse</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">load</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/NetworkResponse.html">NetworkResponse</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>completion block to be executed when resource is successfully loaded.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@CM@Swifty@objc(cs)NetworkResource(im)loadWithSuccessBlock:failureBlock:"></a>
-                    <a name="//apple_ref/swift/Method/load(successBlock:failureBlock:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@Swifty@objc(cs)NetworkResource(im)loadWithSuccessBlock:failureBlock:">load(successBlock:failureBlock:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Loads the network resource, and calls the success block with unserialized Data and HTTPURLResponse or the failure block with the error</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">load</span><span class="p">(</span><span class="nv">successBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">responseObject</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failureBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>successBlock</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>block to be executed when response doesn&rsquo;t have any errors.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>failureBlock</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>block to be executed when response has an error.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Resource%20Load%20Methods%20(with%20Parsing)"></a>
-                <a name="//apple_ref/swift/Section/Resource Load Methods (with Parsing)" class="dashAnchor"></a>
-                <a href="#/Resource%20Load%20Methods%20(with%20Parsing)">
-                  <h3 class="section-name">Resource Load Methods (with Parsing)</h3>
-                </a>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@CM@Swifty@objc(cs)NetworkResource(im)loadJSONWithReadingOptions:successBlock:failureBlock:"></a>
-                    <a name="//apple_ref/swift/Method/loadJSON(readingOptions:successBlock:failureBlock:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@Swifty@objc(cs)NetworkResource(im)loadJSONWithReadingOptions:successBlock:failureBlock:">loadJSON(readingOptions:successBlock:failureBlock:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Loads the network resource, and calls the successBlock with the parsed JSON, or the failure block with the error.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">loadJSON</span><span class="p">(</span><span class="nv">readingOptions</span><span class="p">:</span> <span class="kt">JSONSerialization</span><span class="o">.</span><span class="kt">ReadingOptions</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">successBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">responseObject</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failureBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>readingOptions</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>JSONSerialization.ReadingOptions, empty by default.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>successBlock</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>block to be executed when response doesn&rsquo;t have any errors.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>failureBlock</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>block to be executed when response has an error.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
                 <a name="/Request%20Modifiers"></a>
                 <a name="//apple_ref/swift/Section/Request Modifiers" class="dashAnchor"></a>
                 <a href="#/Request%20Modifiers">
@@ -1116,13 +920,209 @@
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Resource%20Load%20Methods"></a>
+                <a name="//apple_ref/swift/Section/Resource Load Methods" class="dashAnchor"></a>
+                <a href="#/Resource%20Load%20Methods">
+                  <h3 class="section-name">Resource Load Methods</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Swifty@objc(cs)NetworkResource(im)loadWithCompletion:"></a>
+                    <a name="//apple_ref/swift/Method/load(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Swifty@objc(cs)NetworkResource(im)loadWithCompletion:">load(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads the network resource, and calls the completion block with an unserialized NetworkResponse</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">load</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/NetworkResponse.html">NetworkResponse</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completion block to be executed when resource is successfully loaded.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Swifty@objc(cs)NetworkResource(im)loadWithSuccessBlock:failureBlock:"></a>
+                    <a name="//apple_ref/swift/Method/load(successBlock:failureBlock:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Swifty@objc(cs)NetworkResource(im)loadWithSuccessBlock:failureBlock:">load(successBlock:failureBlock:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads the network resource, and calls the success block with unserialized Data and HTTPURLResponse or the failure block with the error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">load</span><span class="p">(</span><span class="nv">successBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">responseObject</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failureBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>successBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>block to be executed when response doesn&rsquo;t have any errors.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failureBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>block to be executed when response has an error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Resource%20Load%20Methods%20(with%20Parsing)"></a>
+                <a name="//apple_ref/swift/Section/Resource Load Methods (with Parsing)" class="dashAnchor"></a>
+                <a href="#/Resource%20Load%20Methods%20(with%20Parsing)">
+                  <h3 class="section-name">Resource Load Methods (with Parsing)</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Swifty@objc(cs)NetworkResource(im)loadJSONWithReadingOptions:successBlock:failureBlock:"></a>
+                    <a name="//apple_ref/swift/Method/loadJSON(readingOptions:successBlock:failureBlock:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Swifty@objc(cs)NetworkResource(im)loadJSONWithReadingOptions:successBlock:failureBlock:">loadJSON(readingOptions:successBlock:failureBlock:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads the network resource, and calls the successBlock with the parsed JSON, or the failure block with the error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">loadJSON</span><span class="p">(</span><span class="nv">readingOptions</span><span class="p">:</span> <span class="kt">JSONSerialization</span><span class="o">.</span><span class="kt">ReadingOptions</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">successBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">responseObject</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failureBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>readingOptions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>JSONSerialization.ReadingOptions, empty by default.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>successBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>block to be executed when response doesn&rsquo;t have any errors.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failureBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>block to be executed when response has an error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2017-10-02)</p>
+      <p>&copy; 2017 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2017-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

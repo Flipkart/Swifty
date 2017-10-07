@@ -9,7 +9,10 @@
 // See https://github.com/Flipkart/Swifty/blob/master/LICENSE for the full license
 //
 
+#if os(iOS)
 import Foundation
+import UIKit
+
 
 @available(iOS 10.0, *)
 struct NetworkResourceMetric {
@@ -154,3 +157,5 @@ extension UIColor {
         )
     }
 }
+
+#endif

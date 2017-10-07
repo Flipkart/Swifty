@@ -39,7 +39,7 @@ class TestWebService: WebService {
     }
     
     static func get(statusCode: Int) -> NetworkResource {
-         return server.get("/status/\(statusCode)")
+        return server.get("/status/\(statusCode)")
     }
     
     static func baseResource() -> BaseResource {
@@ -98,7 +98,7 @@ class WebServiceTests: XCTestCase {
     }
     
     func testMethodModifiers() {
-
+        
         let getResource = TestWebService.baseResource().get("get")
         let postResource = TestWebService.baseResource().post("post")
         let putResource = TestWebService.baseResource().post("put")
@@ -228,3 +228,4 @@ class WebServiceTests: XCTestCase {
     }
     
 }
+

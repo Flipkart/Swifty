@@ -9,6 +9,7 @@
 // See https://github.com/Flipkart/Swifty/blob/master/LICENSE for the full license
 //
 
+#if os(iOS)
 import UIKit
 
 @available(iOS 10.0, *)
@@ -79,3 +80,4 @@ extension URLSessionTaskTransactionMetrics {
         return (secureConnectionEndDate.timeIntervalSince1970 - secureConnectionStartDate.timeIntervalSince1970) * 1000
     }
 }
+#endif
