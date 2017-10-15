@@ -146,6 +146,36 @@ public extension NetworkResourceWithBody {
         return self
     }
     
+    /// Sets the HTTP Body of the resource with multipart form-data
+    ///
+    /// Internally sets the Content-Type header of the resource to "multipart/form-data"
+    ///
+    /// - Parameters:
+    ///   - parameters: parameters
+    ///   - multipartDatas: array of `MultipartData`
+    /// - Returns: NetworkResourceWithBody
+    @discardableResult func multipart(_ parameters: Dictionary<String, Any>?, multipartData:[MultipartData]) -> NetworkResourceWithBody {
+        
+        /// Checking for creation error
+        guard self.creationError == nil else {
+            return self
+        }
+        let boundary = String(format: "com.swifty.multipart.%08x%08x", arc4random(), arc4random())
+        /// Sets the content-type
+        self.contentType("multipart/form-data; boundary=\(boundary)")
+        
+        let multipartFormData = getMultipartFormData(parameters, multipartDatas: multipartData, boundary: boundary)
+        
+        ///Sets the http body
+        if let bodyData = multipartFormData {
+            self.request.httpBody = bodyData
+        } else {
+            self.creationError = WebServiceError.fieldsEncodingFailure(dictionary: parameters ?? [:])
+        }
+        
+        return self
+    }
+    
     /// Sets the HTTP Body of the resource to the given Data
     ///
     /// - Parameters:
