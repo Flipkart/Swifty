@@ -244,5 +244,38 @@ public extension NetworkResource {
         
         return components.map { "\($0)=\($1)" }.joined(separator: "&")
     }
+    
+    /// Returns encoded multipart form-data with given parameters.
+    ///
+    /// - Parameters:
+    ///   - parameters: parameters
+    ///   - multipartDatas: array of `MultipartData`
+    ///   - boundary: boundary to create multipart form-data
+    /// - Returns: Data
+    internal func getMultipartFormData(_ parameters: [String: Any]?, multipartDatas:[MultipartData], boundary:String) -> Data? {
+        var bodyData = Data()
+        // Parameters
+        if let parameters = parameters {
+            for (key, value) in parameters {
+                let valueObj: Any = value is NSNull ? "null" : value
+                var body = ""
+                body += "--\(boundary)\r\n"
+                body += "Content-Disposition: form-data; name=\"\(key)\""
+                body += "\r\n\r\n\(valueObj)\r\n"
+                if let data = body.data(using: .utf8) {
+                    bodyData.append(data)
+                } else {
+                    return nil
+                }
+            }
+        }
+        
+        // multiipart data
+        for part in multipartDatas {
+            bodyData.append(part.getFormData(boundary: boundary))
+        }
+        bodyData.append("--\(boundary)--\r\n".data(using: .utf8)!)
+        return bodyData
+    }
 }
 
