@@ -27,4 +27,10 @@ class HTTPBin: WebService {
                      .canHaveConstraints(true)
     }
     
+    static func uploadImageRequest(with parameters: [String: Any], multipartData:[MultipartData]) -> NetworkResource {
+        return server.post("post")
+            .multipart(parameters, multipartData: multipartData)
+            .canHaveConstraints(true)
+    }
+    
 }

@@ -160,7 +160,7 @@ public extension NetworkResourceWithBody {
         guard self.creationError == nil else {
             return self
         }
-        let boundary = String(format: "com.swifty.multipart.%08x%08x", arc4random(), arc4random())
+        let boundary = String(format: "com.swifty.multipart-data.%08x%08x", arc4random(), arc4random())
         /// Sets the content-type
         self.contentType("multipart/form-data; boundary=\(boundary)")
         

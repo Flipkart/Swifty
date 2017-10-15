@@ -29,6 +29,18 @@ class ViewController: UIViewController {
             }
             
         }
+        uploadImage()
+    }
+    
+    func uploadImage() {
+        let parameters = ["comment":"hello"]
+        let imageData = UIImagePNGRepresentation(UIImage(named:"SwiftyLogo")!)
+        let multipartData = MultipartData(data: imageData!, parameterName: "image")
+        HTTPBin.uploadImageRequest(with: parameters, multipartData: [multipartData]).load(successBlock: { (data) in
+            print("Image uploaded successfully")
+        }) { (error) in
+            print("Multipart error : \(error.debugDescription)")
+        }
     }
     
 }
