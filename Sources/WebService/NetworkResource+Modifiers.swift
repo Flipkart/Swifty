@@ -35,7 +35,7 @@ public extension NetworkResource {
     ///   - user: The username
     ///   - password: The password
     /// - Returns: NetworkResource
-    @discardableResult func authorizationHeader(username: String, password: String) -> NetworkResource {
+    @objc @discardableResult func authorizationHeader(username: String, password: String) -> NetworkResource {
         
         ///Checking for creation error
         guard self.creationError == nil else {
@@ -58,7 +58,7 @@ public extension NetworkResource {
     ///   - key: header name
     ///   - value: header value
     /// - Returns: NetworkResource
-    @discardableResult func header(key: String, value: String?) -> NetworkResource {
+    @objc @discardableResult func header(key: String, value: String?) -> NetworkResource {
         
         ///Checking for creation error
         guard self.creationError == nil else {
@@ -81,7 +81,7 @@ public extension NetworkResource {
     ///
     /// - Parameter dictionary: Dictionary of header elements.
     /// - Returns: NetworkResource
-    @discardableResult func headers(_ dictionary: Dictionary<String, String>) -> NetworkResource {
+    @objc @discardableResult func headers(_ dictionary: Dictionary<String, String>) -> NetworkResource {
         
         guard self.creationError == nil else {
             return self
@@ -102,7 +102,7 @@ public extension NetworkResource {
     ///
     /// - Parameter dictionary: Dictionary containing the query parameters
     /// - Returns: NetworkResource
-    @discardableResult func query(_ dictionary: Dictionary<String, Any>) -> NetworkResource {
+    @objc @discardableResult func query(_ dictionary: Dictionary<String, Any>) -> NetworkResource {
         ///Checking for creation error
         guard self.creationError == nil else {
             return self
@@ -130,7 +130,7 @@ public extension NetworkResource {
     /// Sets whether the request should wait for Constraints or not. `false` by default.
     ///
     /// If false, this request will not call any of the given Constraint's methods, and will directly go the the Request Interceptors.
-    @discardableResult func canHaveConstraints(_ flag: Bool) -> NetworkResource {
+    @objc @discardableResult func canHaveConstraints(_ flag: Bool) -> NetworkResource {
         ///Checking for creation error
         guard self.creationError == nil else {
             return self
@@ -147,24 +147,24 @@ public extension NetworkResource {
     }
     
     /// Adds the given tag to the resource
-    @discardableResult func tag(_ tag: String) -> NetworkResource {
+    @objc @discardableResult func tag(_ tag: String) -> NetworkResource {
         self.tags.insert(tag)
         return self
     }
     /// Adds the given tags to the resource
-    @discardableResult func tags(_ tags: [String]) -> NetworkResource {
+    @objc @discardableResult func tags(_ tags: [String]) -> NetworkResource {
         self.tags.formUnion(tags)
         return self
     }
     
     /// Sets the Queue on which the response should be delivered on. By default, every response is delivered on the main queue.
-    @discardableResult func deliverOn(thread: DispatchQueue) -> NetworkResource {
+    @objc @discardableResult func deliverOn(thread: DispatchQueue) -> NetworkResource {
         self.deliverOn = thread
         return self
     }
     
     /// Checks whether the resource has the given tag
-    func hasTag(_ tag: String) -> Bool {
+    @objc func hasTag(_ tag: String) -> Bool {
         return self.tags.contains(tag)
     }
     
@@ -172,7 +172,7 @@ public extension NetworkResource {
     ///
     /// - Parameter contentType: Content-Type
     /// - Returns: NetworkResource
-    @discardableResult func contentType(_ contentType: String) -> NetworkResource {
+    @objc @discardableResult func contentType(_ contentType: String) -> NetworkResource {
         if let _ = self.request.allHTTPHeaderFields {
             self.request.allHTTPHeaderFields!.updateValue(contentType, forKey: "Content-Type")
         }

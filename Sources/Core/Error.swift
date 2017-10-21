@@ -86,7 +86,7 @@ public class WebServiceError {
     }
     
     /* User Info Helper */
-    static func userInfo(description: String) -> [AnyHashable : Any] {
+    static func userInfo(description: String) -> [String: Any] {
         return [NSLocalizedDescriptionKey: description]
     }
 }
@@ -107,7 +107,7 @@ public class SwiftyError {
     }
     
     /* User Info Helper */
-    static func userInfo(description: String) -> [AnyHashable : Any] {
+    static func userInfo(description: String) -> [String: Any] {
         return [NSLocalizedDescriptionKey: description]
     }
 }

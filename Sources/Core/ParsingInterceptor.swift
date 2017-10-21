@@ -13,7 +13,7 @@ import Foundation
 
 
 /// Built-In response interceptor which runs the given response through it's expected ResponseParser.
-class SwiftyParsingInterceptor: ResponseInterceptor {
+final class SwiftyParsingInterceptor: ResponseInterceptor {
     
     /// Intercepts the network response, runs throught it's expected ResponseParses and gives back the NetworkResponse.
     ///
@@ -40,7 +40,7 @@ struct JSONParser: ResponseParser {
         /// We do this seprately because we don't want, for example, a JSON parsing error of the errored response to override the original error. Hence the try? during JSON parsing here.
         guard response.error == nil else {
             if let data = response.data, data.count > 0 {
-                if let json = try? JSONSerialization.jsonObject(with: data, options: readingOptions) as? [AnyHashable: Any] {
+                if let json = try? JSONSerialization.jsonObject(with: data, options: readingOptions) as? [String: Any] {
                     response.error = NSError(domain: response.error?.domain ?? SwiftyError.errorDomain, code: response.error?.code ?? SwiftyErrorCodes.responseValidation.rawValue, userInfo: json)
                 }
             }

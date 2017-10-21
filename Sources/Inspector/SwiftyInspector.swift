@@ -29,19 +29,19 @@ struct NetworkResourceMetric {
  > Only available on iOS 10+.
  */
 @available(iOS 10.0, *)
-public class SwiftyInspector: UITableViewController {
+@objc public final class SwiftyInspector: UITableViewController {
     
     /**
      The shared instance of the Swifty Inspector.
     */
-    public static let shared = SwiftyInspector()
+    @objc public static let shared = SwiftyInspector()
     
     /**
      Get the Swifty Inspector's View Controller.
      
     - Returns: UINavigationController - The `SwiftyInspector's UIViewController` wrapped in a `UINavigationController`
     */
-    public static func presentableInspector() -> UINavigationController {
+    @objc public static func presentableInspector() -> UINavigationController {
         return UINavigationController(rootViewController: SwiftyInspector.shared)
     }
     
@@ -64,7 +64,7 @@ public class SwiftyInspector: UITableViewController {
         title = "Swifty Inspector"
     }
     
-    func closeViewController() {
+    @objc func closeViewController() {
         self.dismiss(animated: true, completion: nil)
     }
     
