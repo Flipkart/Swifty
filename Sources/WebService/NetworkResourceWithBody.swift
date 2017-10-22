@@ -25,7 +25,7 @@ public extension NetworkResourceWithBody {
     ///   - key: header name
     ///   - value: header value
     /// - Returns: NetworkResourceWithBody
-    @discardableResult override func header(key: String, value: String?) -> NetworkResourceWithBody {
+    @objc @discardableResult override func header(key: String, value: String?) -> NetworkResourceWithBody {
         
         ///Checking for creation error
         guard self.creationError == nil else {
@@ -48,7 +48,7 @@ public extension NetworkResourceWithBody {
     ///
     /// - Parameter dictionary: Dictionary of header key value pairs
     /// - Returns: NetworkResourceWithBody
-    @discardableResult override func headers(_ dictionary: Dictionary<String, String>) -> NetworkResourceWithBody {
+    @objc @discardableResult override func headers(_ dictionary: Dictionary<String, String>) -> NetworkResourceWithBody {
         
         guard self.creationError == nil else {
             return self
@@ -73,7 +73,7 @@ public extension NetworkResourceWithBody {
     ///   - user: The username
     ///   - password: The password
     /// - Returns: NetworkResourceWithBody
-    @discardableResult override func authorizationHeader(username: String, password: String) -> NetworkResourceWithBody {
+    @objc @discardableResult override func authorizationHeader(username: String, password: String) -> NetworkResourceWithBody {
         
         ///Checking for creation error
         guard self.creationError == nil else {
@@ -94,7 +94,7 @@ public extension NetworkResourceWithBody {
     ///
     /// - Parameter dictionary: Dictionary containing the query parameters
     /// - Returns: NetworkResourceWithBody
-    @discardableResult override func query(_ dictionary: Dictionary<String, Any>) -> NetworkResourceWithBody {
+    @objc @discardableResult override func query(_ dictionary: Dictionary<String, Any>) -> NetworkResourceWithBody {
         ///Checking for creation error
         guard self.creationError == nil else {
             return self
@@ -123,7 +123,7 @@ public extension NetworkResourceWithBody {
     ///
     /// - Parameter dictionary: Dictionary containing key value pairs
     /// - Returns: NetworkResourceWithBody
-    @discardableResult func fields(_ dictionary: Dictionary<String, Any>) -> NetworkResourceWithBody {
+    @objc @discardableResult func fields(_ dictionary: Dictionary<String, Any>) -> NetworkResourceWithBody {
         
         /// Checking for creation error
         guard self.creationError == nil else {
@@ -152,7 +152,7 @@ public extension NetworkResourceWithBody {
     ///   - data: data to be sent
     ///   - mimeType: MIME/Content-Type to be set in the resource's headers
     /// - Returns: NetworkResourceWithBody
-    @discardableResult func data(_ data: Data, mimeType: String?) -> NetworkResourceWithBody {
+    @objc @discardableResult func data(_ data: Data, mimeType: String?) -> NetworkResourceWithBody {
         
         ///Checking for creation error
         guard self.creationError == nil else {
@@ -199,7 +199,7 @@ public extension NetworkResourceWithBody {
     ///   - body: key-value pairs
     ///   - options: JSONSerialization.WritingOptions, empty [] by default.
     /// - Returns: NetworkResourceWithBody
-    @discardableResult func json(body: Dictionary<AnyHashable, Any>, options: JSONSerialization.WritingOptions = []) -> NetworkResourceWithBody {
+    @objc @discardableResult func json(body: Dictionary<AnyHashable, Any>, options: JSONSerialization.WritingOptions = []) -> NetworkResourceWithBody {
         
         ///Checking for creation error
         guard self.creationError == nil else {
@@ -225,7 +225,7 @@ public extension NetworkResourceWithBody {
     ///   - body: Array
     ///   - options: JSONSerialization.WritingOptions, empty [] by default.
     /// - Returns: NetworkResourceWithBody
-    @discardableResult func jsonArray(array: Array<Any>, options: JSONSerialization.WritingOptions = []) -> NetworkResourceWithBody {
+    @objc @discardableResult func jsonArray(array: Array<Any>, options: JSONSerialization.WritingOptions = []) -> NetworkResourceWithBody {
         
         ///Checking for creation error
         guard self.creationError == nil else {
@@ -248,7 +248,7 @@ public extension NetworkResourceWithBody {
     /// Sets whether the request should wait for Constraints or not. `false` by default.
     ///
     /// If false, this request will not call any of the given Constraint's methods, and will directly go the the Request Interceptors.
-    @discardableResult override func canHaveConstraints(_ flag: Bool) -> NetworkResourceWithBody {
+    @objc @discardableResult override func canHaveConstraints(_ flag: Bool) -> NetworkResourceWithBody {
         ///Checking for creation error
         guard self.creationError == nil else {
             return self
@@ -259,18 +259,18 @@ public extension NetworkResourceWithBody {
     }
     
     /// Adds the given tag to the resource
-    @discardableResult override func tag(_ tag: String) -> NetworkResourceWithBody {
+    @objc @discardableResult override func tag(_ tag: String) -> NetworkResourceWithBody {
         self.tags.insert(tag)
         return self
     }
     /// Adds the given tags to the resource
-    @discardableResult override func tags(_ tags: [String]) -> NetworkResourceWithBody {
+    @objc @discardableResult override func tags(_ tags: [String]) -> NetworkResourceWithBody {
         self.tags.formUnion(tags)
         return self
     }
     
     /// Sets the Queue on which the response should be delivered on. By default, every response is delivered on the main queue.
-    @discardableResult override func deliverOn(thread: DispatchQueue) -> NetworkResourceWithBody {
+    @objc @discardableResult override func deliverOn(thread: DispatchQueue) -> NetworkResourceWithBody {
         self.deliverOn = thread
         return self
     }
@@ -279,7 +279,7 @@ public extension NetworkResourceWithBody {
     ///
     /// - Parameter contentType: Content-Type
     /// - Returns: NetworkResourceWithBody
-    @discardableResult override func contentType(_ contentType: String) -> NetworkResourceWithBody {
+    @objc @discardableResult override func contentType(_ contentType: String) -> NetworkResourceWithBody {
         if let _ = self.request.allHTTPHeaderFields {
             self.request.allHTTPHeaderFields!.updateValue(contentType, forKey: "Content-Type")
         }

@@ -19,7 +19,7 @@ extension NetworkResource {
     /// Loads the network resource, and calls the completion block with an unserialized NetworkResponse
     ///
     /// - Parameter completion: completion block to be executed when resource is successfully loaded.
-    public func load(completion: @escaping (NetworkResponse) -> Void) {
+    @objc public func load(completion: @escaping (NetworkResponse) -> Void) {
         
         assert((self.networkInterface != nil), "Your Resource \(self) doesn't have a network interface set. Your network request cannot be fired over the network.")
         
@@ -40,7 +40,7 @@ extension NetworkResource {
     /// - Parameters:
     ///   - successBlock: block to be executed when response doesn't have any errors.
     ///   - failureBlock: block to be executed when response has an error.
-    public func load(successBlock: @escaping (_ responseObject: Data?) -> Void, failureBlock: @escaping (_ error: NSError) -> Void) {
+    @objc public func load(successBlock: @escaping (_ responseObject: Data?) -> Void, failureBlock: @escaping (_ error: NSError) -> Void) {
         self.load { (networkResponse) in
             if let error = networkResponse.error {
                 failureBlock(error)
@@ -64,7 +64,7 @@ extension NetworkResource {
     ///   - readingOptions: JSONSerialization.ReadingOptions, empty by default.
     ///   - successBlock: block to be executed when response doesn't have any errors.
     ///   - failureBlock: block to be executed when response has an error.
-    public func loadJSON(readingOptions: JSONSerialization.ReadingOptions = [], successBlock: @escaping (_ responseObject: Any?) -> Void, failureBlock: @escaping (_ error: NSError) -> Void){
+    @objc public func loadJSON(readingOptions: JSONSerialization.ReadingOptions = [], successBlock: @escaping (_ responseObject: Any?) -> Void, failureBlock: @escaping (_ error: NSError) -> Void){
         self.parser = JSONParser(readingOptions: readingOptions)
         self.load { (networkResponse) in
             if let json = networkResponse.result {

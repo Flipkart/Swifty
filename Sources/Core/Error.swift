@@ -63,26 +63,26 @@ public class WebServiceError {
     
     ///  Invalid URL.
     public static func invalidURL(url: String) -> NSError {
-        return NSError(domain: WebServiceError.errorDomain, code:  WebServiceErrorCodes.invalidURL.rawValue, userInfo: self.userInfo(description: "Invalid URL: \(url)"))
+        return NSError(domain: WebServiceError.errorDomain, code: WebServiceErrorCodes.invalidURL.rawValue, userInfo: self.userInfo(description: "Invalid URL: \(url)"))
     }
     
     /// Invalid URL after adding query params.
     public static func invalidQueryStringWithURL(url: String) -> NSError {
-        return NSError(domain: WebServiceError.errorDomain, code:  WebServiceErrorCodes.invalidQueryStringWithURL.rawValue, userInfo: self.userInfo(description: "Invalid URL after adding Query String: \(url)"))
+        return NSError(domain: WebServiceError.errorDomain, code: WebServiceErrorCodes.invalidQueryStringWithURL.rawValue, userInfo: self.userInfo(description: "Invalid URL after adding Query String: \(url)"))
     }
     
     /// Fields encoding failure.
-    public static func fieldsEncodingFailure(dictionary: Dictionary<String, Any>) -> NSError {
-        return NSError(domain: WebServiceError.errorDomain, code:  WebServiceErrorCodes.fieldsEncodingFailure.rawValue, userInfo: self.userInfo(description: "Unable to encode fields to data using .utf8 encoding: \(dictionary)"))
+    public static func fieldsEncodingFailure(dictionary: [String: Any]) -> NSError {
+        return NSError(domain: WebServiceError.errorDomain, code: WebServiceErrorCodes.fieldsEncodingFailure.rawValue, userInfo: self.userInfo(description: "Unable to encode fields to data using .utf8 encoding: \(dictionary)"))
     }
     /// JSON Encoding failure.
-    public static func jsonEncodingFailure(dictionary: Dictionary<AnyHashable, Any>, error: Error?) -> NSError {
-        return NSError(domain: WebServiceError.errorDomain, code:  WebServiceErrorCodes.jsonEncodingFailure.rawValue, userInfo: self.userInfo(description: "Unable to serialize JSON: \(dictionary), due to error: \(String(describing: error?.localizedDescription))"))
+    public static func jsonEncodingFailure(dictionary: [AnyHashable: Any], error: Error?) -> NSError {
+        return NSError(domain: WebServiceError.errorDomain, code: WebServiceErrorCodes.jsonEncodingFailure.rawValue, userInfo: self.userInfo(description: "Unable to serialize JSON: \(dictionary), due to error: \(String(describing: error?.localizedDescription))"))
     }
     
     /// JSON Encoding failure.
-    public static func jsonEncodingFailure(array: Array<Any>, error: Error?) -> NSError {
-        return NSError(domain: WebServiceError.errorDomain, code:  WebServiceErrorCodes.jsonEncodingFailure.rawValue, userInfo: self.userInfo(description: "Unable to serialize JSON Array: \(array), due to error: \(String(describing: error?.localizedDescription))"))
+    public static func jsonEncodingFailure(array: [Any], error: Error?) -> NSError {
+        return NSError(domain: WebServiceError.errorDomain, code: WebServiceErrorCodes.jsonEncodingFailure.rawValue, userInfo: self.userInfo(description: "Unable to serialize JSON Array: \(array), due to error: \(String(describing: error?.localizedDescription))"))
     }
     
     /* User Info Helper */
@@ -98,7 +98,7 @@ public class SwiftyError {
     
     /// JSON Parsing failure
     public static func jsonParsingFailure(error: Error?) -> NSError {
-        return NSError(domain: SwiftyError.errorDomain, code:  SwiftyErrorCodes.jsonParsingFailure.rawValue, userInfo: self.userInfo(description: "Unable to deserialize JSON due to error: \(String(describing: error?.localizedDescription))"))
+        return NSError(domain: SwiftyError.errorDomain, code: SwiftyErrorCodes.jsonParsingFailure.rawValue, userInfo: self.userInfo(description: "Unable to deserialize JSON due to error: \(String(describing: error?.localizedDescription))"))
     }
     
     /// Response Validation failure
