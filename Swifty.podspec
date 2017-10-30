@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = 'https://github.com/Flipkart/Swifty'
-  s.license          = { :type => 'Apache', :file => 'LICENSE' }
+  s.license          = { :type => 'Apache, Version 2.0', :file => 'LICENSE' }
   s.author           = { 'Siddharth Gupta' => 'siddharth.gupta@flipkart.com' }
   s.source           = { :git => 'https://github.com/Flipkart/Swifty.git', :tag => s.version.to_s }
 

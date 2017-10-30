@@ -95,7 +95,7 @@ class ConstraintTests : XCTestCase {
     func testConcurrentBlocking() {
         
         let expectation = self.expectation(description: "All tasks completed")
-        var taskCount : Int = 2
+        var taskCount : Int = 8
         let timeout : Double = Double(taskCount) * Double(10)
         
         let manager = Swifty(constraints: [TestConstraint(2), TestConstraint(1), TestConstraint(3)])

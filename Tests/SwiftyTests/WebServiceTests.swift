@@ -181,6 +181,15 @@ class WebServiceTests: XCTestCase {
         XCTAssertEqual(bodyResource.request.url?.absoluteString, "https://httpbin.org/post?\(expectedQuery)")
     }
     
+    func testPathWithExistingQueryIsPreserved() {
+        let query = "hello=world&count=0"
+        let path = "path?\(query)"
+        let resource = TestWebService.baseResource().get(path)
+        
+        XCTAssertNotNil(resource)
+        XCTAssertEqual(resource.request.url?.absoluteString, "https://httpbin.org/path?\(query)")
+    }
+    
     func testJSONParser() {
         
         let expectation = self.expectation(description: "Got the IP in response")
