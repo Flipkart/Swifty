@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Swifty'
-  s.version          = '0.9.3'
+  s.version          = '1.0.0'
   s.summary          = 'Lightweight & Fast Network Abstraction Layer for iOS'
 
   s.description      = <<-DESC
@@ -8,11 +8,14 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = 'https://github.com/Flipkart/Swifty'
-  s.license          = { :type => 'Apache', :file => 'LICENSE' }
+  s.license          = { :type => 'Apache, Version 2.0', :file => 'LICENSE' }
   s.author           = { 'Siddharth Gupta' => 'siddharth.gupta@flipkart.com' }
   s.source           = { :git => 'https://github.com/Flipkart/Swifty.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.10'
+  s.tvos.deployment_target = '9.0'
+  s.watchos.deployment_target = '2.0'
 
-  s.source_files = 'Swifty/Classes/**/*'
+  s.source_files = 'Sources/**/*'
 end

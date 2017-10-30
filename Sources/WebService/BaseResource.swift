@@ -58,7 +58,7 @@ public extension BaseResource {
     /// - Returns: NetworkResource
     func get(_ path: String) -> NetworkResource {
         
-        self.request.url?.appendPathComponent(path, isDirectory: false)
+        self.request.url?.appendPathComponentPreservingQuery(path: path, isDirectory: false)
         self.request.httpMethod = "GET"
         return NetworkResource(resource: self)
     }
@@ -73,7 +73,7 @@ public extension BaseResource {
     /// - Returns: NetworkResourceWithBody
     func post(_ path: String) -> NetworkResourceWithBody {
         
-        self.request.url?.appendPathComponent(path, isDirectory: false)
+        self.request.url?.appendPathComponentPreservingQuery(path: path, isDirectory: false)
         self.request.httpMethod = "POST"
         return NetworkResourceWithBody(resource: self)
     }
@@ -88,7 +88,7 @@ public extension BaseResource {
     /// - Returns: NetworkResourceWithBody
     func put(_ path: String) -> NetworkResourceWithBody {
         
-        self.request.url?.appendPathComponent(path, isDirectory: false)
+        self.request.url?.appendPathComponentPreservingQuery(path: path, isDirectory: false)
         self.request.httpMethod = "PUT"
         return NetworkResourceWithBody(resource: self)
     }
@@ -103,8 +103,25 @@ public extension BaseResource {
     /// - Returns: NetworkResourceWithBody
     func delete(_ path: String) -> NetworkResourceWithBody {
         
-        self.request.url?.appendPathComponent(path, isDirectory: false)
+        self.request.url?.appendPathComponentPreservingQuery(path: path, isDirectory: false)
         self.request.httpMethod = "DELETE"
         return NetworkResourceWithBody(resource: self)
     }
+}
+
+fileprivate extension URL {
+    
+    mutating func appendPathComponentPreservingQuery(path: String, isDirectory: Bool) {
+        
+        guard let components = URLComponents(string: path), let query = components.query else {
+            self.appendPathComponent(path, isDirectory: isDirectory)
+            return
+        }
+        
+        self.appendPathComponent(components.path, isDirectory: isDirectory)
+        if let url = URL(string: "\(self.absoluteString)?\(query)") {
+            self = url
+        }
+    }
+    
 }

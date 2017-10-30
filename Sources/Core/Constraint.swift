@@ -42,7 +42,7 @@ open class Constraint {
     ///   - task: SwiftyNetworkTask
     ///   - target: DispatchQueue
     func satisfy(for task: SwiftyNetworkTask, on target: DispatchQueue) {
-        synchronizer.sync {
+        synchronizer.async {
             if(self.isConstraintSatisfied(for: task.resource)) {
                 task.group.leave()
             } else {
@@ -101,7 +101,7 @@ open class Constraint {
      - Parameter error: NSError?
      */
     public func finish(with error: Error?) {
-        synchronizer.sync {
+        synchronizer.async {
             self.state = .notExecuting
             for task in self.tasks {
                 if let error = error {

@@ -74,7 +74,7 @@ public typealias SwiftyFailureBlock = (NetworkResponse) -> Void
                             constraints: [Constraint] = [],
                             requestInterceptors: [RequestInterceptor] = [],
                             responseInterceptors: [ResponseInterceptor] = []) {
-
+        
         #if DEBUG
             let session = URLSession(configuration: configuration, delegate: SwiftyURLSessionDelegate.shared, delegateQueue: nil)
         #else
@@ -103,12 +103,12 @@ public typealias SwiftyFailureBlock = (NetworkResponse) -> Void
                 conditionManager.satisfy(for: task, on: self.networkQueue)
             }
         }
-
+        
         task.onValue { (networkResponse) in
             let interceptedResponse = self.responseInterceptors.reduce(networkResponse, { $1.intercept(response: $0) })
             successBlock(interceptedResponse)
         }
-
+        
         task.onError { (networkResponse) in
             let interceptedResponse = self.responseInterceptors.reduce(networkResponse, { $1.intercept(response: $0) })
             failureBlock(interceptedResponse)
@@ -136,3 +136,4 @@ extension Swifty: WebServiceNetworkInterface {
         })
     }
 }
+

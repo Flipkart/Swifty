@@ -1,5 +1,18 @@
 # Change Log
 
+## [1.0.0](https://github.com/Flipkart/Swifty/releases/tag/1.0.0)
+Released on 2017-10-31.
+
+#### Breaking
+- Swifty 1.0.0 is now written in Swift 4
+
+#### Added
+- Support for macOS, watchOS & tvOS
+- More Tests
+
+#### Fixed
+- `BaseResource` modifiers now preserve query params if present
+
 ## [0.9.3](https://github.com/Flipkart/Swifty/releases/tag/0.9.3)
 Released on 2017-10-02.
 

@@ -39,7 +39,7 @@ class TestWebService: WebService {
     }
     
     static func get(statusCode: Int) -> NetworkResource {
-         return server.get("/status/\(statusCode)")
+        return server.get("/status/\(statusCode)")
     }
     
     static func baseResource() -> BaseResource {
@@ -98,7 +98,7 @@ class WebServiceTests: XCTestCase {
     }
     
     func testMethodModifiers() {
-
+        
         let getResource = TestWebService.baseResource().get("get")
         let postResource = TestWebService.baseResource().post("post")
         let putResource = TestWebService.baseResource().post("put")
@@ -181,6 +181,15 @@ class WebServiceTests: XCTestCase {
         XCTAssertEqual(bodyResource.request.url?.absoluteString, "https://httpbin.org/post?\(expectedQuery)")
     }
     
+    func testPathWithExistingQueryIsPreserved() {
+        let query = "hello=world&count=0"
+        let path = "path?\(query)"
+        let resource = TestWebService.baseResource().get(path)
+        
+        XCTAssertNotNil(resource)
+        XCTAssertEqual(resource.request.url?.absoluteString, "https://httpbin.org/path?\(query)")
+    }
+    
     func testJSONParser() {
         
         let expectation = self.expectation(description: "Got the IP in response")
@@ -228,3 +237,4 @@ class WebServiceTests: XCTestCase {
     }
     
 }
+

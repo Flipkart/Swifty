@@ -16,7 +16,9 @@
  Metrics - All Of Them
 */
 
+#if os(iOS)
 import Foundation
+import UIKit
 
 @available(iOS 10.0, *)
 class SwiftyInspectorDetailTableView: UITableViewController {
@@ -159,8 +161,6 @@ class SwiftyInspectorDetailTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
-    
-    
 }
+
+#endif

@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		128100FC1E4C788F00C2A006 /* RequestBlockingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128100FA1E4C783200C2A006 /* RequestBlockingTests.swift */; };
-		12B884471E87D3BC001457E3 /* InterceptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B884461E87D3BC001457E3 /* InterceptorTests.swift */; };
-		12CC52C71EB719B900B3597F /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC52C61EB719B900B3597F /* WebServiceTests.swift */; };
-		12DB0DEF1EEC6BDE0009E38D /* WebServicePerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB0DEE1EEC6BDE0009E38D /* WebServicePerformanceTests.swift */; };
 		16C7039B1F64318200BF4E30 /* HTTPBinWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C7039A1F64318200BF4E30 /* HTTPBinWebService.swift */; };
 		16C7039D1F643CC000BF4E30 /* IPConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C7039C1F643CC000BF4E30 /* IPConstraint.swift */; };
 		16C703A11F643CF600BF4E30 /* IPHeaderInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C703A01F643CF600BF4E30 /* IPHeaderInterceptor.swift */; };
@@ -35,10 +31,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		128100FA1E4C783200C2A006 /* RequestBlockingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBlockingTests.swift; sourceTree = "<group>"; };
-		12B884461E87D3BC001457E3 /* InterceptorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterceptorTests.swift; sourceTree = "<group>"; };
-		12CC52C61EB719B900B3597F /* WebServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
-		12DB0DEE1EEC6BDE0009E38D /* WebServicePerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServicePerformanceTests.swift; sourceTree = "<group>"; };
 		143C1840FC49E5F98E38BEC1 /* Pods_Swifty_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swifty_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16C7039A1F64318200BF4E30 /* HTTPBinWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPBinWebService.swift; sourceTree = "<group>"; };
 		16C7039C1F643CC000BF4E30 /* IPConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPConstraint.swift; sourceTree = "<group>"; };
@@ -150,10 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* PerformanceTests.swift */,
-				128100FA1E4C783200C2A006 /* RequestBlockingTests.swift */,
-				12B884461E87D3BC001457E3 /* InterceptorTests.swift */,
-				12CC52C61EB719B900B3597F /* WebServiceTests.swift */,
-				12DB0DEE1EEC6BDE0009E38D /* WebServicePerformanceTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -416,11 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12DB0DEF1EEC6BDE0009E38D /* WebServicePerformanceTests.swift in Sources */,
-				128100FC1E4C788F00C2A006 /* RequestBlockingTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* PerformanceTests.swift in Sources */,
-				12B884471E87D3BC001457E3 /* InterceptorTests.swift in Sources */,
-				12CC52C71EB719B900B3597F /* WebServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

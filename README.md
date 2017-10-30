@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/Flipkart/Swifty.svg?branch=master)](https://travis-ci.org/Flipkart/Swifty)
 [![Version](https://img.shields.io/cocoapods/v/Swifty.svg?style=flat)](http://cocoapods.org/pods/Swifty)
 [![Platform](https://img.shields.io/cocoapods/p/Swifty.svg?style=flat)](http://cocoapods.org/pods/Swifty)
+[![Swift](https://img.shields.io/badge/swift-4-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![Docs](https://img.shields.io/badge/Docs-awesome-12a49f.svg)](https://flipkart.github.io/Swifty)
 [![License](https://img.shields.io/cocoapods/l/Swifty.svg?style=flat)](http://cocoapods.org/pods/Swifty)
 
@@ -249,5 +250,8 @@ $ pod install
 ## Requirements
 
 - iOS 8.0+
-- Swift 3.1+
+- Swift 4
 
+---
+
+[![Readme Score](http://readme-score-api.herokuapp.com/score.svg?url=flipkart/swifty)](http://clayallsopp.github.io/readme-score?url=flipkart/swifty)
