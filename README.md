@@ -252,3 +252,6 @@ $ pod install
 - iOS 8.0+
 - Swift 3.1+
 
+---
+
+[![Readme Score](http://readme-score-api.herokuapp.com/score.svg?url=flipkart/swifty)](http://clayallsopp.github.io/readme-score?url=flipkart/swifty)
