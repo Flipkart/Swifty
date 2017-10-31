@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.1](https://github.com/Flipkart/Swifty/releases/tag/1.0.1)
+Released on 2017-10-31.
+
+#### Fixed
+- Improved Query Preservation in `BaseResource` modifiers
+
 ## [1.0.0](https://github.com/Flipkart/Swifty/releases/tag/1.0.0)
 Released on 2017-10-31.
 
