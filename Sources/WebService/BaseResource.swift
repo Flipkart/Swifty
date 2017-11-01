@@ -115,7 +115,7 @@ fileprivate extension URL {
         
         guard let components = URLComponents(string: path), let query = components.query else {
             
-            /// This mean URLComponents failed to parse the URL
+            /// Means URLComponents failed to parse the URL
             if(path.contains("?")){
                 let split = path.split(separator: "?", maxSplits: 1, omittingEmptySubsequences: true)
                 if split.count > 1 {

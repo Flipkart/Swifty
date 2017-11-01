@@ -90,8 +90,7 @@ public extension NetworkResource {
         dictionary.forEach({ (key, value) in
             if(!value.isEmpty){
                 self.request.setValue(value, forHTTPHeaderField: key)
-            }
-            else {
+            } else {
                 print("NetworkResource: Didn't add header for key: \(key) in the provided headers, since the value provided was empty.")
             }
         })
@@ -175,8 +174,7 @@ public extension NetworkResource {
     @objc @discardableResult func contentType(_ contentType: String) -> NetworkResource {
         if let _ = self.request.allHTTPHeaderFields {
             self.request.allHTTPHeaderFields!.updateValue(contentType, forKey: "Content-Type")
-        }
-        else {
+        } else {
             self.request.allHTTPHeaderFields = ["Content-Type": contentType]
         }
         return self

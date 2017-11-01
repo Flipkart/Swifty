@@ -101,8 +101,8 @@ class WebServiceTests: XCTestCase {
         
         let getResource = TestWebService.baseResource().get("get")
         let postResource = TestWebService.baseResource().post("post")
-        let putResource = TestWebService.baseResource().post("put")
-        let deleteResource = TestWebService.baseResource().post("delete")
+        let putResource = TestWebService.baseResource().put("put")
+        let deleteResource = TestWebService.baseResource().delete("delete")
         
         XCTAssertNotNil(getResource)
         XCTAssertNotNil(postResource)
@@ -110,9 +110,13 @@ class WebServiceTests: XCTestCase {
         XCTAssertNotNil(deleteResource)
         
         XCTAssertEqual(getResource.request.url?.absoluteString, "https://httpbin.org/get")
+        XCTAssertEqual(getResource.request.httpMethod, "GET")
         XCTAssertEqual(postResource.request.url?.absoluteString, "https://httpbin.org/post")
+        XCTAssertEqual(postResource.request.httpMethod, "POST")
         XCTAssertEqual(putResource.request.url?.absoluteString, "https://httpbin.org/put")
+        XCTAssertEqual(putResource.request.httpMethod, "PUT")
         XCTAssertEqual(deleteResource.request.url?.absoluteString, "https://httpbin.org/delete")
+        XCTAssertEqual(deleteResource.request.httpMethod, "DELETE")
     }
     
     func testHeaderModifier() {

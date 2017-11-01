@@ -14,7 +14,6 @@ import Foundation
 /// A subclass of NetworkResource, with support for carrying a request body.
 public class NetworkResourceWithBody: NetworkResource {}
 
-
 public extension NetworkResourceWithBody {
     
 // MARK: - Request Modifiers
@@ -26,21 +25,7 @@ public extension NetworkResourceWithBody {
     ///   - value: header value
     /// - Returns: NetworkResourceWithBody
     @objc @discardableResult override func header(key: String, value: String?) -> NetworkResourceWithBody {
-        
-        ///Checking for creation error
-        guard self.creationError == nil else {
-            return self
-        }
-        
-        guard let value = value else {
-            return self
-        }
-        
-        if(value.isEmpty){
-            print("NetworkResource: Didn't add header for key: \(key), since the value provided was empty.")
-            return self
-        }
-        self.request.setValue(value, forHTTPHeaderField: key)
+        super.header(key: key, value: value)
         return self
     }
     
@@ -49,19 +34,7 @@ public extension NetworkResourceWithBody {
     /// - Parameter dictionary: Dictionary of header key value pairs
     /// - Returns: NetworkResourceWithBody
     @objc @discardableResult override func headers(_ dictionary: Dictionary<String, String>) -> NetworkResourceWithBody {
-        
-        guard self.creationError == nil else {
-            return self
-        }
-        
-        dictionary.forEach({ (key, value) in
-            if(!value.isEmpty){
-                self.request.setValue(value, forHTTPHeaderField: key)
-            }
-            else {
-                print("NetworkResource: Didn't add header for key: \(key) in the provided headers, since the value provided was empty.")
-            }
-        })
+        super.headers(dictionary)
         return self
     }
     
@@ -74,19 +47,7 @@ public extension NetworkResourceWithBody {
     ///   - password: The password
     /// - Returns: NetworkResourceWithBody
     @objc @discardableResult override func authorizationHeader(username: String, password: String) -> NetworkResourceWithBody {
-        
-        ///Checking for creation error
-        guard self.creationError == nil else {
-            return self
-        }
-        
-        if let data = "\(username):\(password)".data(using: .utf8) {
-            let credential = data.base64EncodedString(options: [])
-            self.header(key: "Authorization", value: "Basic \(credential)")
-        } else {
-            print("NetworkResource: Failed to encode authorization header for \(username): \(password)")
-        }
-        
+        super.authorizationHeader(username: username, password: password)
         return self
     }
     
@@ -95,25 +56,7 @@ public extension NetworkResourceWithBody {
     /// - Parameter dictionary: Dictionary containing the query parameters
     /// - Returns: NetworkResourceWithBody
     @objc @discardableResult override func query(_ dictionary: Dictionary<String, Any>) -> NetworkResourceWithBody {
-        ///Checking for creation error
-        guard self.creationError == nil else {
-            return self
-        }
-        
-        guard let baseURL = self.request.url?.absoluteString else {
-            self.creationError = WebServiceError.emptyBaseURL()
-            return self
-        }
-        
-        let separator = baseURL.contains("?") ? "&" : "?"
-        let URLWithQueryParams = baseURL + separator + getQuery(dictionary)
-        
-        if let url = URL(string: URLWithQueryParams) {
-            self.request.url = url
-        } else {
-            self.creationError = WebServiceError.invalidQueryStringWithURL(url: URLWithQueryParams)
-        }
-        
+        super.query(dictionary)
         return self
     }
     
@@ -138,8 +81,7 @@ public extension NetworkResourceWithBody {
         ///Sets the http body
         if let queryData = queryString.data(using: .utf8) {
             self.request.httpBody = queryData
-        }
-        else {
+        } else {
             self.creationError = WebServiceError.fieldsEncodingFailure(dictionary: dictionary)
         }
         
@@ -162,28 +104,27 @@ public extension NetworkResourceWithBody {
         if let mimeType = mimeType {
             ///Sets the content type
             self.contentType(mimeType)
-        }
-        else {
+        } else {
             var value = [UInt8](repeating:0, count:1)
             data.copyBytes(to: &value, count: 1)
             var mimeType = "application/octet-stream"
-            switch (value[0]){
+            switch (value[0]) {
             case 0xFF:
-                mimeType = "image/jpeg";
+                mimeType = "image/jpeg"
             case 0x89:
-                mimeType = "image/png";
+                mimeType = "image/png"
             case 0x47:
-                mimeType = "image/gif";
+                mimeType = "image/gif"
             case 0x49, 0x4D:
-                mimeType = "image/tiff";
+                mimeType = "image/tiff"
             case 0x25:
-                mimeType = "application/pdf";
+                mimeType = "application/pdf"
             case 0xD0:
-                mimeType = "application/vnd";
+                mimeType = "application/vnd"
             case 0x46:
-                mimeType = "text/plain";
+                mimeType = "text/plain"
             default:
-                mimeType = "application/octet-stream";
+                mimeType = "application/octet-stream"
             }
             self.contentType(mimeType)
         }
@@ -249,29 +190,24 @@ public extension NetworkResourceWithBody {
     ///
     /// If false, this request will not call any of the given Constraint's methods, and will directly go the the Request Interceptors.
     @objc @discardableResult override func canHaveConstraints(_ flag: Bool) -> NetworkResourceWithBody {
-        ///Checking for creation error
-        guard self.creationError == nil else {
-            return self
-        }
-        
-        self.canHaveConstraints = flag
+        super.canHaveConstraints(flag)
         return self
     }
     
     /// Adds the given tag to the resource
     @objc @discardableResult override func tag(_ tag: String) -> NetworkResourceWithBody {
-        self.tags.insert(tag)
+        super.tag(tag)
         return self
     }
     /// Adds the given tags to the resource
     @objc @discardableResult override func tags(_ tags: [String]) -> NetworkResourceWithBody {
-        self.tags.formUnion(tags)
+        super.tags(tags)
         return self
     }
     
     /// Sets the Queue on which the response should be delivered on. By default, every response is delivered on the main queue.
     @objc @discardableResult override func deliverOn(thread: DispatchQueue) -> NetworkResourceWithBody {
-        self.deliverOn = thread
+        super.deliverOn(thread: thread)
         return self
     }
     
@@ -280,12 +216,7 @@ public extension NetworkResourceWithBody {
     /// - Parameter contentType: Content-Type
     /// - Returns: NetworkResourceWithBody
     @objc @discardableResult override func contentType(_ contentType: String) -> NetworkResourceWithBody {
-        if let _ = self.request.allHTTPHeaderFields {
-            self.request.allHTTPHeaderFields!.updateValue(contentType, forKey: "Content-Type")
-        }
-        else {
-            self.request.allHTTPHeaderFields = ["Content-Type": contentType]
-        }
+        super.contentType(contentType)
         return self
     }
 }
