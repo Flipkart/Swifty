@@ -22,7 +22,6 @@ public enum URLSessionTaskPriority: Float {
     case high = 1.0
 }
 
-
 public extension NetworkResource {
 
 // MARK: - Request Modifiers
@@ -69,7 +68,7 @@ public extension NetworkResource {
             return self
         }
         
-        if(value.isEmpty){
+        if(value.isEmpty) {
             print("NetworkResource: Didn't add header for key: \(key), since the value provided was empty.")
             return self
         }
@@ -81,14 +80,14 @@ public extension NetworkResource {
     ///
     /// - Parameter dictionary: Dictionary of header elements.
     /// - Returns: NetworkResource
-    @objc @discardableResult func headers(_ dictionary: Dictionary<String, String>) -> NetworkResource {
+    @objc @discardableResult func headers(_ dictionary: [String: String]) -> NetworkResource {
         
         guard self.creationError == nil else {
             return self
         }
         
         dictionary.forEach({ (key, value) in
-            if(!value.isEmpty){
+            if(!value.isEmpty) {
                 self.request.setValue(value, forHTTPHeaderField: key)
             } else {
                 print("NetworkResource: Didn't add header for key: \(key) in the provided headers, since the value provided was empty.")
@@ -101,7 +100,7 @@ public extension NetworkResource {
     ///
     /// - Parameter dictionary: Dictionary containing the query parameters
     /// - Returns: NetworkResource
-    @objc @discardableResult func query(_ dictionary: Dictionary<String, Any>) -> NetworkResource {
+    @objc @discardableResult func query(_ dictionary: [String: Any]) -> NetworkResource {
         ///Checking for creation error
         guard self.creationError == nil else {
             return self
@@ -140,8 +139,8 @@ public extension NetworkResource {
     }
     
     /// Sets the priority for the resource to be passed on to URLSession while excuting, defaults to normal priority (0.5)
-    @discardableResult func priority(_ p: URLSessionTaskPriority) -> NetworkResource {
-        self.priority = p
+    @discardableResult func priority(_ priority: URLSessionTaskPriority) -> NetworkResource {
+        self.priority = priority
         return self
     }
     
@@ -172,11 +171,7 @@ public extension NetworkResource {
     /// - Parameter contentType: Content-Type
     /// - Returns: NetworkResource
     @objc @discardableResult func contentType(_ contentType: String) -> NetworkResource {
-        if let _ = self.request.allHTTPHeaderFields {
-            self.request.allHTTPHeaderFields!.updateValue(contentType, forKey: "Content-Type")
-        } else {
-            self.request.allHTTPHeaderFields = ["Content-Type": contentType]
-        }
+        self.request.setValue(contentType, forHTTPHeaderField: "Content-Type")
         return self
     }
     
@@ -243,4 +238,3 @@ public extension NetworkResource {
         return components.map { "\($0)=\($1)" }.joined(separator: "&")
     }
 }
-

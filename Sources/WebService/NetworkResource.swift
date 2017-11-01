@@ -44,7 +44,7 @@ public class NetworkResource: NSObject {
     
 // MARK: - Initializers
     
-    /// Initializes the Network Resource with the given URL, and HTTP Method.
+    /// Initializes the NetworkResource with the given URL, and HTTP Method.
     ///
     /// - Parameters:
     ///   - url: URL
@@ -55,10 +55,10 @@ public class NetworkResource: NSObject {
         self.init(request: request)
     }
     
-    /// Initializes the NetworkResouce with the BaseResource
+    /// Initializes the NetworkResource with the BaseResource
     ///
     /// - Parameter resource: BaseResource.
-    internal convenience init(resource: BaseResource){
+    internal convenience init(resource: BaseResource) {
         self.init(request: resource.request, networkInterface: resource.networkInterface)
         if let _ = resource.request.url {} else {
             self.creationError = WebServiceError.invalidURL(url: "While Calling Request Method Setters in BaseResource: .get()")
@@ -87,8 +87,11 @@ public class NetworkResource: NSObject {
     /// The resource's parameters in readable format, including the URL, Headers, Method, and the HTTP Body
     public override var description: String {
         var body = "Empty"
-        if let bodyData = self.request.httpBody, let bodyString = String(data: bodyData, encoding: .utf8) {
-            body = bodyString
+        if let bodyData = self.request.httpBody, bodyData.count > 0 {
+            body = "\(bodyData.count) bytes"
+            if let bodyString = String(data: bodyData, encoding: .utf8) {
+                body += "\n\(bodyString)"
+            }
         }
         return "URL: \(self.request.url!)\nMethod: \(self.request.httpMethod)\nHeaders: \(String(describing: self.request.allHTTPHeaderFields))\nBody: \(body)\n\n"
     }

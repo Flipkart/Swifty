@@ -11,7 +11,6 @@
 
 import Foundation
 
-
 extension NetworkResource {
     
 // MARK: - Resource Load Methods
@@ -44,15 +43,13 @@ extension NetworkResource {
         self.load { (networkResponse) in
             if let error = networkResponse.error {
                 failureBlock(error)
-            }
-            else {
+            } else {
                 successBlock(networkResponse.data)
             }
         }
     }
-
+    
 }
-
 
 extension NetworkResource {
     
@@ -64,7 +61,7 @@ extension NetworkResource {
     ///   - readingOptions: JSONSerialization.ReadingOptions, empty by default.
     ///   - successBlock: block to be executed when response doesn't have any errors.
     ///   - failureBlock: block to be executed when response has an error.
-    @objc public func loadJSON(readingOptions: JSONSerialization.ReadingOptions = [], successBlock: @escaping (_ responseObject: Any?) -> Void, failureBlock: @escaping (_ error: NSError) -> Void){
+    @objc public func loadJSON(readingOptions: JSONSerialization.ReadingOptions = [], successBlock: @escaping (_ responseObject: Any?) -> Void, failureBlock: @escaping (_ error: NSError) -> Void) {
         self.parser = JSONParser(readingOptions: readingOptions)
         self.load { (networkResponse) in
             if let json = networkResponse.result {
