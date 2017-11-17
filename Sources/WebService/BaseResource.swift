@@ -113,30 +113,21 @@ fileprivate extension URL {
     
     mutating func appendPathComponentPreservingQuery(path: String, isDirectory: Bool) {
         
-        guard let components = URLComponents(string: path), let query = components.query else {
-            
-            /// Means URLComponents failed to parse the URL
-            if(path.contains("?")){
-                let split = path.split(separator: "?", maxSplits: 1, omittingEmptySubsequences: true)
-                if split.count > 1 {
-                    let splitPath = String(split[0])
-                    let splitQuery = String(split[1])
-                    self.appendPathComponent(splitPath, isDirectory: isDirectory)
-                    if let url = URL(string: "\(self.absoluteString)?\(splitQuery)") {
-                        self = url
-                    }
-                    return
+        if(path.contains("?")){
+            let split = path.split(separator: "?", maxSplits: 1, omittingEmptySubsequences: true)
+            if split.count > 1 {
+                let splitPath = String(split[0])
+                let splitQuery = String(split[1])
+                self.appendPathComponent(splitPath, isDirectory: isDirectory)
+                if let url = URL(string: "\(self.absoluteString)?\(splitQuery)") {
+                    self = url
                 }
+                return
             }
-            
-            self.appendPathComponent(path, isDirectory: isDirectory)
-            return
         }
         
-        self.appendPathComponent(components.path, isDirectory: isDirectory)
-        if let url = URL(string: "\(self.absoluteString)?\(query)") {
-            self = url
-        }
+        self.appendPathComponent(path, isDirectory: isDirectory)
+        return
     }
     
 }
