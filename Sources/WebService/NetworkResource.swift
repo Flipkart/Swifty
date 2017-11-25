@@ -39,8 +39,12 @@ public class NetworkResource: NSObject {
     /// Can have constraints.
     var canHaveConstraints = false
     
-    /// Creation error
-    var creationError: NSError?
+    /// Error (if any) encountered while Webservice was creating this request.
+    ///
+    /// Set this error in your own extensions of `NetworkResource` or `NetworkResourceWithBody` Modifiers to inform callers of errors that fail the request, for example, JSON encoding failures.
+    ///
+    /// If this not `nil` at the time the `load` method on this request is called, the request will **automatically fail** with this error without ever hitting the network.
+    public var creationError: NSError?
     
 // MARK: - Initializers
     

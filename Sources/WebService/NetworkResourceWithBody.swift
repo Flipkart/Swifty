@@ -158,6 +158,34 @@ public extension NetworkResourceWithBody {
         return self
     }
     
+    /// Sets the HTTP Body as JSON encoded from a type conforming to the `Encodable (Codable)` protocol
+    ///
+    /// Internally sets the Content-Type header of the resource to "application/json"
+    ///
+    /// - Parameters:
+    ///   - body: A type conforming to the `Encodable` Protocol
+    ///   - options: The `JSONEncoder` instance to use. Defaults to `JSONEncoder()`
+    /// - Returns: NetworkResourceWithBody
+    @discardableResult func json<T>(body: T, encoder: JSONEncoder = JSONEncoder()) -> NetworkResourceWithBody where T: Encodable {
+        
+        ///Checking for creation error
+        guard self.creationError == nil else {
+            return self
+        }
+        ///Sets the content type
+        self.contentType("application/json")
+        
+        ///Sets the HTTP Body
+        do {
+            self.request.httpBody = try encoder.encode(body)
+        }
+        catch let error {
+            self.creationError = WebServiceError.codableEncodingFailure(error: error)
+        }
+        
+        return self
+    }
+    
     /// Sets the HTTP Body as JSON Array
     ///
     /// Internally sets the Content-Type header of the resource to "application/json"
