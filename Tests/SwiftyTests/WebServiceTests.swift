@@ -194,6 +194,24 @@ class WebServiceTests: XCTestCase {
         XCTAssertEqual(resource.request.url?.absoluteString, "https://httpbin.org/path?\(query)")
     }
     
+    func testJSONEncodingforCodable() {
+        
+        let person = Person(name: "Programmer", age: 10, languages: ["ObjC", "Swift"])
+        let resource = TestWebService.postRequest().json(body: person)
+        
+        XCTAssertNotNil(resource.request.httpBody)
+        XCTAssertEqual(resource.request.allHTTPHeaderFields!["Content-Type"], "application/json")
+        
+        let decoder = JSONDecoder()
+        let decodedPerson = try? decoder.decode(Person.self, from: resource.request.httpBody!)
+        
+        XCTAssertNotNil(resource)
+        XCTAssertNotNil(decodedPerson)
+        XCTAssertEqual(decodedPerson?.name, person.name)
+        XCTAssertEqual(decodedPerson?.age, person.age)
+        XCTAssertEqual(decodedPerson!.languages, person.languages)
+    }
+    
     func testJSONParser() {
         
         let expectation = self.expectation(description: "Got the IP in response")
@@ -203,7 +221,7 @@ class WebServiceTests: XCTestCase {
                 expectation.fulfill()
             }
         }) { (error) in
-            
+            XCTFail()
         }
         
         self.waitForExpectations(timeout: 4, handler: nil)
@@ -242,3 +260,8 @@ class WebServiceTests: XCTestCase {
     
 }
 
+struct Person: Codable {
+    let name: String
+    let age: Int
+    let languages: [String]
+}
