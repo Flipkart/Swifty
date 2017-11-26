@@ -166,7 +166,7 @@ public extension NetworkResourceWithBody {
     ///   - body: A type conforming to the `Encodable` Protocol
     ///   - options: The `JSONEncoder` instance to use. Defaults to `JSONEncoder()`
     /// - Returns: NetworkResourceWithBody
-    @discardableResult func json<T>(body: T, encoder: JSONEncoder = JSONEncoder()) -> NetworkResourceWithBody where T: Encodable {
+    @discardableResult func json<T>(encodable: T, encoder: JSONEncoder = JSONEncoder()) -> NetworkResourceWithBody where T: Encodable {
         
         ///Checking for creation error
         guard self.creationError == nil else {
@@ -177,7 +177,7 @@ public extension NetworkResourceWithBody {
         
         ///Sets the HTTP Body
         do {
-            self.request.httpBody = try encoder.encode(body)
+            self.request.httpBody = try encoder.encode(encodable)
         }
         catch let error {
             self.creationError = WebServiceError.codableEncodingFailure(error: error)

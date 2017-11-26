@@ -34,7 +34,7 @@ extension NetworkResource {
         })
     }
     
-    /// Loads the network resource, and calls the success block with unserialized Data and HTTPURLResponse or the failure block with the error
+    /// Loads the network resource, and calls the success block with unserialized Data or the failure block with the error
     ///
     /// - Parameters:
     ///   - successBlock: block to be executed when response doesn't have any errors.

@@ -34,6 +34,10 @@ class TestWebService: WebService {
         return server.post("post")
     }
     
+    static func codableRequest<T>(body: T) -> NetworkResourceWithBody where T: Encodable {
+        return server.post("post").json(encodable: body)
+    }
+    
     static func getIP() -> NetworkResource {
         return server.get("ip")
     }
@@ -197,15 +201,15 @@ class WebServiceTests: XCTestCase {
     func testJSONEncodingforCodable() {
         
         let person = Person(name: "Programmer", age: 10, languages: ["ObjC", "Swift"])
-        let resource = TestWebService.postRequest().json(body: person)
+        let resource = TestWebService.codableRequest(body: person)
         
+        XCTAssertNotNil(resource)
         XCTAssertNotNil(resource.request.httpBody)
         XCTAssertEqual(resource.request.allHTTPHeaderFields!["Content-Type"], "application/json")
         
         let decoder = JSONDecoder()
         let decodedPerson = try? decoder.decode(Person.self, from: resource.request.httpBody!)
         
-        XCTAssertNotNil(resource)
         XCTAssertNotNil(decodedPerson)
         XCTAssertEqual(decodedPerson?.name, person.name)
         XCTAssertEqual(decodedPerson?.age, person.age)
