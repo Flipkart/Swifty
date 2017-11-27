@@ -166,7 +166,7 @@ public extension NetworkResourceWithBody {
     ///   - body: A type conforming to the `Encodable` Protocol
     ///   - options: The `JSONEncoder` instance to use. Defaults to `JSONEncoder()`
     /// - Returns: NetworkResourceWithBody
-    @discardableResult func json<T>(encodable: T, encoder: JSONEncoder = JSONEncoder()) -> NetworkResourceWithBody where T: Encodable {
+    @discardableResult func json<T: Encodable>(encodable: T, encoder: JSONEncoder = JSONEncoder()) -> NetworkResourceWithBody {
         
         ///Checking for creation error
         guard self.creationError == nil else {

@@ -216,6 +216,22 @@ class WebServiceTests: XCTestCase {
         XCTAssertEqual(decodedPerson!.languages, person.languages)
     }
     
+    func testJSONDecodingforCodable() {
+        
+        let person = Person(name: "Programmer", age: 10, languages: ["ObjC", "Swift"])
+        let resource = TestWebService.codableRequest(body: person)
+        
+        resource.loadJSON(Person.self, successBlock: { (decodedPerson) in
+            XCTAssertNotNil(decodedPerson)
+            XCTAssertEqual(decodedPerson.name, person.name)
+            XCTAssertEqual(decodedPerson.age, person.age)
+            XCTAssertEqual(decodedPerson.languages, person.languages)
+        }) { (error) in
+            
+        }
+        
+    }
+    
     func testJSONParser() {
         
         let expectation = self.expectation(description: "Got the IP in response")

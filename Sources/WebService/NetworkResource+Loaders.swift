@@ -77,4 +77,32 @@ extension NetworkResource {
         }
     }
     
+    /// Loads the network resource, and calls the successBlock if the decoder was successfully able to convert the response JSON Data into the specified `Decodable` type, or the failure block with the error.
+    ///
+    /// - Parameters:
+    ///   - decodable: The type to decode the response JSON Data into.
+    ///   - decoder: The `JSONDecoder` to use, defaults to `JSONDecoder()`
+    ///   - successBlock: block to be executed when response doesn't have any errors, and is successfully parsed into the given `Decodable` type.
+    ///   - failureBlock: block to be executed when response has an error.
+    public func loadJSON<T: Decodable>(_ decodable: T.Type, decoder: JSONDecoder = JSONDecoder(), successBlock: @escaping (_ response: T) -> Void, failureBlock: @escaping (_ error: NSError) -> Void) {
+        
+        self.load(successBlock: { (data) in
+            guard let jsonData = data else {
+                let validationError = SwiftyError.responseValidation(reason: "Response returned no data.")
+                failureBlock(validationError)
+                return
+            }
+            
+            do {
+                let object: T = try decoder.decode(T.self, from: jsonData)
+                successBlock(object)
+            } catch let error {
+                let jsonError = SwiftyError.jsonParsingFailure(error: error)
+                failureBlock(jsonError)
+            }
+        }) { (error) in
+            failureBlock(error)
+        }
+    }
+    
 }
