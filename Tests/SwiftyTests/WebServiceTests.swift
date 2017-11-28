@@ -236,6 +236,22 @@ class WebServiceTests: XCTestCase {
         self.waitForExpectations(timeout: 10, handler: nil)
     }
     
+    func testJSONDecodingforCodableError() {
+        
+        let person = Person(name: "Programmer", age: 10, languages: ["ObjC", "Swift"])
+        let resource = TestWebService.codableRequest(body: person)
+        
+        let expectation = self.expectation(description: "Should fail to decode the response into Person directly due to nesting")
+        
+        resource.loadJSON(Person.self, successBlock: { (response) in
+            XCTFail()
+        }) { (error) in
+            expectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 10, handler: nil)
+    }
+    
     func testJSONParser() {
         
         let expectation = self.expectation(description: "Got the IP in response")
@@ -245,7 +261,7 @@ class WebServiceTests: XCTestCase {
                 expectation.fulfill()
             }
         }) { (error) in
-            XCTFail("JSON Parsing Failure / Didn't the JSON that was expected: \(error.localizedDescription)")
+            XCTFail("JSON Parsing Failure / Didn't get the JSON that was expected: \(error.localizedDescription)")
         }
         
         self.waitForExpectations(timeout: 4, handler: nil)
