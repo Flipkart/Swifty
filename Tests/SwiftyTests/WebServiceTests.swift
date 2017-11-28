@@ -221,15 +221,19 @@ class WebServiceTests: XCTestCase {
         let person = Person(name: "Programmer", age: 10, languages: ["ObjC", "Swift"])
         let resource = TestWebService.codableRequest(body: person)
         
-        resource.loadJSON(Person.self, successBlock: { (decodedPerson) in
-            XCTAssertNotNil(decodedPerson)
-            XCTAssertEqual(decodedPerson.name, person.name)
-            XCTAssertEqual(decodedPerson.age, person.age)
-            XCTAssertEqual(decodedPerson.languages, person.languages)
+        let expectation = self.expectation(description: "Should be able to decode the Person object in the response")
+        
+        resource.loadJSON(HTTPBinPostResponse.self, successBlock: { (response) in
+            XCTAssertNotNil(response.person)
+            XCTAssertEqual(response.person.name, person.name)
+            XCTAssertEqual(response.person.age, person.age)
+            XCTAssertEqual(response.person.languages, person.languages)
+            expectation.fulfill()
         }) { (error) in
-            
+            XCTFail("Couldn't decode the Person object in the response")
         }
         
+        self.waitForExpectations(timeout: 10, handler: nil)
     }
     
     func testJSONParser() {
@@ -241,7 +245,7 @@ class WebServiceTests: XCTestCase {
                 expectation.fulfill()
             }
         }) { (error) in
-            XCTFail()
+            XCTFail("JSON Parsing Failure / Didn't the JSON that was expected: \(error.localizedDescription)")
         }
         
         self.waitForExpectations(timeout: 4, handler: nil)
@@ -284,4 +288,12 @@ struct Person: Codable {
     let name: String
     let age: Int
     let languages: [String]
+}
+
+struct HTTPBinPostResponse: Codable {
+    let person: Person
+    
+    enum CodingKeys: String, CodingKey {
+        case person = "json"
+    }
 }
