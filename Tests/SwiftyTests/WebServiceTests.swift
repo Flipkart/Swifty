@@ -34,7 +34,7 @@ class TestWebService: WebService {
         return server.post("post")
     }
     
-    static func codableRequest<T>(body: T) -> NetworkResourceWithBody where T: Encodable {
+    static func codableRequest<T: Encodable>(body: T) -> NetworkResource {
         return server.post("post").json(encodable: body)
     }
     
