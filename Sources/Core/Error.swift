@@ -38,6 +38,8 @@ public enum WebServiceErrorCodes: Int {
     case invalidQueryStringWithURL
     /// Errors while encoding the given JSON.
     case jsonEncodingFailure
+    /// Errors while encoding the given type that conforms to the Codable Protocol.
+    case codableEncodingFailure
 }
 
 /// Errors that can occur in the WebService domain
@@ -80,9 +82,14 @@ public class WebServiceError {
         return NSError(domain: WebServiceError.errorDomain, code: WebServiceErrorCodes.jsonEncodingFailure.rawValue, userInfo: self.userInfo(description: "Unable to serialize JSON: \(dictionary), due to error: \(String(describing: error?.localizedDescription))"))
     }
     
-    /// JSON Encoding failure.
+    /// JSON Array Encoding failure.
     public static func jsonEncodingFailure(array: [Any], error: Error?) -> NSError {
         return NSError(domain: WebServiceError.errorDomain, code: WebServiceErrorCodes.jsonEncodingFailure.rawValue, userInfo: self.userInfo(description: "Unable to serialize JSON Array: \(array), due to error: \(String(describing: error?.localizedDescription))"))
+    }
+    
+    /// Codable Encoding failure.
+    public static func codableEncodingFailure(error: Error?) -> NSError {
+        return NSError(domain: WebServiceError.errorDomain, code: WebServiceErrorCodes.codableEncodingFailure.rawValue, userInfo: self.userInfo(description: "Unable to JSON Serialize the given Codable type due to error: \(String(describing: error?.localizedDescription))"))
     }
     
     /* User Info Helper */

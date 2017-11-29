@@ -34,6 +34,10 @@ class TestWebService: WebService {
         return server.post("post")
     }
     
+    static func codableRequest<T: Encodable>(body: T) -> NetworkResource {
+        return server.post("post").json(encodable: body)
+    }
+    
     static func getIP() -> NetworkResource {
         return server.get("ip")
     }
@@ -194,6 +198,60 @@ class WebServiceTests: XCTestCase {
         XCTAssertEqual(resource.request.url?.absoluteString, "https://httpbin.org/path?\(query)")
     }
     
+    func testJSONEncodingforCodable() {
+        
+        let person = Person(name: "Programmer", age: 10, languages: ["ObjC", "Swift"])
+        let resource = TestWebService.codableRequest(body: person)
+        
+        XCTAssertNotNil(resource)
+        XCTAssertNotNil(resource.request.httpBody)
+        XCTAssertEqual(resource.request.allHTTPHeaderFields!["Content-Type"], "application/json")
+        
+        let decoder = JSONDecoder()
+        let decodedPerson = try? decoder.decode(Person.self, from: resource.request.httpBody!)
+        
+        XCTAssertNotNil(decodedPerson)
+        XCTAssertEqual(decodedPerson?.name, person.name)
+        XCTAssertEqual(decodedPerson?.age, person.age)
+        XCTAssertEqual(decodedPerson!.languages, person.languages)
+    }
+    
+    func testJSONDecodingforCodable() {
+        
+        let person = Person(name: "Programmer", age: 10, languages: ["ObjC", "Swift"])
+        let resource = TestWebService.codableRequest(body: person)
+        
+        let expectation = self.expectation(description: "Should be able to decode the Person object in the response")
+        
+        resource.loadJSON(HTTPBinPostResponse.self, successBlock: { (response) in
+            XCTAssertNotNil(response.person)
+            XCTAssertEqual(response.person.name, person.name)
+            XCTAssertEqual(response.person.age, person.age)
+            XCTAssertEqual(response.person.languages, person.languages)
+            expectation.fulfill()
+        }) { (error) in
+            XCTFail("Couldn't decode the Person object in the response")
+        }
+        
+        self.waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    func testJSONDecodingforCodableError() {
+        
+        let person = Person(name: "Programmer", age: 10, languages: ["ObjC", "Swift"])
+        let resource = TestWebService.codableRequest(body: person)
+        
+        let expectation = self.expectation(description: "Should fail to decode the response into Person directly due to nesting")
+        
+        resource.loadJSON(Person.self, successBlock: { (response) in
+            XCTFail()
+        }) { (error) in
+            expectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 10, handler: nil)
+    }
+    
     func testJSONParser() {
         
         let expectation = self.expectation(description: "Got the IP in response")
@@ -203,7 +261,7 @@ class WebServiceTests: XCTestCase {
                 expectation.fulfill()
             }
         }) { (error) in
-            
+            XCTFail("JSON Parsing Failure / Didn't get the JSON that was expected: \(error.localizedDescription)")
         }
         
         self.waitForExpectations(timeout: 4, handler: nil)
@@ -242,3 +300,16 @@ class WebServiceTests: XCTestCase {
     
 }
 
+struct Person: Codable {
+    let name: String
+    let age: Int
+    let languages: [String]
+}
+
+struct HTTPBinPostResponse: Codable {
+    let person: Person
+    
+    enum CodingKeys: String, CodingKey {
+        case person = "json"
+    }
+}
