@@ -27,7 +27,7 @@ class MockingTests: XCTestCase {
         
         let expectation = self.expectation(description: "Should get mocked response from the file")
         
-        TestWebService.getIP().mock(filename: "mockedResponse").loadJSON(successBlock: { (response) in
+        TestWebService.getIP().mock(withFile: "mockedResponse").loadJSON(successBlock: { (response) in
             XCTAssertNotNil(response)
             XCTAssert(response is [String: Any])
             if let json = response as? [String: Any], let message = json["message"] as? String {
