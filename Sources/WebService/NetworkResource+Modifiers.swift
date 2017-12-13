@@ -175,6 +175,15 @@ public extension NetworkResource {
         return self
     }
     
+    @objc @discardableResult func mock(filename: String) -> NetworkResource {
+        guard let path = Bundle.main.path(forResource: filename, ofType: "json"), let data = try? Data(contentsOf: URL(fileURLWithPath: path)), data.count > 0 else {
+            print("[Swifty] Unable to mock response from file: \(filename). Make sure the filename is correct, the file has an extension of .json, and is present in the main bundle of your app. Also make sure the file is not empty.")
+            return self
+        }
+        self.mockedData = data
+        return self
+    }
+    
     /// Constructs the query parameters from the given key and value
     ///
     /// - Parameters:

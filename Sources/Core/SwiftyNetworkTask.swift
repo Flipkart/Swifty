@@ -54,6 +54,14 @@ class SwiftyNetworkTask: Task {
             self.finish(with: .error(NetworkResponse(error: self.resource.creationError)))
             return
         }
+        
+        #if DEBUG
+            guard self.resource.mockedData == nil else {
+                self.finish(with: .success(NetworkResponse(response: nil, data: self.resource.mockedData, error: nil, parser: self.resource.parser)))
+                return
+            }
+        #endif
+     
         /// Intercepts the request with the request interceptors defined.
         self.interceptors.forEach { self.resource = $0.intercept(resource: self.resource) }
         /// Creates a Data Task

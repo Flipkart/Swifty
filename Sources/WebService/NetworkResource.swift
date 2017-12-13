@@ -39,6 +39,8 @@ public class NetworkResource: NSObject {
     /// Can have constraints.
     var canHaveConstraints = false
     
+    var mockedData: Data?
+    
     /// Error (if any) encountered while Webservice was creating this request.
     ///
     /// Set this error in your own extensions of `NetworkResource` or `NetworkResourceWithBody` Modifiers to inform callers of errors that fail the request, for example, JSON encoding failures.
