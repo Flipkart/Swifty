@@ -55,12 +55,16 @@ class SwiftyNetworkTask: Task {
             return
         }
         
-        #if DEBUG
-            guard self.resource.mockedData == nil else {
-                self.finish(with: .success(NetworkResponse(response: nil, data: self.resource.mockedData, error: nil, parser: self.resource.parser)))
-                return
-            }
-        #endif
+        
+        guard self.resource.mockedData == nil else {
+            #if DEBUG
+            #else
+                print("[Swifty] 🚨🚨🚨🚨🚨🚨 WARNING: You're using response MOCKING in a build configuration other than Debug: Is this INTENTIONAL? 🚨🚨🚨🚨🚨🚨")
+            #endif
+            self.finish(with: .success(NetworkResponse(response: nil, data: self.resource.mockedData, error: nil, parser: self.resource.parser)))
+            return
+        }
+        
      
         /// Intercepts the request with the request interceptors defined.
         self.interceptors.forEach { self.resource = $0.intercept(resource: self.resource) }
