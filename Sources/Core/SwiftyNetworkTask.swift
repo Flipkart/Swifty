@@ -55,11 +55,11 @@ class SwiftyNetworkTask: Task {
             return
         }
         
-        
+        /// Check if there is mocked data avaible for the resource. If yes, return the mocked response.
         guard self.resource.mockedData == nil else {
             #if DEBUG
             #else
-                print("[Swifty] 🚨🚨🚨🚨🚨🚨 WARNING: You're using response MOCKING in a build configuration other than Debug: Is this INTENTIONAL? 🚨🚨🚨🚨🚨🚨")
+                print("[Swifty] 🚨🚨🚨🚨🚨🚨 WARNING: You're using response MOCKING in a build configuration other than DEBUG: Is this Intentional? 🚨🚨🚨🚨🚨🚨")
             #endif
             self.finish(with: .success(NetworkResponse(response: nil, data: self.resource.mockedData, error: nil, parser: self.resource.parser)))
             return
