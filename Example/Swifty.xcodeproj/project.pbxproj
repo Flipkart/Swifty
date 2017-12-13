@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		167F7FAB1FE10E51002437B4 /* MockingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167F7FAA1FE10E51002437B4 /* MockingTests.swift */; };
+		167F7FAE1FE111C1002437B4 /* mockedResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 167F7FAC1FE10F1E002437B4 /* mockedResponse.json */; };
 		16C7039B1F64318200BF4E30 /* HTTPBinWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C7039A1F64318200BF4E30 /* HTTPBinWebService.swift */; };
 		16C7039D1F643CC000BF4E30 /* IPConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C7039C1F643CC000BF4E30 /* IPConstraint.swift */; };
 		16C703A11F643CF600BF4E30 /* IPHeaderInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C703A01F643CF600BF4E30 /* IPHeaderInterceptor.swift */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		143C1840FC49E5F98E38BEC1 /* Pods_Swifty_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swifty_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		167F7FAA1FE10E51002437B4 /* MockingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingTests.swift; sourceTree = "<group>"; };
+		167F7FAC1FE10F1E002437B4 /* mockedResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockedResponse.json; sourceTree = "<group>"; };
 		16C7039A1F64318200BF4E30 /* HTTPBinWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPBinWebService.swift; sourceTree = "<group>"; };
 		16C7039C1F643CC000BF4E30 /* IPConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPConstraint.swift; sourceTree = "<group>"; };
 		16C703A01F643CF600BF4E30 /* IPHeaderInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPHeaderInterceptor.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* PerformanceTests.swift */,
+				167F7FAA1FE10E51002437B4 /* MockingTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -151,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACEA1AFB9204008FA782 /* Info.plist */,
+				167F7FAC1FE10F1E002437B4 /* mockedResponse.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				167F7FAE1FE111C1002437B4 /* mockedResponse.json in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -404,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				167F7FAB1FE10E51002437B4 /* MockingTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* PerformanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,7 +557,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipkart.swifty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -565,7 +573,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipkart.swifty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -583,7 +591,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swifty_Example.app/Swifty_Example";
 			};
 			name = Debug;
@@ -598,7 +606,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swifty_Example.app/Swifty_Example";
 			};
 			name = Release;

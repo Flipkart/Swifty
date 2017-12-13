@@ -36,8 +36,11 @@ public class NetworkResource: NSObject {
     /// Tags allow you to categorize your requests, which helps you to recognize them in your interceptors and constraints to take selective action
     public var tags = Set<String>()
     
-    /// Can have constraints.
+    /// Can have constraints
     var canHaveConstraints = false
+    
+    /// Mocked Data for the resource. Set using the `.mock()` modifier
+    var mockedData: Data?
     
     /// Error (if any) encountered while Webservice was creating this request.
     ///

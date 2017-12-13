@@ -34,7 +34,7 @@ class PerformanceTests: XCTestCase {
     
     func testGET() {
         
-        measureMetrics([XCTPerformanceMetric_WallClockTime], automaticallyStartMeasuring: true) {
+        measureMetrics([XCTPerformanceMetric.wallClockTime], automaticallyStartMeasuring: true) {
             let expec = self.expectation(description: "GET")
             
             self.manager!.add(NetworkResource(request: self.GETRequest), successBlock: { (networkResponse) in
@@ -55,7 +55,7 @@ class PerformanceTests: XCTestCase {
 
     func testPOST() {
         
-        measureMetrics([XCTPerformanceMetric_WallClockTime], automaticallyStartMeasuring: true) {
+        measureMetrics([XCTPerformanceMetric.wallClockTime], automaticallyStartMeasuring: true) {
             let expec = self.expectation(description: "POST")
             
             self.manager!.add(NetworkResource(request: self.POSTRequest), successBlock: { (networkResponse) in
@@ -75,7 +75,7 @@ class PerformanceTests: XCTestCase {
     
     func testGET_URLSession() {
         
-        measureMetrics([XCTPerformanceMetric_WallClockTime], automaticallyStartMeasuring: true) {
+        measureMetrics([XCTPerformanceMetric.wallClockTime], automaticallyStartMeasuring: true) {
             let expec = self.expectation(description: "nGET")
             
             self.session?.dataTask(with: self.GETRequest, completionHandler: { (data, response, error) in
@@ -94,7 +94,7 @@ class PerformanceTests: XCTestCase {
     
     func testPOST_URLSession() {
         
-        measureMetrics([XCTPerformanceMetric_WallClockTime], automaticallyStartMeasuring: true) {
+        measureMetrics([XCTPerformanceMetric.wallClockTime], automaticallyStartMeasuring: true) {
             let expec = self.expectation(description: "nPOST")
             
             self.session?.dataTask(with: self.POSTRequest, completionHandler: { (data, response, error) in
@@ -113,7 +113,7 @@ class PerformanceTests: XCTestCase {
 
     func testGET_Alamofire() {
         
-        measureMetrics([XCTPerformanceMetric_WallClockTime], automaticallyStartMeasuring: true) {
+        measureMetrics([XCTPerformanceMetric.wallClockTime], automaticallyStartMeasuring: true) {
             let expec = self.expectation(description: "aGET")
             
             Alamofire.request(self.GETRequest).responseJSON { response in
@@ -133,7 +133,7 @@ class PerformanceTests: XCTestCase {
     
     func testPOST_Alamofire() {
         
-        measureMetrics([XCTPerformanceMetric_WallClockTime], automaticallyStartMeasuring: true) {
+        measureMetrics([XCTPerformanceMetric.wallClockTime], automaticallyStartMeasuring: true) {
             let expec = self.expectation(description: "aPOST")
             
             Alamofire.request(self.POSTRequest).responseJSON { response in
