@@ -569,6 +569,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:6Swifty23NetworkResourceWithBodyC4jsonACx9encodable_10Foundation11JSONEncoderC7encoderts9EncodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/json(encodable:encoder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Swifty23NetworkResourceWithBodyC4jsonACx9encodable_10Foundation11JSONEncoderC7encoderts9EncodableRzlF">json(encodable:encoder:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the HTTP Body as JSON encoded from a type conforming to the <code>Encodable (Codable)</code> protocol</p>
+
+<p>Internally sets the Content-Type header of the resource to <q>application/json</q></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="n">json</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Encodable</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">encodable</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">encoder</span><span class="p">:</span> <span class="kt">JSONEncoder</span> <span class="o">=</span> <span class="kt">JSONEncoder</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kt">NetworkResourceWithBody</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>body</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A type conforming to the <code>Encodable</code> Protocol</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>options</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>JSONEncoder</code> instance to use. Defaults to <code>JSONEncoder()</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>NetworkResourceWithBody</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@CM@Swifty@objc(cs)NetworkResourceWithBody(im)jsonArrayWithArray:options:"></a>
                     <a name="//apple_ref/swift/Method/jsonArray(array:options:)" class="dashAnchor"></a>
                     <a class="token" href="#/c:@CM@Swifty@objc(cs)NetworkResourceWithBody(im)jsonArrayWithArray:options:">jsonArray(array:options:)</a>
@@ -641,6 +705,68 @@
                 </a>
               </div>
               <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Swifty@objc(cs)NetworkResourceWithBody(im)mockWithFile:ofType:"></a>
+                    <a name="//apple_ref/swift/Method/mock(withFile:ofType:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Swifty@objc(cs)NetworkResourceWithBody(im)mockWithFile:ofType:">mock(withFile:ofType:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Mocks the response of the resource with the contents of the given filename. Note that if a request is mocked, it&rsquo;ll never hit the network, and will NOT pass the Request Interceptors. It will, however, pass through the Response Intereptors.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">@discardableResult</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">mock</span><span class="p">(</span><span class="nv">withFile</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">ofType</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"json"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResourceWithBody</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>withFile</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name (without extension) of the file containing the mocked response. The file must be present in the main bundle (<code>Bundle.main</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ofType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The extension of the file. Defaults to <code>.json</code> if not provided.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>NetworkResourceWithBody</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -809,7 +935,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2017-10-31)</p>
+      <p>&copy; 2017 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2017-12-14)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

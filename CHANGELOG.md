@@ -1,5 +1,19 @@
 # Change Log
 
+## [1.1.0](https://github.com/Flipkart/Swifty/releases/tag/1.1.0)
+Released on 2017-12-14.
+
+Swifty now supports the `Codable` Protocol, plus adds support response mocking.
+
+#### Added
+- Adds a new `.json(encodable: encoder:)` modifier to attach `Encodable` objects into request bodies.
+- Adds a new method `.loadJSON<T: Decodable>(decodable: decoder:)` to support loading `Decodable` objects from network responses directly.
+- Adds a new `.mock(withFile: OfType)` modifier to mock responses of requests using files in the main bundle.
+- Tests for Codable Support & Response Mocking.
+
+#### Fixed
+- The `creationError` property in `NetworkResource` is now public, so that it can be utilized by a user's custom extensions.
+
 ## [1.0.2](https://github.com/Flipkart/Swifty/releases/tag/1.0.2)
 Released on 2017-11-17.
 

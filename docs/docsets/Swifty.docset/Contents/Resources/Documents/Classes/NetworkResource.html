@@ -218,6 +218,37 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Swifty15NetworkResourceC13creationErrorSo7NSErrorCSgv"></a>
+                    <a name="//apple_ref/swift/Property/creationError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Swifty15NetworkResourceC13creationErrorSo7NSErrorCSgv">creationError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Error (if any) encountered while Webservice was creating this request.</p>
+
+<p>Set this error in your own extensions of <code>NetworkResource</code> or <code><a href="../Classes/NetworkResourceWithBody.html">NetworkResourceWithBody</a></code> Modifiers to inform callers of errors that fail the request, for example, JSON encoding failures.</p>
+
+<p>If this not <code>nil</code> at the time the <code>load</code> method on this request is called, the request will <strong>automatically fail</strong> with this error without ever hitting the network.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">creationError</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -242,7 +273,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes the Network Resource with the given URL, and HTTP Method.</p>
+                        <p>Initializes the NetworkResource with the given URL, and HTTP Method.</p>
 
                       </div>
                       <div class="declaration">
@@ -613,7 +644,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">headers</span><span class="p">(</span><span class="n">_</span> <span class="nv">dictionary</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">headers</span><span class="p">(</span><span class="n">_</span> <span class="nv">dictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span></code></pre>
 
                         </div>
                       </div>
@@ -663,7 +694,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">query</span><span class="p">(</span><span class="n">_</span> <span class="nv">dictionary</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Any</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">query</span><span class="p">(</span><span class="n">_</span> <span class="nv">dictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span></code></pre>
 
                         </div>
                       </div>
@@ -704,6 +735,68 @@
                 </a>
               </div>
               <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Swifty@objc(cs)NetworkResource(im)mockWithFile:ofType:"></a>
+                    <a name="//apple_ref/swift/Method/mock(withFile:ofType:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Swifty@objc(cs)NetworkResource(im)mockWithFile:ofType:">mock(withFile:ofType:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Mocks the response of the resource with the contents of the given filename. Note that if a request is mocked, it&rsquo;ll never hit the network, and will NOT pass the Request Interceptors. It will, however, pass through the Response Intereptors.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">mock</span><span class="p">(</span><span class="nv">withFile</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">ofType</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"json"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>withFile</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name (without extension) of the file containing the mocked response. The file must be present in the main bundle (<code>Bundle.main</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ofType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The extension of the file. Defaults to <code>.json</code> if not provided.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>NetworkResource</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -753,7 +846,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">priority</span><span class="p">(</span><span class="n">_</span> <span class="nv">p</span><span class="p">:</span> <span class="kt"><a href="../Enums/URLSessionTaskPriority.html">URLSessionTaskPriority</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@discardableResult</span> <span class="kd">func</span> <span class="nf">priority</span><span class="p">(</span><span class="n">_</span> <span class="nv">priority</span><span class="p">:</span> <span class="kt"><a href="../Enums/URLSessionTaskPriority.html">URLSessionTaskPriority</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NetworkResource</span></code></pre>
 
                         </div>
                       </div>
@@ -988,7 +1081,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Loads the network resource, and calls the success block with unserialized Data and HTTPURLResponse or the failure block with the error</p>
+                        <p>Loads the network resource, and calls the success block with unserialized Data or the failure block with the error</p>
 
                       </div>
                       <div class="declaration">
@@ -1114,6 +1207,88 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Swifty15NetworkResourceC8loadJSONyxm_10Foundation11JSONDecoderC7decoderyxc12successBlockySo7NSErrorCc07failureJ0ts9DecodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/loadJSON(_:decoder:successBlock:failureBlock:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Swifty15NetworkResourceC8loadJSONyxm_10Foundation11JSONDecoderC7decoderyxc12successBlockySo7NSErrorCc07failureJ0ts9DecodableRzlF">loadJSON(_:decoder:successBlock:failureBlock:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads the network resource, and calls the successBlock if the decoder was successfully able to convert the response JSON Data into the specified <code>Decodable</code> type, or the failure block with the error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">loadJSON</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Decodable</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">decodable</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">JSONDecoder</span> <span class="o">=</span> <span class="kt">JSONDecoder</span><span class="p">(),</span> <span class="nv">successBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failureBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>decodable</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type to decode the response JSON Data into.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>decoder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>JSONDecoder</code> to use, defaults to <code>JSONDecoder()</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>successBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>block to be executed when response doesn&rsquo;t have any errors, and is successfully parsed into the given <code>Decodable</code> type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failureBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>block to be executed when response has an error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -1122,7 +1297,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2017-10-31)</p>
+      <p>&copy; 2017 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2017-12-14)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
