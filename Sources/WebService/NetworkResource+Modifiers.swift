@@ -125,6 +125,19 @@ public extension NetworkResource {
     
 // MARK: - Request Options Modifiers
     
+    /// Mocks the response of the resource with the given Data. Note that if a request is mocked, it'll never hit the network, and will NOT pass the Request Interceptors. It will, however, pass through the Response Intereptors.
+    ///
+    /// - Parameter responseData: The data to mock the response with. This data will be sent in the success/failure callback of the request.
+    /// - Returns: NetworkResource
+    @objc @discardableResult func mock(responseData: Data) -> NetworkResource {
+        guard responseData.count > 0 else {
+            print("[Swifty] Unable to mock response from given responseData becuase the data is empty.")
+            return self
+        }
+        self.mockedData = responseData
+        return self
+    }
+    
     /// Mocks the response of the resource with the contents of the given filename. Note that if a request is mocked, it'll never hit the network, and will NOT pass the Request Interceptors. It will, however, pass through the Response Intereptors.
     ///
     /// - Parameter withFile: The name (without extension) of the file containing the mocked response. The file must be present in the main bundle (`Bundle.main`)
@@ -135,7 +148,7 @@ public extension NetworkResource {
             print("[Swifty] Unable to mock response from file: \(withFile).\(ofType): Make sure the filename and extension are correct, and the file is present in the main bundle of your app. Also make sure the file is not empty.")
             return self
         }
-        self.mockedData = data
+        self.mock(responseData: data)
         return self
     }
     
