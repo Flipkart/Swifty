@@ -212,6 +212,34 @@ public extension NetworkResourceWithBody {
         return self
     }
     
+    @objc @discardableResult func multipart(data: Data, withName name: String, fileName: String?, mimeType: String? = "application/octet-stream") -> NetworkResourceWithBody {
+        
+        ///Checking for creation error
+        guard self.creationError == nil else {
+            return self
+        }
+        ///Sets the content type
+        var disposition = "form-data; name=\"\(name)\""
+        
+        if let fileName = fileName {
+            disposition += "; filename=\"\(fileName)\""
+        }
+        
+        let headers = ["Content-Disposition": disposition, "Content-Type": mimeType]
+        var headerText = ""
+        
+        for (key, value) in headers {
+            headerText += "\(key): \(value)\(MultiPartDataGenerator.crlf)"
+        }
+        headerText += MultiPartDataGenerator.crlf
+        
+        let encodedHeaders = headerText.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        
+        ///Sets the HTTP Body
+        
+        return self
+    }
+    
     // MARK: - Request Options Modifiers
     
     /// Mocks the response of the resource with the contents of the given filename. Note that if a request is mocked, it'll never hit the network, and will NOT pass the Request Interceptors. It will, however, pass through the Response Intereptors.
