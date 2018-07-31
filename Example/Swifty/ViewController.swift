@@ -25,6 +25,16 @@ class ViewController: UIViewController {
                 self?.navigationController?.present(SwiftyInspector.presentableInspector(), animated: true, completion: nil)
             }
         }
+        
+        HTTPBin.multipart().loadJSON(successBlock: { [weak self] (json) in
+            if #available(iOS 10.0, *) {
+                self?.navigationController?.present(SwiftyInspector.presentableInspector(), animated: true, completion: nil)
+            }
+        }) { [weak self] (error) in
+            if #available(iOS 10.0, *) {
+                self?.navigationController?.present(SwiftyInspector.presentableInspector(), animated: true, completion: nil)
+            }
+        }
     }
     
 }

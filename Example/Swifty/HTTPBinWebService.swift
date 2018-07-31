@@ -27,4 +27,12 @@ class HTTPBin: WebService {
                      .canHaveConstraints(true)
     }
     
+    static func multipart() -> NetworkResource {
+        let json = ["Hello": "World"]
+        let data = try! JSONSerialization.data(withJSONObject: json, options: [])
+        let image = UIImage(named: "SwiftyLogo")!
+        let imageData = UIImagePNGRepresentation(image)!
+        return server.post("anything").multipart(data: data, withName: "json", mimeType: "application/json").multipart(data: imageData, withName: "logo", fileName: "SwiftyLogo", mimeType: "image/png")
+    }
+    
 }
