@@ -212,7 +212,7 @@ public extension NetworkResourceWithBody {
         return self
     }
     
-    @objc @discardableResult func multipart(data: Data, withName name: String, fileName: String?, mimeType: String? = "application/octet-stream") -> NetworkResourceWithBody {
+    @objc @discardableResult func multipart(data: Data, withName name: String, mimeType: String? = "application/octet-stream") -> NetworkResourceWithBody {
         
         ///Checking for creation error
         guard self.creationError == nil else {
@@ -222,9 +222,36 @@ public extension NetworkResourceWithBody {
         /// Encode the Headers for the multipart data
         var disposition = "form-data; name=\"\(name)\""
         
-        if let fileName = fileName {
-            disposition += "; filename=\"\(fileName)\""
+        var headers: [String: String] = ["Content-Disposition": disposition]
+        headers["Content-Type"] = mimeType
+        
+        var headerText = ""
+        for (key, value) in headers {
+            headerText += "\(key): \(value)\(MultiPartDataGenerator.delimiter)"
         }
+        headerText += MultiPartDataGenerator.delimiter
+        
+        let encodedHeaders = headerText.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        
+        /// Append the Multipart Data into the Array
+        if self.multipartData == nil {
+            self.multipartData = [Data]()
+        }
+        
+        self.multipartData?.append(encodedHeaders + data)
+        
+        return self
+    }
+    
+    @objc @discardableResult func multipart(data: Data, withName name: String, fileName: String, mimeType: String? = "application/octet-stream") -> NetworkResourceWithBody {
+        
+        ///Checking for creation error
+        guard self.creationError == nil else {
+            return self
+        }
+        
+        /// Encode the Headers for the multipart data
+        let disposition = "form-data; name=\"\(name)\"; filename=\"\(fileName)\""
         
         var headers: [String: String] = ["Content-Disposition": disposition]
         headers["Content-Type"] = mimeType
