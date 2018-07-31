@@ -231,9 +231,9 @@ public extension NetworkResourceWithBody {
         
         var headerText = ""
         for (key, value) in headers {
-            headerText += "\(key): \(value)\(MultiPartDataGenerator.crlf)"
+            headerText += "\(key): \(value)\(MultiPartDataGenerator.delimiter)"
         }
-        headerText += MultiPartDataGenerator.crlf
+        headerText += MultiPartDataGenerator.delimiter
         
         let encodedHeaders = headerText.data(using: String.Encoding.utf8, allowLossyConversion: false)!
         

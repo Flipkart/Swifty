@@ -19,6 +19,10 @@
 		160C6A431F7FA00F006397C8 /* ConstraintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160C6A331F7FA00B006397C8 /* ConstraintTests.swift */; };
 		160C6A451F7FA00F006397C8 /* WebServicePerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160C6A341F7FA00B006397C8 /* WebServicePerformanceTests.swift */; };
 		160C6A461F7FA00F006397C8 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160C6A2F1F7FA00A006397C8 /* WebServiceTests.swift */; };
+		1616209B211031DA0090C80C /* MultiPartEncodingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616209A211031DA0090C80C /* MultiPartEncodingInterceptor.swift */; };
+		1616209C211031DA0090C80C /* MultiPartEncodingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616209A211031DA0090C80C /* MultiPartEncodingInterceptor.swift */; };
+		1616209D211031DA0090C80C /* MultiPartEncodingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616209A211031DA0090C80C /* MultiPartEncodingInterceptor.swift */; };
+		1616209E211031DA0090C80C /* MultiPartEncodingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616209A211031DA0090C80C /* MultiPartEncodingInterceptor.swift */; };
 		16AB33611F7F9A580046AA09 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33591F7F9A4E0046AA09 /* Constraint.swift */; };
 		16AB33621F7F9A580046AA09 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33581F7F9A4E0046AA09 /* Error.swift */; };
 		16AB33631F7F9A580046AA09 /* Interceptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB335B1F7F9A4E0046AA09 /* Interceptors.swift */; };
@@ -133,6 +137,7 @@
 		160C6A301F7FA00A006397C8 /* InterceptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorTests.swift; sourceTree = "<group>"; };
 		160C6A331F7FA00B006397C8 /* ConstraintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintTests.swift; sourceTree = "<group>"; };
 		160C6A341F7FA00B006397C8 /* WebServicePerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServicePerformanceTests.swift; sourceTree = "<group>"; };
+		1616209A211031DA0090C80C /* MultiPartEncodingInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiPartEncodingInterceptor.swift; sourceTree = "<group>"; };
 		16AB33571F7F9A4E0046AA09 /* SwiftyNetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyNetworkTask.swift; sourceTree = "<group>"; };
 		16AB33581F7F9A4E0046AA09 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		16AB33591F7F9A4E0046AA09 /* Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
@@ -224,6 +229,7 @@
 		16AB338A1F7F9A6B0046AA09 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1616209A211031DA0090C80C /* MultiPartEncodingInterceptor.swift */,
 				16AB33591F7F9A4E0046AA09 /* Constraint.swift */,
 				16AB33581F7F9A4E0046AA09 /* Error.swift */,
 				16AB335B1F7F9A4E0046AA09 /* Interceptors.swift */,
@@ -517,7 +523,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Swifty;
 				TargetAttributes = {
 					52D6D97B1BEFF229002C0205 = {
@@ -631,6 +637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16AB33C41F7F9B570046AA09 /* Utility.swift in Sources */,
+				1616209B211031DA0090C80C /* MultiPartEncodingInterceptor.swift in Sources */,
 				16AB33A51F7F9A9A0046AA09 /* NetworkResource+Modifiers.swift in Sources */,
 				16AB336A1F7F9A580046AA09 /* ValidationInterceptor.swift in Sources */,
 				16AB33A31F7F9A9A0046AA09 /* NetworkResource.swift in Sources */,
@@ -669,6 +676,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16AB33C61F7F9B570046AA09 /* Utility.swift in Sources */,
+				1616209D211031DA0090C80C /* MultiPartEncodingInterceptor.swift in Sources */,
 				16AB33B31F7F9A9B0046AA09 /* NetworkResource+Modifiers.swift in Sources */,
 				16AB337E1F7F9A590046AA09 /* ValidationInterceptor.swift in Sources */,
 				16AB33B11F7F9A9B0046AA09 /* NetworkResource.swift in Sources */,
@@ -696,6 +704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16AB33C51F7F9B570046AA09 /* Utility.swift in Sources */,
+				1616209E211031DA0090C80C /* MultiPartEncodingInterceptor.swift in Sources */,
 				16AB33BA1F7F9A9C0046AA09 /* NetworkResource+Modifiers.swift in Sources */,
 				16AB33881F7F9A5A0046AA09 /* ValidationInterceptor.swift in Sources */,
 				16AB33B81F7F9A9C0046AA09 /* NetworkResource.swift in Sources */,
@@ -723,6 +732,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16AB33C71F7F9B570046AA09 /* Utility.swift in Sources */,
+				1616209C211031DA0090C80C /* MultiPartEncodingInterceptor.swift in Sources */,
 				16AB33AC1F7F9A9B0046AA09 /* NetworkResource+Modifiers.swift in Sources */,
 				16AB33741F7F9A590046AA09 /* ValidationInterceptor.swift in Sources */,
 				16AB33AA1F7F9A9B0046AA09 /* NetworkResource.swift in Sources */,
@@ -801,12 +811,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -859,12 +871,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

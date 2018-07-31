@@ -14,28 +14,3 @@ import Foundation
 extension NSNumber {
     internal var isBool: Bool { return CFBooleanGetTypeID() == CFGetTypeID(self) }
 }
-
-struct MultiPartDataGenerator {
-    static let crlf = "\r\n"
-    
-    enum BoundaryType {
-        case initial
-        case middle
-        case final
-    }
-    
-    static func boundaryData(for type: BoundaryType, boundary: String) -> Data {
-        let boundaryText: String
-        
-        switch type {
-        case .initial:
-            boundaryText = "--\(boundary)\(MultiPartDataGenerator.crlf)"
-        case .middle:
-            boundaryText = "\(MultiPartDataGenerator.crlf)--\(boundary)\(MultiPartDataGenerator.crlf)"
-        case .final:
-            boundaryText = "\(MultiPartDataGenerator.crlf)--\(boundary)--\(MultiPartDataGenerator.crlf)"
-        }
-        
-        return boundaryText.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-    }
-}
