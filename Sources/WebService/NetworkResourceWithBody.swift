@@ -218,16 +218,18 @@ public extension NetworkResourceWithBody {
         guard self.creationError == nil else {
             return self
         }
-        ///Sets the content type
+        
+        /// Encode the Headers for the multipart data
         var disposition = "form-data; name=\"\(name)\""
         
         if let fileName = fileName {
             disposition += "; filename=\"\(fileName)\""
         }
         
-        let headers = ["Content-Disposition": disposition, "Content-Type": mimeType]
-        var headerText = ""
+        var headers: [String: String] = ["Content-Disposition": disposition]
+        headers["Content-Type"] = mimeType
         
+        var headerText = ""
         for (key, value) in headers {
             headerText += "\(key): \(value)\(MultiPartDataGenerator.crlf)"
         }
@@ -235,7 +237,12 @@ public extension NetworkResourceWithBody {
         
         let encodedHeaders = headerText.data(using: String.Encoding.utf8, allowLossyConversion: false)!
         
-        ///Sets the HTTP Body
+        /// Append the Multipart Data into the Array
+        if self.multipartData == nil {
+            self.multipartData = [Data]()
+        }
+        
+        self.multipartData?.append(encodedHeaders + data)
         
         return self
     }
