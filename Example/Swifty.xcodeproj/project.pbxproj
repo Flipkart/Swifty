@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12614051211072840010F7E6 /* SwiftyLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 12614050211072830010F7E6 /* SwiftyLogo.png */; };
+		161A18932120ABB200C76584 /* MultipartUploadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A18912120AAFB00C76584 /* MultipartUploadTests.swift */; };
 		167F7FAB1FE10E51002437B4 /* MockingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167F7FAA1FE10E51002437B4 /* MockingTests.swift */; };
 		167F7FAE1FE111C1002437B4 /* mockedResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 167F7FAC1FE10F1E002437B4 /* mockedResponse.json */; };
 		16C7039B1F64318200BF4E30 /* HTTPBinWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C7039A1F64318200BF4E30 /* HTTPBinWebService.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		12614050211072830010F7E6 /* SwiftyLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SwiftyLogo.png; sourceTree = "<group>"; };
 		143C1840FC49E5F98E38BEC1 /* Pods_Swifty_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swifty_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		161A18912120AAFB00C76584 /* MultipartUploadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartUploadTests.swift; sourceTree = "<group>"; };
 		167F7FAA1FE10E51002437B4 /* MockingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingTests.swift; sourceTree = "<group>"; };
 		167F7FAC1FE10F1E002437B4 /* mockedResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockedResponse.json; sourceTree = "<group>"; };
 		16C7039A1F64318200BF4E30 /* HTTPBinWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPBinWebService.swift; sourceTree = "<group>"; };
@@ -81,16 +83,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		16C7039E1F643CC700BF4E30 /* WebService */ = {
-			isa = PBXGroup;
-			children = (
-				16C7039A1F64318200BF4E30 /* HTTPBinWebService.swift */,
-				16C703A01F643CF600BF4E30 /* IPHeaderInterceptor.swift */,
-				16C7039C1F643CC000BF4E30 /* IPConstraint.swift */,
-			);
-			name = WebService;
-			sourceTree = "<group>";
-		};
 		1AAB1FCEEFAAA964C1999F71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,7 +118,9 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				16C7039E1F643CC700BF4E30 /* WebService */,
+				16C7039A1F64318200BF4E30 /* HTTPBinWebService.swift */,
+				16C703A01F643CF600BF4E30 /* IPHeaderInterceptor.swift */,
+				16C7039C1F643CC000BF4E30 /* IPConstraint.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -150,6 +144,7 @@
 			children = (
 				607FACEB1AFB9204008FA782 /* PerformanceTests.swift */,
 				167F7FAA1FE10E51002437B4 /* MockingTests.swift */,
+				161A18912120AAFB00C76584 /* MultipartUploadTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -385,6 +380,7 @@
 			files = (
 				167F7FAB1FE10E51002437B4 /* MockingTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* PerformanceTests.swift in Sources */,
+				161A18932120ABB200C76584 /* MultipartUploadTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
