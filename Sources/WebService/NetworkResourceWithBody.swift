@@ -214,7 +214,7 @@ public extension NetworkResourceWithBody {
     
     /// Sets the HTTP Body as Multipart Form Data
     ///
-    /// Any number of the multipart methods can be chained continuously, the multiform form data will be encoded with the required boundaries when loaded.
+    /// Any number of the multipart methods can be chained continuously, the form data will be encoded with the required boundaries when `.load()` is called.
     ///
     /// - Parameters:
     ///   - data: Data
@@ -254,7 +254,7 @@ public extension NetworkResourceWithBody {
     
     /// Sets the HTTP Body as Multipart Form Data
     ///
-    /// Any number of the multipart methods can be chained continuously, the multiform form data will be encoded with the required boundaries when loaded.
+    /// Any number of the multipart methods can be chained continuously, the form data will be encoded with the required boundaries when `.load()` is called.
     ///
     /// - Parameters:
     ///   - data: Data
