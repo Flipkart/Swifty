@@ -26,4 +26,5 @@ class HTTPBin: WebService {
                      .json(body: jsonBody)
                      .canHaveConstraints(true)
     }
+    
 }

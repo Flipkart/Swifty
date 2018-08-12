@@ -20,6 +20,7 @@ class MockingTests: XCTestCase {
         static func getIP() -> NetworkResource {
             return server.get("ip")
         }
+        
     }
     
     func testResponseMocking() {

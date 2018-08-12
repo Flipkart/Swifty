@@ -2,7 +2,7 @@
 //
 // Swifty (https://github.com/Flipkart/Swifty)
 //
-// Copyright 2017 Flipkart Internet Pvt. Ltd.
+// Copyright 2018 Flipkart Internet Pvt. Ltd.
 // Apache License
 // Version 2.0, January 2004
 //
@@ -32,7 +32,7 @@ struct MultiPartDataGenerator {
             boundaryText = "\(MultiPartDataGenerator.delimiter)--\(boundary)--\(MultiPartDataGenerator.delimiter)"
         }
         
-        return boundaryText.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        return boundaryText.data(using: .utf8, allowLossyConversion: false)!
     }
 }
 
@@ -41,10 +41,10 @@ public struct BodyPart {
     let body: InputStream
 }
 
-/// MultiPart Data Encoding Intercept
+/// MultiPart Data Encoding Interceptor
 struct MultiPartEncodingInterceptor: RequestInterceptor {
     
-    /// Intercepts the Network Request and encodes it's multipart form data
+    /// Intercepts the Network Request and encodes it's multipart form data, adding the required boundaries.
     ///
     /// - Parameter response: NetworkResource
     /// - Returns: NetworkResource
