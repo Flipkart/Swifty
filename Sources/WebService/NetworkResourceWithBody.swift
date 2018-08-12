@@ -212,6 +212,15 @@ public extension NetworkResourceWithBody {
         return self
     }
     
+    /// Sets the HTTP Body as Multipart Form Data
+    ///
+    /// Any number of the multipart methods can be chained continuously, the multiform form data will be encoded with the required boundaries when loaded.
+    ///
+    /// - Parameters:
+    ///   - data: Data
+    ///   - name: String
+    ///   - mimeType: String (Defaults to application/octet-stream)
+    /// - Returns: NetworkResourceWithBody
     @objc @discardableResult func multipart(data: Data, withName name: String, mimeType: String? = "application/octet-stream") -> NetworkResourceWithBody {
         
         ///Checking for creation error
@@ -243,6 +252,16 @@ public extension NetworkResourceWithBody {
         return self
     }
     
+    /// Sets the HTTP Body as Multipart Form Data
+    ///
+    /// Any number of the multipart methods can be chained continuously, the multiform form data will be encoded with the required boundaries when loaded.
+    ///
+    /// - Parameters:
+    ///   - data: Data
+    ///   - name: String
+    ///   - fileName: String 
+    ///   - mimeType: String (Defaults to application/octet-stream)
+    /// - Returns: NetworkResourceWithBody
     @objc @discardableResult func multipart(data: Data, withName name: String, fileName: String, mimeType: String? = "application/octet-stream") -> NetworkResourceWithBody {
         
         ///Checking for creation error
