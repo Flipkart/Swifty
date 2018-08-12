@@ -17,6 +17,11 @@ public typealias SwiftySuccessBlock = (NetworkResponse) -> Void
 /// Swifty Failure Block
 public typealias SwiftyFailureBlock = (NetworkResponse) -> Void
 
+struct SwiftyInterceptors {
+    static let requestInterceptors: [RequestInterceptor] = [MultiPartEncodingInterceptor()]
+    static let responseInteptors: [ResponseInterceptor] = [ValidationInterceptor(), SwiftyParsingInterceptor()]
+}
+
 /// Swifty: The main entry point to the networking infrastructure. Keeps track of the constraints and interceptors and services the requests with it's URLSession while taking care of all the attributes of the network resource.
 @objc final public class Swifty: NSObject {
     
@@ -34,9 +39,6 @@ public typealias SwiftyFailureBlock = (NetworkResponse) -> Void
     
     /// Constraints: Array of Constaints which can make requests wait until they are satisfied.
     let constraints: [Constraint]
-    
-    /// Built in Interceptors to supplement Swifty's network functionality
-    let requiredInterceptors: [ResponseInterceptor] = [ValidationInterceptor(), SwiftyParsingInterceptor()]
     
     /// Concurrent Network Queue having a utility QOS.
     let networkQueue = DispatchQueue(label: "swifty.networkOperations", qos: .utility, attributes: [.concurrent])
@@ -56,8 +58,8 @@ public typealias SwiftyFailureBlock = (NetworkResponse) -> Void
                 responseInterceptors: [ResponseInterceptor] = []) {
         self.session = session
         self.constraints = constraints
-        self.requestInterceptors = requestInterceptors
-        self.responseInterceptors = requiredInterceptors + responseInterceptors
+        self.requestInterceptors = SwiftyInterceptors.requestInterceptors + requestInterceptors
+        self.responseInterceptors = SwiftyInterceptors.responseInteptors + responseInterceptors
         super.init()
     }
     

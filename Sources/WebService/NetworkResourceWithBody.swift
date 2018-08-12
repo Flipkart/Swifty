@@ -212,6 +212,87 @@ public extension NetworkResourceWithBody {
         return self
     }
     
+    /// Sets the HTTP Body as Multipart Form Data
+    ///
+    /// Any number of the multipart methods can be chained continuously, the form data will be encoded with the required boundaries when `.load()` is called.
+    ///
+    /// - Parameters:
+    ///   - data: Data
+    ///   - name: String
+    ///   - mimeType: String (Defaults to application/octet-stream)
+    /// - Returns: NetworkResourceWithBody
+    @objc @discardableResult func multipart(data: Data, withName name: String, mimeType: String? = "application/octet-stream") -> NetworkResourceWithBody {
+        
+        ///Checking for creation error
+        guard self.creationError == nil else {
+            return self
+        }
+        
+        /// Encode the Headers for the multipart data
+        let disposition = "form-data; name=\"\(name)\""
+        
+        var headers: [String: String] = ["Content-Disposition": disposition]
+        headers["Content-Type"] = mimeType
+        
+        var headerText = ""
+        for (key, value) in headers {
+            headerText += "\(key): \(value)\(MultiPartDataGenerator.delimiter)"
+        }
+        headerText += MultiPartDataGenerator.delimiter
+        
+        let encodedHeaders = headerText.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        
+        /// Append the Multipart Data into the Array
+        if self.multipartData == nil {
+            self.multipartData = [BodyPart]()
+        }
+        
+        self.multipartData?.append(BodyPart(headers: encodedHeaders, body: InputStream(data: data)))
+        
+        return self
+    }
+    
+    /// Sets the HTTP Body as Multipart Form Data
+    ///
+    /// Any number of the multipart methods can be chained continuously, the form data will be encoded with the required boundaries when `.load()` is called.
+    ///
+    /// - Parameters:
+    ///   - data: Data
+    ///   - name: String
+    ///   - fileName: String 
+    ///   - mimeType: String (Defaults to application/octet-stream)
+    /// - Returns: NetworkResourceWithBody
+    @objc @discardableResult func multipart(data: Data, withName name: String, fileName: String, mimeType: String? = "application/octet-stream") -> NetworkResourceWithBody {
+        
+        ///Checking for creation error
+        guard self.creationError == nil else {
+            return self
+        }
+        
+        /// Encode the Headers for the multipart data
+        let disposition = "form-data; name=\"\(name)\"; filename=\"\(fileName)\""
+        
+        var headers: [String: String] = ["Content-Disposition": disposition]
+        headers["Content-Type"] = mimeType
+        
+        var headerText = ""
+        for (key, value) in headers {
+            headerText += "\(key): \(value)\(MultiPartDataGenerator.delimiter)"
+        }
+        headerText += MultiPartDataGenerator.delimiter
+        
+        let encodedHeaders = headerText.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        
+        /// Append the Multipart Data into the Array
+        if self.multipartData == nil {
+            self.multipartData = [BodyPart]()
+        }
+        
+        self.multipartData?.append(BodyPart(headers: encodedHeaders, body: InputStream(data: data)))
+        
+        return self
+    }
+    
     // MARK: - Request Options Modifiers
     
     /// Mocks the response of the resource with the contents of the given filename. Note that if a request is mocked, it'll never hit the network, and will NOT pass the Request Interceptors. It will, however, pass through the Response Intereptors.

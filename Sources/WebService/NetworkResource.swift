@@ -42,6 +42,8 @@ public class NetworkResource: NSObject {
     /// Mocked Data for the resource. Set using the `.mock()` modifier
     var mockedData: Data?
     
+    var multipartData: [BodyPart]?
+    
     /// Error (if any) encountered while Webservice was creating this request.
     ///
     /// Set this error in your own extensions of `NetworkResource` or `NetworkResourceWithBody` Modifiers to inform callers of errors that fail the request, for example, JSON encoding failures.
