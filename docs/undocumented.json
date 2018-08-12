@@ -1,6 +1,13 @@
 {
   "warnings": [
     {
+      "file": "/Users/sids/Desktop/Swifty/Sources/Core/MultiPartEncodingInterceptor.swift",
+      "line": 39,
+      "symbol": "BodyPart",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/sids/Desktop/Swifty/Sources/Inspector/SwiftyInspector.swift",
       "line": 57,
       "symbol": "SwiftyInspector.viewDidLoad()",

@@ -14,6 +14,7 @@
   </head>
   <body>
 
+    <a name="//apple_ref/swift/Section/Classes" class="dashAnchor"></a>
 
     <a title="Classes  Reference"></a>
 
@@ -122,6 +123,14 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs.html#/s:6Swifty8BodyPartV">BodyPart</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a class="nav-group-name-link" href="Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -151,9 +160,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Swifty@objc(cs)NetworkResource"></a>
-                    <a name="//apple_ref/swift/Class/NetworkResource" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Swifty@objc(cs)NetworkResource">NetworkResource</a>
+                    <a name="/s:6Swifty10ConstraintC"></a>
+                    <a name="//apple_ref/swift/Class/Constraint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Swifty10ConstraintC">Constraint</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -161,17 +170,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A wrapper over NSMutableURLRequest, it&rsquo;s an alias for a network request in Swifty.</p>
+                        <p>Constraint: Constraints are tasks which can hold network requests from starting until they are satisfied.</p>
 
-<p>It provides the chaining modifier syntax and also stores attributes and directions for Swifty to run the given network request.</p>
-
-                        <a href="Classes/NetworkResource.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/Constraint.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NetworkResource</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">Constraint</span></code></pre>
 
                         </div>
                       </div>
@@ -245,45 +252,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Swifty@objc(cs)SwiftyInspector"></a>
-                    <a name="//apple_ref/swift/Class/SwiftyInspector" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Swifty@objc(cs)SwiftyInspector">SwiftyInspector</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Swifty Inspector is way to view the log of all requests that have gone through Swifty, and view their request and response parameters, including their <code>URLSessionTaskMetrics</code>.</p>
-
-<p>To show the Swifty Inspector, present the <code>UINavigationController</code> returned from the <code>SwiftyInspecter.shared.presentableInspector()</code> method.</p>
-
-<blockquote>
-<p>Swifty Inspector only collects and displays information in the <code>DEBUG</code> compiler configuration.
-Only available on iOS 10+.</p>
-</blockquote>
-
-                        <a href="Classes/SwiftyInspector.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SwiftyInspector</span><span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/c:@M@Swifty@objc(cs)NetworkResponse"></a>
                     <a name="//apple_ref/swift/Class/NetworkResponse" class="dashAnchor"></a>
                     <a class="token" href="#/c:@M@Swifty@objc(cs)NetworkResponse">NetworkResponse</a>
@@ -302,39 +270,8 @@ Only available on iOS 10+.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">NetworkResponse</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@Swifty@objc(cs)NetworkResourceWithBody"></a>
-                    <a name="//apple_ref/swift/Class/NetworkResourceWithBody" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Swifty@objc(cs)NetworkResourceWithBody">NetworkResourceWithBody</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A subclass of NetworkResource, with support for carrying a request body.</p>
-
-                        <a href="Classes/NetworkResourceWithBody.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NetworkResourceWithBody</span><span class="p">:</span> <span class="kt"><a href="Classes/NetworkResource.html">NetworkResource</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">NetworkResponse</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                         </div>
                       </div>
@@ -366,7 +303,8 @@ Only available on iOS 10+.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span> <span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">Swifty</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">Swifty</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                         </div>
                       </div>
@@ -380,9 +318,9 @@ Only available on iOS 10+.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Swifty10ConstraintC"></a>
-                    <a name="//apple_ref/swift/Class/Constraint" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Swifty10ConstraintC">Constraint</a>
+                    <a name="/c:@M@Swifty@objc(cs)SwiftyInspector"></a>
+                    <a name="//apple_ref/swift/Class/SwiftyInspector" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Swifty@objc(cs)SwiftyInspector">SwiftyInspector</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -390,15 +328,24 @@ Only available on iOS 10+.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Constraint: Constraints are tasks which can hold network requests from starting until they are satisfied.</p>
+                        <p>Swifty Inspector is way to view the log of all requests that have gone through Swifty, and view their request and response parameters, including their <code>URLSessionTaskMetrics</code>.</p>
 
-                        <a href="Classes/Constraint.html" class="slightly-smaller">See more</a>
+<p>To show the Swifty Inspector, present the <code>UINavigationController</code> returned from the <code>SwiftyInspecter.shared.presentableInspector()</code> method.</p>
+
+<blockquote>
+<p>Swifty Inspector only collects and displays information in the <code>DEBUG</code> compiler configuration.
+Only available on iOS 10+.</p>
+</blockquote>
+
+                        <a href="Classes/SwiftyInspector.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">Constraint</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(iOS 10.0, *)</span>
+<span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SwiftyInspector</span> <span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -432,7 +379,74 @@ Only available on iOS 10+.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">BaseResource</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">BaseResource</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Swifty@objc(cs)NetworkResource"></a>
+                    <a name="//apple_ref/swift/Class/NetworkResource" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Swifty@objc(cs)NetworkResource">NetworkResource</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A wrapper over NSMutableURLRequest, it&rsquo;s an alias for a network request in Swifty.</p>
+
+<p>It provides the chaining modifier syntax and also stores attributes and directions for Swifty to run the given network request.</p>
+
+                        <a href="Classes/NetworkResource.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NetworkResource</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Swifty@objc(cs)NetworkResourceWithBody"></a>
+                    <a name="//apple_ref/swift/Class/NetworkResourceWithBody" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Swifty@objc(cs)NetworkResourceWithBody">NetworkResourceWithBody</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A subclass of NetworkResource, with support for carrying a request body.</p>
+
+                        <a href="Classes/NetworkResourceWithBody.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NetworkResourceWithBody</span> <span class="p">:</span> <span class="kt"><a href="Classes/NetworkResource.html">NetworkResource</a></span></code></pre>
 
                         </div>
                       </div>
@@ -447,8 +461,8 @@ Only available on iOS 10+.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2018-03-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2018 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2018-08-13)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
