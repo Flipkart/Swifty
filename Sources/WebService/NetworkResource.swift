@@ -42,7 +42,7 @@ public class NetworkResource: NSObject {
     /// Mocked Data for the resource. Set using the `.mock()` modifier
     var mockedData: Data?
     
-    var multipartData: [Data]?
+    var multipartData: [BodyPart]?
     
     /// Error (if any) encountered while Webservice was creating this request.
     ///

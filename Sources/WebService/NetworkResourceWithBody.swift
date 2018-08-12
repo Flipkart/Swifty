@@ -220,7 +220,7 @@ public extension NetworkResourceWithBody {
         }
         
         /// Encode the Headers for the multipart data
-        var disposition = "form-data; name=\"\(name)\""
+        let disposition = "form-data; name=\"\(name)\""
         
         var headers: [String: String] = ["Content-Disposition": disposition]
         headers["Content-Type"] = mimeType
@@ -235,10 +235,10 @@ public extension NetworkResourceWithBody {
         
         /// Append the Multipart Data into the Array
         if self.multipartData == nil {
-            self.multipartData = [Data]()
+            self.multipartData = [BodyPart]()
         }
         
-        self.multipartData?.append(encodedHeaders + data)
+        self.multipartData?.append(BodyPart(headers: encodedHeaders, body: InputStream(data: data)))
         
         return self
     }
@@ -266,10 +266,10 @@ public extension NetworkResourceWithBody {
         
         /// Append the Multipart Data into the Array
         if self.multipartData == nil {
-            self.multipartData = [Data]()
+            self.multipartData = [BodyPart]()
         }
         
-        self.multipartData?.append(encodedHeaders + data)
+        self.multipartData?.append(BodyPart(headers: encodedHeaders, body: InputStream(data: data)))
         
         return self
     }

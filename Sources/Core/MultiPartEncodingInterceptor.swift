@@ -36,6 +36,11 @@ struct MultiPartDataGenerator {
     }
 }
 
+public struct BodyPart {
+    let headers: Data
+    let body: InputStream
+}
+
 /// MultiPart Data Encoding Intercept
 struct MultiPartEncodingInterceptor: RequestInterceptor {
     
@@ -55,11 +60,36 @@ struct MultiPartEncodingInterceptor: RequestInterceptor {
         var encodedData = MultiPartDataGenerator.boundaryData(for: .initial, boundary: boundary)
         
         for (index, part) in parts.enumerated() {
-            encodedData += part + ((index == count - 1) ? MultiPartDataGenerator.boundaryData(for: .final, boundary: boundary) : MultiPartDataGenerator.boundaryData(for: .middle, boundary: boundary))
+            encodedData += part.headers + encode(inputStream: part.body) + ((index == count - 1) ? MultiPartDataGenerator.boundaryData(for: .final, boundary: boundary) : MultiPartDataGenerator.boundaryData(for: .middle, boundary: boundary))
         }
         
         resourceWithBody.data(encodedData, mimeType: contentType)
         
         return resource
     }
+    
+    private func encode(inputStream: InputStream) -> Data {
+        inputStream.open()
+        defer { inputStream.close() }
+        
+        var encoded = Data()
+        
+        while inputStream.hasBytesAvailable {
+            var buffer = [UInt8](repeating: 0, count: 1024)
+            let bytesRead = inputStream.read(&buffer, maxLength: 1024)
+            
+            if let error = inputStream.streamError {
+                print("Stream Error: \(error)")
+            }
+            
+            if bytesRead > 0 {
+                encoded.append(buffer, count: bytesRead)
+            } else {
+                break
+            }
+        }
+        
+        return encoded
+    }
 }
+
