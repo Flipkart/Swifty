@@ -42,9 +42,6 @@ public protocol ResponseParser {
     /// The ResponseParser that Swifty should use to serialize this repsonse
     public var parser: ResponseParser?
     
-    //round trip time for this response
-    public var rtt: TimeInterval?
-    
 // MARK: - Initializers
     
     /// Initializes the network response
@@ -54,12 +51,11 @@ public protocol ResponseParser {
     ///   - data: Data?
     ///   - error: NSError?
     ///   - parser: ResponseParser?
-    public init(response: HTTPURLResponse? = nil, data: Data? = nil, error: NSError? = nil, parser: ResponseParser? = nil, rtt: TimeInterval? = nil){
+    public init(response: HTTPURLResponse? = nil, data: Data? = nil, error: NSError? = nil, parser: ResponseParser? = nil){
         self.response = response
         self.data = data
         self.error = error
         self.parser = parser
-        self.rtt = rtt
     }
     
 // MARK: - Modifiers

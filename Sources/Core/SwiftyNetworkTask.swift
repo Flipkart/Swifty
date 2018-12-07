@@ -69,14 +69,12 @@ class SwiftyNetworkTask: Task {
         /// Intercepts the request with the request interceptors defined.
         self.interceptors.forEach { self.resource = $0.intercept(resource: self.resource) }
         /// Creates a Data Task
-        let taskStartTime = Date().timeIntervalSince1970
         let dataTask = session.dataTask(with: self.request, completionHandler: { (data, response, error) in
             if let networkError = error {
                 self.finish(with: .error(NetworkResponse(error: networkError as NSError)))
             }
             else if let response = response as? HTTPURLResponse, let data = data {
-                let rtt = Date().timeIntervalSince1970 - taskStartTime
-                self.finish(with: .success(NetworkResponse(response: response, data: data, parser: self.resource.parser, rtt: rtt)))
+                self.finish(with: .success(NetworkResponse(response: response, data: data, parser: self.resource.parser)))
             }
         })
         /// Runs the data task.
