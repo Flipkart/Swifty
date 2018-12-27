@@ -75,12 +75,13 @@ struct SwiftyInterceptors {
     public convenience init(configuration: URLSessionConfiguration = URLSessionConfiguration.default,
                             constraints: [Constraint] = [],
                             requestInterceptors: [RequestInterceptor] = [],
-                            responseInterceptors: [ResponseInterceptor] = []) {
+                            responseInterceptors: [ResponseInterceptor] = [],
+                            sessionMetricsDelegate: URLSessionTaskDelegate? = nil) {
         
         #if DEBUG
-            let session = URLSession(configuration: configuration, delegate: SwiftyURLSessionDelegate.shared, delegateQueue: nil)
+            let session = URLSession(configuration: configuration, delegate: sessionMetricsDelegate ?? SwiftyURLSessionDelegate.shared, delegateQueue: nil)
         #else
-            let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
+            let session = URLSession(configuration: configuration, delegate: sessionMetricsDelegate, delegateQueue: nil)
         #endif
         
         self.init(session: session, constraints: constraints, requestInterceptors: requestInterceptors, responseInterceptors: responseInterceptors)
