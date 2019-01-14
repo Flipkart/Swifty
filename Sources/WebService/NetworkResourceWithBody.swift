@@ -12,7 +12,7 @@
 import Foundation
 
 /// A subclass of NetworkResource, with support for carrying a request body.
-public class NetworkResourceWithBody: NetworkResource {}
+@objc public class NetworkResourceWithBody: NetworkResource {}
 
 public extension NetworkResourceWithBody {
     

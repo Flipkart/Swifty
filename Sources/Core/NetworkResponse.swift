@@ -28,16 +28,16 @@ public protocol ResponseParser {
 // MARK: - Properties
     
     /// The HTTPURLResponse receieved from the network
-    public var response : HTTPURLResponse?
+     @objc public var response : HTTPURLResponse?
     
     /// The raw Data receieved from the network
-    public var data: Data?
+     @objc public var data: Data?
     
     /// Error that response encountered (if any)
-    public var error: NSError?
+     @objc public var error: NSError?
     
     /// The result of the response serialization
-    public var result: Any?
+     @objc public var result: Any?
     
     /// The ResponseParser that Swifty should use to serialize this repsonse
     public var parser: ResponseParser?
@@ -65,7 +65,7 @@ public protocol ResponseParser {
     /// - Parameters:
     ///   - response: HTTPURLResponse?
     ///   - data: Data?
-    public func succeed(response: HTTPURLResponse?, data: Data?){
+    @objc public func succeed(response: HTTPURLResponse?, data: Data?){
         self.response = response
         self.data = data
         self.error = nil
@@ -75,7 +75,7 @@ public protocol ResponseParser {
     /// Forcefully fails the response, with the given error. This is especially useful in response interceptors.
     ///
     /// - Parameter error: NSError.
-    public func fail(error: NSError){
+    @objc public func fail(error: NSError){
         self.error = error
     }
 }

@@ -95,7 +95,7 @@ struct SwiftyInterceptors {
     ///   - resource: NetworkResource
     ///   - successBlock: SwiftySuccessBlock
     ///   - failureBlock: SwiftyFailureBlock
-    public func add(_ resource: NetworkResource, successBlock: @escaping SwiftySuccessBlock, failureBlock: @escaping SwiftyFailureBlock){
+    @objc public func add(_ resource: NetworkResource, successBlock: @escaping SwiftySuccessBlock, failureBlock: @escaping SwiftyFailureBlock){
         let task = SwiftyNetworkTask(resource: resource, session: session, interceptors: self.requestInterceptors)
         // Swifty Enters the group
         task.group.enter()
@@ -131,7 +131,7 @@ struct SwiftyInterceptors {
 // MARK: - WebServiceNetworkInterface.
 extension Swifty: WebServiceNetworkInterface {
     /// Conforms Swifty's shared instance to the WebServiceNetworkInterface protocol, making it easy to use directly with a WebService.
-    public func loadResource(resource: NetworkResource, completion: @escaping (NetworkResponse) -> Void) {
+    @objc public func loadResource(resource: NetworkResource, completion: @escaping (NetworkResponse) -> Void) {
         self.add(resource, successBlock: { (networkResponse) in
             completion(networkResponse)
         }, failureBlock: { (networkResponse) in

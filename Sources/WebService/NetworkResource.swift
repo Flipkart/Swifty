@@ -14,12 +14,12 @@ import Foundation
 /// A wrapper over NSMutableURLRequest, it's an alias for a network request in Swifty.
 ///
 /// It provides the chaining modifier syntax and also stores attributes and directions for Swifty to run the given network request.
-public class NetworkResource: NSObject {
+@objc public class NetworkResource: NSObject {
     
 // MARK: - Properties
     
     /// The actual NSMutableURLRequest this resource wraps over
-    public let request: NSMutableURLRequest
+     @objc public let request: NSMutableURLRequest
     
     /// WebServiceNetworkInterface
     weak var networkInterface: WebServiceNetworkInterface?
@@ -34,7 +34,7 @@ public class NetworkResource: NSObject {
     var parser: ResponseParser?
     
     /// Tags allow you to categorize your requests, which helps you to recognize them in your interceptors and constraints to take selective action
-    public var tags = Set<String>()
+     @objc public var tags = Set<String>()
     
     /// Can have constraints
     var canHaveConstraints = false
@@ -49,7 +49,7 @@ public class NetworkResource: NSObject {
     /// Set this error in your own extensions of `NetworkResource` or `NetworkResourceWithBody` Modifiers to inform callers of errors that fail the request, for example, JSON encoding failures.
     ///
     /// If this not `nil` at the time the `load` method on this request is called, the request will **automatically fail** with this error without ever hitting the network.
-    public var creationError: NSError?
+     @objc public var creationError: NSError?
     
 // MARK: - Initializers
     
@@ -109,7 +109,7 @@ public class NetworkResource: NSObject {
      Prints the resource's parameters in readable format, including the URL, Headers, Method, and the HTTP Body
      */
     @discardableResult
-    public func printDetails() -> NetworkResource {
+    @objc public func printDetails() -> NetworkResource {
         print(self.description)
         return self
     }

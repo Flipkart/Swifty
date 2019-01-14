@@ -100,7 +100,7 @@ open class Constraint {
      
      - Parameter error: NSError?
      */
-    public func finish(with error: Error?) {
+    @objc public func finish(with error: Error?) {
         synchronizer.async {
             self.state = .notExecuting
             for task in self.tasks {
