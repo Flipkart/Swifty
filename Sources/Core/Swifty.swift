@@ -26,7 +26,7 @@ struct SwiftyInterceptors {
 @objc final public class Swifty: NSObject {
     
     /// Swifty's shared instance: It's highly recommended you create your own Swifty instances with your customizations (Constraints, Interceptors) instead of using the shared instance.
-    public static let shared = Swifty()
+    @objc public static let shared = Swifty()
     
     /// The URLSession of this Swifty instance
     let session: URLSession
