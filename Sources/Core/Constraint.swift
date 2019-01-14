@@ -25,7 +25,7 @@ enum TaskState {
 open class Constraint {
     
     /// Public initializer
-    public init(){}
+    @objc public init(){}
     
     /// Synchronizer - makes sure that constraint evaluation is thread-safe.
     let synchronizer = DispatchQueue(label: "swifty.constraintSyncronizer")

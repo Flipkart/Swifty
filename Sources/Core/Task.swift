@@ -26,7 +26,7 @@ enum Result {
 class Task {
     
     /// Public initializer.
-    public init(){ }
+    @objc public init(){ }
     
     /// Dispatch Group: Keeps track of the constraints and lets the task begin when all of the constraints are satisfied.
     let group = DispatchGroup()

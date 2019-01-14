@@ -58,7 +58,7 @@ import Foundation
     /// - Parameters:
     ///   - url: URL
     ///   - method: httpMethod
-    public convenience init(url: URL, method: String) {
+    @objc public convenience init(url: URL, method: String) {
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = method
         self.init(request: request)
@@ -79,7 +79,7 @@ import Foundation
     /// - Parameters:
     ///   - request: NSMutableURLRequest
     ///   - networkInterface: WebServiceNetworkInterface
-    public init(request: NSMutableURLRequest, networkInterface: WebServiceNetworkInterface? = nil) {
+    @objc public init(request: NSMutableURLRequest, networkInterface: WebServiceNetworkInterface? = nil) {
         self.request = request
         self.networkInterface = networkInterface
     }
@@ -87,7 +87,7 @@ import Foundation
     /// Initializes the NetworkResource with the given URLRequest
     ///
     /// - Parameter request: URLRequest.
-    public convenience init(request: URLRequest) {
+    @objc public convenience init(request: URLRequest) {
         self.init(request: (request as! NSMutableURLRequest))
     }
     
