@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Swifty Docs
         </a>
-         (93% documented)
+         (100% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -123,14 +123,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs.html#/s:6Swifty8BodyPartV">BodyPart</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -194,9 +186,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6SwiftyAACABSo10URLSessionC7session_SayAA10ConstraintCG11constraintsSayAA18RequestInterceptor_pG19requestInterceptorsSayAA08ResponseG0_pG08responseI0tcfc"></a>
+                    <a name="/s:6SwiftyAAC7session11constraints19requestInterceptors08responseE0ABSo12NSURLSessionC_SayAA10ConstraintCGSayAA18RequestInterceptor_pGSayAA08ResponseJ0_pGtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(session:constraints:requestInterceptors:responseInterceptors:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6SwiftyAACABSo10URLSessionC7session_SayAA10ConstraintCG11constraintsSayAA18RequestInterceptor_pG19requestInterceptorsSayAA08ResponseG0_pG08responseI0tcfc">init(session:constraints:requestInterceptors:responseInterceptors:)</a>
+                    <a class="token" href="#/s:6SwiftyAAC7session11constraints19requestInterceptors08responseE0ABSo12NSURLSessionC_SayAA10ConstraintCGSayAA18RequestInterceptor_pGSayAA08ResponseJ0_pGtcfc">init(session:constraints:requestInterceptors:responseInterceptors:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -281,9 +273,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6SwiftyAACABSo23URLSessionConfigurationC13configuration_SayAA10ConstraintCG11constraintsSayAA18RequestInterceptor_pG19requestInterceptorsSayAA08ResponseH0_pG08responseJ0tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(configuration:constraints:requestInterceptors:responseInterceptors:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6SwiftyAACABSo23URLSessionConfigurationC13configuration_SayAA10ConstraintCG11constraintsSayAA18RequestInterceptor_pG19requestInterceptorsSayAA08ResponseH0_pG08responseJ0tcfc">init(configuration:constraints:requestInterceptors:responseInterceptors:)</a>
+                    <a name="/s:6SwiftyAAC13configuration11constraints19requestInterceptors08responseE022sessionMetricsDelegateABSo25NSURLSessionConfigurationC_SayAA10ConstraintCGSayAA18RequestInterceptor_pGSayAA08ResponseN0_pGSo0j4TaskI0_pSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(configuration:constraints:requestInterceptors:responseInterceptors:sessionMetricsDelegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6SwiftyAAC13configuration11constraints19requestInterceptors08responseE022sessionMetricsDelegateABSo25NSURLSessionConfigurationC_SayAA10ConstraintCGSayAA18RequestInterceptor_pGSayAA08ResponseN0_pGSo0j4TaskI0_pSgtcfc">init(configuration:constraints:requestInterceptors:responseInterceptors:sessionMetricsDelegate:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -300,10 +292,11 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="kt">URLSessionConfiguration</span> <span class="o">=</span> <span class="kt">URLSessionConfiguration</span><span class="o">.</span><span class="k">default</span><span class="p">,</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="kt">URLSessionConfiguration</span> <span class="o">=</span> <span class="kt">URLSessionConfiguration</span><span class="o">.</span><span class="k">default</span><span class="p">,</span>
                         <span class="nv">constraints</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Constraint.html">Constraint</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
                         <span class="nv">requestInterceptors</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/RequestInterceptor.html">RequestInterceptor</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
-                        <span class="nv">responseInterceptors</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/ResponseInterceptor.html">ResponseInterceptor</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span></code></pre>
+                        <span class="nv">responseInterceptors</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/ResponseInterceptor.html">ResponseInterceptor</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+                        <span class="nv">sessionMetricsDelegate</span><span class="p">:</span> <span class="kt">URLSessionTaskDelegate</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -368,9 +361,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6SwiftyAAC3addyAA15NetworkResourceC_yAA0C8ResponseCc12successBlockyAGc07failureG0tF"></a>
+                    <a name="/s:6SwiftyAAC3add_12successBlock07failureD0yAA15NetworkResourceC_yAA0F8ResponseCcyAIctF"></a>
                     <a name="//apple_ref/swift/Method/add(_:successBlock:failureBlock:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6SwiftyAAC3addyAA15NetworkResourceC_yAA0C8ResponseCc12successBlockyAGc07failureG0tF">add(_:successBlock:failureBlock:)</a>
+                    <a class="token" href="#/s:6SwiftyAAC3add_12successBlock07failureD0yAA15NetworkResourceC_yAA0F8ResponseCcyAIctF">add(_:successBlock:failureBlock:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -483,8 +476,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2018-08-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2019 <a class="link" href="https://github.com/biocross" target="_blank" rel="external">Siddharth Gupta</a>. All rights reserved. (Last updated: 2019-01-20)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
