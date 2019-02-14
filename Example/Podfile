@@ -5,7 +5,7 @@ target 'Swifty_Example' do
   pod 'Swifty', :path => '../'
 
   target 'Swifty_Tests' do
-  	pod 'Alamofire'
+  	pod 'Alamofire', '4.7.3'
     inherit! :search_paths
     
   end

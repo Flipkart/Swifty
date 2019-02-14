@@ -36,7 +36,8 @@ struct MultiPartDataGenerator {
     }
 }
 
-public struct BodyPart {
+/// A single part in a multi-part body
+struct BodyPart {
     let headers: Data
     let body: InputStream
 }

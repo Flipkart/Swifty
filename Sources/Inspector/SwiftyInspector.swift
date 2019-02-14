@@ -54,6 +54,7 @@ struct NetworkResourceMetric {
         }
     }
     
+    /// :nodoc:
     public override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView = UITableView(frame: self.view.frame, style: .grouped)
@@ -68,18 +69,22 @@ struct NetworkResourceMetric {
         self.dismiss(animated: true, completion: nil)
     }
     
+    /// :nodoc:
     public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Network Requests: Latest First"
     }
     
+    /// :nodoc:
     public override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    /// :nodoc:
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return metrics.count
     }
     
+    /// :nodoc:
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
@@ -106,15 +111,18 @@ struct NetworkResourceMetric {
         return cell
     }
     
+    /// :nodoc:
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     
+    /// :nodoc:
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = SwiftyInspectorDetailTableView(metric: self.metrics[indexPath.row])
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    /// :nodoc:
     public override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let metric = metrics[indexPath.row]
         

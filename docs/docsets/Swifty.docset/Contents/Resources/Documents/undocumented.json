@@ -1,61 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/sids/Desktop/Swifty/Sources/Inspector/SwiftyInspector.swift",
-      "line": 57,
-      "symbol": "SwiftyInspector.viewDidLoad()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/sids/Desktop/Swifty/Sources/Inspector/SwiftyInspector.swift",
-      "line": 71,
-      "symbol": "SwiftyInspector.tableView(_:titleForHeaderInSection:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/sids/Desktop/Swifty/Sources/Inspector/SwiftyInspector.swift",
-      "line": 75,
-      "symbol": "SwiftyInspector.numberOfSections(in:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/sids/Desktop/Swifty/Sources/Inspector/SwiftyInspector.swift",
-      "line": 79,
-      "symbol": "SwiftyInspector.tableView(_:numberOfRowsInSection:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/sids/Desktop/Swifty/Sources/Inspector/SwiftyInspector.swift",
-      "line": 83,
-      "symbol": "SwiftyInspector.tableView(_:cellForRowAt:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/sids/Desktop/Swifty/Sources/Inspector/SwiftyInspector.swift",
-      "line": 109,
-      "symbol": "SwiftyInspector.tableView(_:heightForRowAt:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/sids/Desktop/Swifty/Sources/Inspector/SwiftyInspector.swift",
-      "line": 113,
-      "symbol": "SwiftyInspector.tableView(_:didSelectRowAt:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/sids/Desktop/Swifty/Sources/Inspector/SwiftyInspector.swift",
-      "line": 118,
-      "symbol": "SwiftyInspector.tableView(_:willDisplay:forRowAt:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/sids/Desktop/Swifty"
 }
