@@ -26,7 +26,7 @@ struct SwiftyInterceptors {
 @objc final public class Swifty: NSObject {
     
     /// Swifty's shared instance: It's highly recommended you create your own Swifty instances with your customizations (Constraints, Interceptors) instead of using the shared instance.
-    public static let shared = Swifty()
+    @objc public static let shared = Swifty()
     
     /// The URLSession of this Swifty instance
     let session: URLSession
@@ -95,7 +95,7 @@ struct SwiftyInterceptors {
     ///   - resource: NetworkResource
     ///   - successBlock: SwiftySuccessBlock
     ///   - failureBlock: SwiftyFailureBlock
-    public func add(_ resource: NetworkResource, successBlock: @escaping SwiftySuccessBlock, failureBlock: @escaping SwiftyFailureBlock){
+    @objc public func add(_ resource: NetworkResource, successBlock: @escaping SwiftySuccessBlock, failureBlock: @escaping SwiftyFailureBlock){
         let task = SwiftyNetworkTask(resource: resource, session: session, interceptors: self.requestInterceptors)
         // Swifty Enters the group
         task.group.enter()
@@ -131,7 +131,7 @@ struct SwiftyInterceptors {
 // MARK: - WebServiceNetworkInterface.
 extension Swifty: WebServiceNetworkInterface {
     /// Conforms Swifty's shared instance to the WebServiceNetworkInterface protocol, making it easy to use directly with a WebService.
-    public func loadResource(resource: NetworkResource, completion: @escaping (NetworkResponse) -> Void) {
+    @objc public func loadResource(resource: NetworkResource, completion: @escaping (NetworkResponse) -> Void) {
         self.add(resource, successBlock: { (networkResponse) in
             completion(networkResponse)
         }, failureBlock: { (networkResponse) in

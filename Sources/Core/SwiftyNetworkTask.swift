@@ -15,7 +15,7 @@ import Foundation
 class SwiftyNetworkTask: Task {
     
     /// Network Resource
-    public var resource: NetworkResource
+     @objc public var resource: NetworkResource
     
     /// Session
     internal let session: URLSession
@@ -29,7 +29,7 @@ class SwiftyNetworkTask: Task {
     }
     
     /// Print's the resource's description
-    public var description: String {
+     @objc public var description: String {
         return resource.description
     }
     
