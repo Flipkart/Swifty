@@ -25,6 +25,8 @@ extension URLSessionTaskMetrics.ResourceFetchType {
             return "Server Push"
         case .unknown:
             return "Unknown"
+        @unknown default:
+            return "Unknown"
         }
     }
 }
