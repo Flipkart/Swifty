@@ -116,10 +116,8 @@ class PerformanceTests: XCTestCase {
         measureMetrics([XCTPerformanceMetric.wallClockTime], automaticallyStartMeasuring: true) {
             let expec = self.expectation(description: "aGET")
             
-            Alamofire.request(self.GETRequest).responseJSON { response in
-                if let _ = response.result.value {
-                    expec.fulfill()
-                }
+            AF.request(self.GETRequest).responseJSON { response in
+                expec.fulfill()
             }
             
             self.waitForExpectations(timeout: 5) { error in
@@ -136,10 +134,8 @@ class PerformanceTests: XCTestCase {
         measureMetrics([XCTPerformanceMetric.wallClockTime], automaticallyStartMeasuring: true) {
             let expec = self.expectation(description: "aPOST")
             
-            Alamofire.request(self.POSTRequest).responseJSON { response in
-                if let _ = response.result.value {
-                    expec.fulfill()
-                }
+            AF.request(self.POSTRequest).responseJSON { response in
+                expec.fulfill()
             }
             
             self.waitForExpectations(timeout: 5) { error in

@@ -1,11 +1,11 @@
 use_frameworks!
-platform :ios, '8.0'
+platform :ios, '10.0'
 
 target 'Swifty_Example' do
   pod 'Swifty', :path => '../'
 
   target 'Swifty_Tests' do
-  	pod 'Alamofire', '4.7.3'
+  	pod 'Alamofire', '~> 5.0.0-beta.6'
     inherit! :search_paths
     
   end
