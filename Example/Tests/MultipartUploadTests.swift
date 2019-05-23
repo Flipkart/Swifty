@@ -41,7 +41,7 @@ class MultipartUploadTests: XCTestCase {
                 let logo = files["logo"] as? String,
                 let jsonString = form["json"] as? String,
                 let data = jsonString.data(using: .utf8),
-                let dict = ((try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String]) as [String : String]??) {
+                let dict = ((try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String])) {
                 let base64Data = String(logo.split(separator: ",")[1])
                 XCTAssertEqual(base64Data, base64Image)
                 XCTAssertEqual(dict, ["Hello": "World"])
