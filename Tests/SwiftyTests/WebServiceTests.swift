@@ -98,7 +98,7 @@ class WebServiceTests: XCTestCase {
             }
         }
         
-        self.waitForExpectations(timeout: 6, handler: nil)
+        self.waitForExpectations(timeout: 20, handler: nil)
     }
     
     func testMethodModifiers() {
@@ -233,7 +233,7 @@ class WebServiceTests: XCTestCase {
             XCTFail("Couldn't decode the Person object in the response")
         }
         
-        self.waitForExpectations(timeout: 10, handler: nil)
+        self.waitForExpectations(timeout: 20, handler: nil)
     }
     
     func testJSONDecodingforCodableError() {
@@ -249,7 +249,7 @@ class WebServiceTests: XCTestCase {
             expectation.fulfill()
         }
         
-        self.waitForExpectations(timeout: 10, handler: nil)
+        self.waitForExpectations(timeout: 20, handler: nil)
     }
     
     func testJSONParser() {
@@ -264,7 +264,7 @@ class WebServiceTests: XCTestCase {
             XCTFail("JSON Parsing Failure / Didn't get the JSON that was expected: \(error.localizedDescription)")
         }
         
-        self.waitForExpectations(timeout: 4, handler: nil)
+        self.waitForExpectations(timeout: 20, handler: nil)
     }
     
     func testSimpleError() {
@@ -280,7 +280,7 @@ class WebServiceTests: XCTestCase {
             expectation.fulfill()
         }
         
-        self.waitForExpectations(timeout: 4, handler: nil)
+        self.waitForExpectations(timeout: 10, handler: nil)
     }
     
     func testSucessFor204() {
@@ -295,7 +295,7 @@ class WebServiceTests: XCTestCase {
             print(error)
         }
         
-        self.waitForExpectations(timeout: 4, handler: nil)
+        self.waitForExpectations(timeout: 10, handler: nil)
     }
     
 }
