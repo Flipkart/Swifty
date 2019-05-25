@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = 'Swifty'
-  s.version          = '1.2.0'
+  s.version          = '1.2.1'
   s.summary          = 'Lightweight & Fast Network Abstraction Layer for iOS'
 
   s.description      = <<-DESC
-  Swifty is a modern take on how iOS apps should do networking. Written in Swift, it offers a declarative way to write your network requests and organise them. It has features like Interceptors & Constraints to simplify common networking requirements of apps, and is faster that most exisiting networking libraries.
+  Swifty is a modern take on how iOS apps should do networking. It offers a declarative way to write your network requests and organise them, has features like Interceptors & Constraints to simplify common networking requirements, and is faster than most exisiting networking libraries.
                        DESC
 
   s.homepage         = 'https://github.com/Flipkart/Swifty'

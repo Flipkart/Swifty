@@ -1,5 +1,24 @@
 # Change Log
 
+## [1.2.1](https://github.com/Flipkart/Swifty/releases/tag/1.2.1)
+Released on 2019-05-25.
+
+Swifty has been upgraded for Swift 4.2.
+
+#### Added
+- Adds the `@objc` attribute to all publicly ObjC accessible classes and methods.
+- Added ability to specify a custom `sessionMetricsDelegate: URLSessionTaskDelegate` in the Swifty initializer to collect `URLSessionTaskMetrics` 
+
+## [1.1.1](https://github.com/Flipkart/Swifty/releases/tag/1.1.1)
+Released on 2018-08-13.
+
+Swifty now supports attaching multipart form data into requests.
+
+#### Added
+- Adds a new modifier `.multipart()` to attach multipart form data into requests.
+- The new modifier is can be chained continuously to attach multiple data into requests. 
+- The encoding of the data is done at the time `.load()` is called, using an internal `RequestInterceptor`
+
 ## [1.1.0](https://github.com/Flipkart/Swifty/releases/tag/1.1.0)
 Released on 2017-12-14.
 

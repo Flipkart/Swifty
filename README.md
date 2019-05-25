@@ -250,7 +250,7 @@ $ pod install
 ## Requirements
 
 - iOS 8.0+
-- Swift 4
+- Swift 4.2
 
 ---
 
