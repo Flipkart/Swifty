@@ -60,7 +60,7 @@ class InterceptorTests: XCTestCase {
             XCTFail()
         }
         
-        self.waitForExpectations(timeout: 5) { error in
+        self.waitForExpectations(timeout: 20) { error in
             if let error = error {
                 print("Test Failed Error: \(error.localizedDescription)")
             }
@@ -96,7 +96,7 @@ class InterceptorTests: XCTestCase {
             XCTFail()
         }
         
-        self.waitForExpectations(timeout: 5) { error in
+        self.waitForExpectations(timeout: 20) { error in
             if let error = error {
                 print("Test Failed Error: \(error.localizedDescription)")
             }
@@ -121,7 +121,7 @@ class InterceptorTests: XCTestCase {
             taskFinished.fulfill()
         }
         
-        self.waitForExpectations(timeout: 5) { error in
+        self.waitForExpectations(timeout: 20) { error in
             if let error = error {
                 print("Test Failed Error: \(error.localizedDescription)")
             }
@@ -151,7 +151,7 @@ class InterceptorTests: XCTestCase {
             taskFinished.fulfill()
         }
         
-        self.waitForExpectations(timeout: 5) { error in
+        self.waitForExpectations(timeout: 20) { error in
             if let error = error {
                 print("Test Failed Error: \(error.localizedDescription)")
             }
