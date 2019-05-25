@@ -44,7 +44,7 @@ class PerformanceTests: XCTestCase {
                 expec.fulfill()
             })
             
-            self.waitForExpectations(timeout: 5) { error in
+            self.waitForExpectations(timeout: 10) { error in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                 }
@@ -64,7 +64,7 @@ class PerformanceTests: XCTestCase {
                 expec.fulfill()
             })
             
-            self.waitForExpectations(timeout: 5) { error in
+            self.waitForExpectations(timeout: 10) { error in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                 }
@@ -83,7 +83,7 @@ class PerformanceTests: XCTestCase {
                 expec.fulfill()
             }).resume()
             
-            self.waitForExpectations(timeout: 5) { error in
+            self.waitForExpectations(timeout: 10) { error in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                 }
@@ -102,7 +102,7 @@ class PerformanceTests: XCTestCase {
                 expec.fulfill()
             }).resume()
             
-            self.waitForExpectations(timeout: 5) { error in
+            self.waitForExpectations(timeout: 10) { error in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                 }
@@ -122,7 +122,7 @@ class PerformanceTests: XCTestCase {
                 }
             }
             
-            self.waitForExpectations(timeout: 5) { error in
+            self.waitForExpectations(timeout: 10) { error in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                 }
@@ -142,7 +142,7 @@ class PerformanceTests: XCTestCase {
                 }
             }
             
-            self.waitForExpectations(timeout: 5) { error in
+            self.waitForExpectations(timeout: 10) { error in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                 }
