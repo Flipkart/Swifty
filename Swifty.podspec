@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Swifty'
-  s.version          = '1.2.1'
+  s.version          = '1.3.0'
   s.summary          = 'Lightweight & Fast Network Abstraction Layer for iOS'
 
   s.description      = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.10'
   s.tvos.deployment_target = '9.0'
   s.watchos.deployment_target = '2.0'
-  s.swift_version = '4.2'
+  s.swift_version = '5'
 
   s.source_files = 'Sources/**/*'
 end
