@@ -157,6 +157,28 @@ public extension NetworkResourceWithBody {
         }
         return self
     }
+
+    /// Sets the HTTP Body with NSData
+    ///
+    /// Internally sets the Content-Type header of the resource to "application/json"
+    ///
+    /// - Parameters:
+    ///   - body: JSON serialised request body
+    /// - Returns: NetworkResourceWithBody
+    @objc @discardableResult func json(body: Data) -> NetworkResourceWithBody {
+
+        ///Checking for creation error
+        guard self.creationError == nil else {
+            return self
+        }
+        ///Sets the content type
+        self.contentType("application/json")
+
+        ///Sets the HTTP Body
+        self.request.httpBody = body
+
+        return self
+    }
     
     /// Sets the HTTP Body as JSON encoded from a type conforming to the `Encodable (Codable)` protocol
     ///
