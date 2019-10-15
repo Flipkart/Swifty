@@ -300,7 +300,7 @@ public extension NetworkResourceWithBody {
     /// - Parameter withFile: The name (without extension) of the file containing the mocked response. The file must be present in the main bundle (`Bundle.main`)
     /// - Parameter ofType: The extension of the file. Defaults to `.json` if not provided.
     /// - Returns: NetworkResourceWithBody
-    @objc @discardableResult override func mock(withFile: String, ofType: String = "json") -> NetworkResourceWithBody {
+    @objc @discardableResult override func mock(withFile: String, inBundle: Bundle = Bundle.main, ofType: String = "json") -> NetworkResourceWithBody {
         super.mock(withFile: withFile, ofType: ofType)
         return self
     }

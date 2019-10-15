@@ -130,9 +130,9 @@ public extension NetworkResource {
     /// - Parameter withFile: The name (without extension) of the file containing the mocked response. The file must be present in the main bundle (`Bundle.main`)
     /// - Parameter ofType: The extension of the file. Defaults to `.json` if not provided.
     /// - Returns: NetworkResource
-    @objc @discardableResult func mock(withFile: String, ofType: String = "json") -> NetworkResource {
-        guard let path = Bundle.main.path(forResource: withFile, ofType: ofType), let data = try? Data(contentsOf: URL(fileURLWithPath: path)), data.count > 0 else {
-            print("[Swifty] Unable to mock response from file: \(withFile).\(ofType): Make sure the filename and extension are correct, and the file is present in the main bundle of your app. Also make sure the file is not empty.")
+    @objc @discardableResult func mock(withFile: String, inBundle: Bundle = Bundle.main, ofType: String = "json") -> NetworkResource {
+        guard let path = inBundle.path(forResource: withFile, ofType: ofType), let data = try? Data(contentsOf: URL(fileURLWithPath: path)), data.count > 0 else {
+            print("[Swifty] Unable to mock response from file: \(withFile).\(ofType): Make sure the filename and extension are correct, and the file is present in the bundle - \(inBundle.bundleIdentifier ?? "") . Also make sure the file is not empty.")
             return self
         }
         self.mockedData = data

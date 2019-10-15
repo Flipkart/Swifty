@@ -292,21 +292,17 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Swifty_Example/Pods-Swifty_Example-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Swifty_Example/Pods-Swifty_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Swifty/Swifty.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swifty.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swifty_Example/Pods-Swifty_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swifty_Example/Pods-Swifty_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B7816BECB8D5F37454ABC6E7 /* [CP] Embed Pods Frameworks */ = {
@@ -315,7 +311,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Swifty_Tests/Pods-Swifty_Tests-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Swifty_Tests/Pods-Swifty_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -324,7 +320,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swifty_Tests/Pods-Swifty_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swifty_Tests/Pods-Swifty_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BF7100A5A2D002428AA5AE2F /* [CP] Check Pods Manifest.lock */ = {
