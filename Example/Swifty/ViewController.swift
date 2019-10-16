@@ -11,12 +11,14 @@ import Swifty
 
 class ViewController: UIViewController {
     
+    lazy var httpBin = HTTPBin()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let body = ["Hello": "HTTP Body"]
         
-        HTTPBin.postRequest(with: body).loadJSON(successBlock: { [weak self] (json) in
+        httpBin.postRequest(with: body).loadJSON(successBlock: { [weak self] (json) in
             if #available(iOS 10.0, *) {
                 self?.navigationController?.present(SwiftyInspector.presentableInspector(), animated: true, completion: nil)
             }

@@ -37,12 +37,12 @@ import Foundation
      
      A trailing forward slash in **not required** at the end of the URL.
     */
-    static var serverURL: String { get set }
+    var serverURL: String { get set }
     
     /// The network interface this WebService will use to communicate with the network.
     ///
     /// > This is usually a class conforming to the `WebServiceNetworkInterface` protocol, holding an instance of `Swifty` with your custom `Interceptors` and `Constraints`.
-    static var networkInterface: WebServiceNetworkInterface { get set }
+    var networkInterface: WebServiceNetworkInterface { get set }
 }
 
 extension WebService {
@@ -50,7 +50,7 @@ extension WebService {
     /// A BaseResource created from the server URL of the WebService
     ///
     /// Use this as the starting point while creating requests in your WebService.
-    static public var server: BaseResource {
+    public var server: BaseResource {
         if let url = URL(string: serverURL) {
             return BaseResource(request: NSMutableURLRequest(url: url), networkInterface: networkInterface)
         }
@@ -61,7 +61,7 @@ extension WebService {
     ///
     /// - Parameter baseURL: String
     /// - Returns: BaseResource
-    static public func customResource(with baseURL: String) -> BaseResource {
+    public func customResource(with baseURL: String) -> BaseResource {
         if let customURL = URL(string: baseURL) {
             let request = NSMutableURLRequest(url: customURL)
             return BaseResource(request: request, networkInterface: networkInterface)

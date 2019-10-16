@@ -298,11 +298,11 @@ public extension NetworkResourceWithBody {
     /// Mocks the response of the resource with the contents of the given filename. Note that if a request is mocked, it'll never hit the network, and will NOT pass the Request Interceptors. It will, however, pass through the Response Intereptors.
     ///
     /// - Parameter withFile: The name (without extension) of the file containing the mocked response. The file must be present in the main bundle (`Bundle.main`)
-    /// - Parameter inBundle: Bundle in which mock file is located. Defaults to main bundle
+    /// - Parameter bundle: Bundle in which mock file is located. Defaults to main bundle
     /// - Parameter ofType: The extension of the file. Defaults to `.json` if not provided.
     /// - Returns: NetworkResourceWithBody
-    @objc @discardableResult override func mock(withFile: String, inBundle: Bundle = Bundle.main, ofType: String = "json") -> NetworkResourceWithBody {
-        super.mock(withFile: withFile, inBundle: inBundle,  ofType: ofType)
+    @objc @discardableResult override func mock(withFile: String, bundle: Bundle = Bundle.main, ofType: String = "json") -> NetworkResourceWithBody {
+        super.mock(withFile: withFile, bundle: bundle,  ofType: ofType)
         return self
     }
     

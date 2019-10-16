@@ -13,6 +13,8 @@ class IPConstraint: Constraint {
     
     static var currentIP: String?
     
+    lazy var httpBin = HTTPBin()
+    
     enum ConstraintError: Error {
         case invalidIPReceived
     }
@@ -28,7 +30,7 @@ class IPConstraint: Constraint {
     
     override func satisfyConstraint(for resource: NetworkResource) {
         
-        HTTPBin.getMyIP().loadJSON(successBlock: { (response) in
+        httpBin.getMyIP().loadJSON(successBlock: { (response) in
             
             guard let json = response as? [String: Any], let myIP = json["origin"] as? String else {
                 self.finish(with: ConstraintError.invalidIPReceived)

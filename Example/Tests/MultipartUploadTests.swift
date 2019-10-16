@@ -14,10 +14,10 @@ class MultipartUploadTests: XCTestCase {
     
     class TestWebService: WebService {
         
-        static var serverURL = "https://httpbin.org"
-        static var networkInterface: WebServiceNetworkInterface = Swifty()
+        var serverURL = "https://httpbin.org"
+        var networkInterface: WebServiceNetworkInterface = Swifty()
         
-        static func multipartUpload(withImage image: UIImage, name: String) -> NetworkResource {
+        func multipartUpload(withImage image: UIImage, name: String) -> NetworkResource {
             let json = ["Hello": "World"]
             let data = try! JSONSerialization.data(withJSONObject: json, options: [])
             let imageData = image.pngData()!
@@ -26,13 +26,19 @@ class MultipartUploadTests: XCTestCase {
         
     }
     
+    var testWebService: TestWebService!
+    
+    override func setUp() {
+        testWebService = TestWebService()
+    }
+    
     func testMultipartUploadPayload() {
         
         let expectation = self.expectation(description: "Multipart data uploaded should be received in the response")
         let image = UIImage(named: "SwiftyLogo")!
         let base64Image = image.pngData()!.base64EncodedString()
         
-        TestWebService.multipartUpload(withImage: image, name: "logo").loadJSON(successBlock: { (response) in
+        testWebService.multipartUpload(withImage: image, name: "logo").loadJSON(successBlock: { (response) in
             XCTAssertNotNil(response)
             XCTAssert(response is [String: Any])
             if let json = response as? [String: Any],

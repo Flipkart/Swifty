@@ -14,20 +14,26 @@ class MockingTests: XCTestCase {
     
     class TestWebService: WebService {
         
-        static var serverURL = "https://httpbin.org"
-        static var networkInterface: WebServiceNetworkInterface = Swifty()
+        var serverURL = "https://httpbin.org"
+        var networkInterface: WebServiceNetworkInterface = Swifty()
         
-        static func getIP() -> NetworkResource {
+        func getIP() -> NetworkResource {
             return server.get("ip")
         }
 
+    }
+    
+    var testWebService: TestWebService!
+    
+    override func setUp() {
+        testWebService = TestWebService()
     }
     
     func testResponseMocking() {
         
         let expectation = self.expectation(description: "Should get mocked response from the file")
         
-        TestWebService.getIP().mock(withFile: "mockedResponse").loadJSON(successBlock: { (response) in
+        testWebService.getIP().mock(withFile: "mockedResponse").loadJSON(successBlock: { (response) in
             XCTAssertNotNil(response)
             XCTAssert(response is [String: Any])
             if let json = response as? [String: Any], let message = json["message"] as? String {
