@@ -14,9 +14,6 @@ import Foundation
 /// Validation Interceptor
 struct ValidationInterceptor: ResponseInterceptor {
     
-    /// Empty Status Codes
-    let emptyStatusCodes: Set<Int> = [204, 205]
-    
     /// Valid Status Codes
     let validStatusCodes: [Int] = Array(200..<300)
     
@@ -37,16 +34,9 @@ struct ValidationInterceptor: ResponseInterceptor {
             return response
         }
         
-        /// Valid Empty Status Codes Check
-        if(response.data?.count == 0 && !emptyStatusCodes.contains(httpResponse.statusCode)){
-            response.fail(error: SwiftyError.responseValidation(reason: "Empty Data Received"))
-            return response
-        }
-        
-        /// Data Nil Setting in case of Empty Status Code, instead of data with zero count
-        if(emptyStatusCodes.contains(httpResponse.statusCode)){
+        /// Do Not try to parse the empty data
+        if(response.data?.count == 0) {
             response.succeed(response: response.response, data: nil)
-            // Do Not try to parse the empty data
             response.parser = nil
             return response
         }
