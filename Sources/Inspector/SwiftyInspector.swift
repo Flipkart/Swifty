@@ -15,9 +15,14 @@ import UIKit
 
 
 @available(iOS 10.0, *)
-struct NetworkResourceMetric {
+public struct NetworkResourceMetric {
     let task: URLSessionTask
     let metrics: URLSessionTaskMetrics
+    
+    public init(task: URLSessionTask, metrics: URLSessionTaskMetrics) {
+        self.task = task
+        self.metrics = metrics
+    }
 }
 
 /**
@@ -47,7 +52,7 @@ struct NetworkResourceMetric {
     
     var metrics = [NetworkResourceMetric]()
     
-    func add(_ metric: NetworkResourceMetric) {
+    public func add(_ metric: NetworkResourceMetric) {
         self.metrics.insert(metric, at: 0)
         DispatchQueue.main.async {
             self.tableView.reloadData()
