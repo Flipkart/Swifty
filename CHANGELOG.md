@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.3.2](https://github.com/Flipkart/Swifty/releases/tag/1.3.2)
+Released on 2023-03-14.
+
+Swifty now exposes network metrics APIs publically.
+
 ## [1.3.1](https://github.com/Flipkart/Swifty/releases/tag/1.3.1)
 Released on 2019-12-30.
 
