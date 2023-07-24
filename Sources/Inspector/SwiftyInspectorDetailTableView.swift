@@ -38,9 +38,9 @@ class SwiftyInspectorDetailTableView: UITableViewController {
         var contentType: String?
         if let headers = task.currentRequest?.allHTTPHeaderFields {
             for (_, key) in headers.keys.enumerated() {
-                requestHeaders.append("\(key): \(headers[key]!)\n")
+                requestHeaders.append("\(key.lowercased()): \(headers[key]!)\n")
                 if(key == "Content-Type") {
-                    contentType = headers[key]
+                    contentType = headers[key.lowercased()]
                 }
             }
         }
