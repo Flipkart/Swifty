@@ -9,7 +9,7 @@
 import Foundation
 
 extension HTTPURLResponse {
-    public var caseInsensitiveHTTPHeaders: [String: String] {
+    public var lowercasedHTTPHeaders: [String: String] {
         var headers: [String: String] = [:]
         for header in self.allHeaderFields {
             if let fieldName = header.key as? String, let value = self.allHeaderFields[header.key] as? String {
