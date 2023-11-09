@@ -103,6 +103,10 @@
 		16AB33C51F7F9B570046AA09 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33C31F7F9B560046AA09 /* Utility.swift */; };
 		16AB33C61F7F9B570046AA09 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33C31F7F9B560046AA09 /* Utility.swift */; };
 		16AB33C71F7F9B570046AA09 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33C31F7F9B560046AA09 /* Utility.swift */; };
+		46A216A32A681CFB00698A71 /* HTTPURLResponse+Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A216A22A681CFB00698A71 /* HTTPURLResponse+Headers.swift */; };
+		46A216A42A681CFB00698A71 /* HTTPURLResponse+Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A216A22A681CFB00698A71 /* HTTPURLResponse+Headers.swift */; };
+		46A216A52A681CFB00698A71 /* HTTPURLResponse+Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A216A22A681CFB00698A71 /* HTTPURLResponse+Headers.swift */; };
+		46A216A62A681CFB00698A71 /* HTTPURLResponse+Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A216A22A681CFB00698A71 /* HTTPURLResponse+Headers.swift */; };
 		52D6D9871BEFF229002C0205 /* Swifty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* Swifty.framework */; };
 		DD7502881C68FEDE006590AF /* Swifty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* Swifty.framework */; };
 		DD7502921C690C7A006590AF /* Swifty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* Swifty.framework */; };
@@ -159,6 +163,7 @@
 		16AB33A11F7F9A970046AA09 /* NetworkResource+Loaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkResource+Loaders.swift"; sourceTree = "<group>"; };
 		16AB33C11F7F9B0F0046AA09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		16AB33C31F7F9B560046AA09 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		46A216A22A681CFB00698A71 /* HTTPURLResponse+Headers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Headers.swift"; sourceTree = "<group>"; };
 		52D6D97C1BEFF229002C0205 /* Swifty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swifty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9861BEFF229002C0205 /* Swifty-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swifty-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9E21BEFFF6E002C0205 /* Swifty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swifty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +284,7 @@
 			children = (
 				16AB338B1F7F9A7B0046AA09 /* URLSessionTransactionMetricsExtensions.swift */,
 				16AB33C31F7F9B560046AA09 /* Utility.swift */,
+				46A216A22A681CFB00698A71 /* HTTPURLResponse+Headers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -650,6 +656,7 @@
 				16AB33981F7F9A800046AA09 /* SwiftyInspectorDetailTableView.swift in Sources */,
 				16AB33651F7F9A580046AA09 /* ParsingInterceptor.swift in Sources */,
 				16AB33A61F7F9A9A0046AA09 /* NetworkResourceWithBody.swift in Sources */,
+				46A216A32A681CFB00698A71 /* HTTPURLResponse+Headers.swift in Sources */,
 				16AB33991F7F9A800046AA09 /* URLSessionTransactionMetricsExtensions.swift in Sources */,
 				16AB33661F7F9A580046AA09 /* Swifty.swift in Sources */,
 				16AB33611F7F9A580046AA09 /* Constraint.swift in Sources */,
@@ -689,6 +696,7 @@
 				16AB33921F7F9A7F0046AA09 /* SwiftyInspectorDetailTableView.swift in Sources */,
 				16AB33791F7F9A590046AA09 /* ParsingInterceptor.swift in Sources */,
 				16AB33B41F7F9A9B0046AA09 /* NetworkResourceWithBody.swift in Sources */,
+				46A216A52A681CFB00698A71 /* HTTPURLResponse+Headers.swift in Sources */,
 				16AB33931F7F9A7F0046AA09 /* URLSessionTransactionMetricsExtensions.swift in Sources */,
 				16AB337A1F7F9A590046AA09 /* Swifty.swift in Sources */,
 				16AB33751F7F9A590046AA09 /* Constraint.swift in Sources */,
@@ -717,6 +725,7 @@
 				16AB338F1F7F9A7E0046AA09 /* SwiftyInspectorDetailTableView.swift in Sources */,
 				16AB33831F7F9A5A0046AA09 /* ParsingInterceptor.swift in Sources */,
 				16AB33BB1F7F9A9C0046AA09 /* NetworkResourceWithBody.swift in Sources */,
+				46A216A62A681CFB00698A71 /* HTTPURLResponse+Headers.swift in Sources */,
 				16AB33901F7F9A7E0046AA09 /* URLSessionTransactionMetricsExtensions.swift in Sources */,
 				16AB33841F7F9A5A0046AA09 /* Swifty.swift in Sources */,
 				16AB337F1F7F9A5A0046AA09 /* Constraint.swift in Sources */,
@@ -745,6 +754,7 @@
 				16AB33951F7F9A7F0046AA09 /* SwiftyInspectorDetailTableView.swift in Sources */,
 				16AB336F1F7F9A590046AA09 /* ParsingInterceptor.swift in Sources */,
 				16AB33AD1F7F9A9B0046AA09 /* NetworkResourceWithBody.swift in Sources */,
+				46A216A42A681CFB00698A71 /* HTTPURLResponse+Headers.swift in Sources */,
 				16AB33961F7F9A7F0046AA09 /* URLSessionTransactionMetricsExtensions.swift in Sources */,
 				16AB33701F7F9A590046AA09 /* Swifty.swift in Sources */,
 				16AB336B1F7F9A590046AA09 /* Constraint.swift in Sources */,
@@ -926,7 +936,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Configs/Swifty.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Swifty.Swifty-iOS";
@@ -949,7 +959,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Configs/Swifty.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Swifty.Swifty-iOS";
 				PRODUCT_NAME = Swifty;

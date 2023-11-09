@@ -43,7 +43,7 @@ public extension NetworkResource {
         
         if let data = "\(username):\(password)".data(using: .utf8) {
             let credential = data.base64EncodedString(options: [])
-            self.header(key: "Authorization", value: "Basic \(credential)")
+            self.header(key: self.lowercasedHTTPHeaders ? "authorization" : "Authorization", value: "Basic \(credential)")
         } else {
             print("NetworkResource: Failed to encode authorization header for \(username): \(password)")
         }
@@ -72,7 +72,7 @@ public extension NetworkResource {
             print("NetworkResource: Didn't add header for key: \(key), since the value provided was empty.")
             return self
         }
-        self.request.setValue(value, forHTTPHeaderField: key)
+        self.request.setValue(value, forHTTPHeaderField: self.lowercasedHTTPHeaders ? key.lowercased() : key)
         return self
     }
     
@@ -88,7 +88,7 @@ public extension NetworkResource {
         
         dictionary.forEach({ (key, value) in
             if(!value.isEmpty) {
-                self.request.setValue(value, forHTTPHeaderField: key)
+                self.request.setValue(value, forHTTPHeaderField: self.lowercasedHTTPHeaders ? key.lowercased() : key)
             } else {
                 print("NetworkResource: Didn't add header for key: \(key) in the provided headers, since the value provided was empty.")
             }
@@ -185,7 +185,7 @@ public extension NetworkResource {
     /// - Parameter contentType: Content-Type
     /// - Returns: NetworkResource
     @objc @discardableResult func contentType(_ contentType: String) -> NetworkResource {
-        self.request.setValue(contentType, forHTTPHeaderField: "Content-Type")
+        self.request.setValue(contentType, forHTTPHeaderField: self.lowercasedHTTPHeaders ? "content-type": "Content-Type")
         return self
     }
     
