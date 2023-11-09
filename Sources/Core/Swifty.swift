@@ -136,6 +136,10 @@ struct SwiftyInterceptors {
 
 // MARK: - WebServiceNetworkInterface.
 extension Swifty: WebServiceNetworkInterface {
+    public var swifty: Swifty {
+        return self
+    }
+    
     /// Conforms Swifty's shared instance to the WebServiceNetworkInterface protocol, making it easy to use directly with a WebService.
     @objc public func loadResource(resource: NetworkResource, completion: @escaping (NetworkResponse) -> Void) {
         self.add(resource, successBlock: { (networkResponse) in

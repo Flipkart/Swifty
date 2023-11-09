@@ -12,7 +12,7 @@ import XCTest
 
 public class NetworkInterface: WebServiceNetworkInterface {
     
-    let swifty: Swifty
+    public let swifty: Swifty
     
     public init(requestInterceptors: [RequestInterceptor] = [], responseInterceptors: [ResponseInterceptor] = [], constraints: [Constraint] = []) {
         self.swifty = Swifty(constraints: constraints, requestInterceptors: requestInterceptors, responseInterceptors: responseInterceptors)

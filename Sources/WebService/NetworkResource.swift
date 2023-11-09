@@ -85,7 +85,7 @@ import Foundation
     @objc public init(request: NSMutableURLRequest, networkInterface: WebServiceNetworkInterface? = nil) {
         self.request = request
         self.networkInterface = networkInterface
-        self.lowercasedHTTPHeaders = Swifty.shared.lowercasedHTTPHeaders
+        self.lowercasedHTTPHeaders = networkInterface?.swifty.lowercasedHTTPHeaders ?? false
     }
     
     /// Initializes the NetworkResource with the given URLRequest

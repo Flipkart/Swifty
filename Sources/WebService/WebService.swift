@@ -17,6 +17,8 @@ import Foundation
 /// Conformance to this only requires the implementation of one method: loadResource(resource: completion:)
 @objc public protocol WebServiceNetworkInterface: class {
     
+    var swifty: Swifty { get }
+    
     /// Implement this method to tell a WebService what to do when .load() is called on it's NetworkResource. The NetworkResource on which the .load() method is called comes in as an argument, and any networking library can be used to fire the resource's internal request over the network, create a NetworkResponse from the actual response, and passed into the completion closure.
     ///
     /// - Parameters:
