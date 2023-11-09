@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Swifty'
-  s.version          = '1.3.2'
+  s.version          = '1.3.3'
   s.summary          = 'Lightweight & Fast Network Abstraction Layer for iOS'
 
   s.description      = <<-DESC
