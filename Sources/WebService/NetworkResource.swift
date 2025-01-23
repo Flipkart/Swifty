@@ -44,9 +44,6 @@ import Foundation
     
     var multipartData: [BodyPart]?
     
-    /// If headers should be in lowercase
-    let lowercasedHTTPHeaders: Bool
-    
     /// Error (if any) encountered while Webservice was creating this request.
     ///
     /// Set this error in your own extensions of `NetworkResource` or `NetworkResourceWithBody` Modifiers to inform callers of errors that fail the request, for example, JSON encoding failures.
@@ -85,7 +82,6 @@ import Foundation
     @objc public init(request: NSMutableURLRequest, networkInterface: WebServiceNetworkInterface? = nil) {
         self.request = request
         self.networkInterface = networkInterface
-        self.lowercasedHTTPHeaders = Swifty.shared.lowercasedHTTPHeaders
     }
     
     /// Initializes the NetworkResource with the given URLRequest

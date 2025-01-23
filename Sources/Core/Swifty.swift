@@ -43,9 +43,6 @@ struct SwiftyInterceptors {
     /// Concurrent Network Queue having a utility QOS.
     let networkQueue = DispatchQueue(label: "swifty.networkOperations", qos: .utility, attributes: [.concurrent])
     
-    /// If the header should be sent and read in lowercase
-    let lowercasedHTTPHeaders: Bool
-    
     /// Initialize Swifty with the given URLSession, Constraints, and Request & Response Interceptors
     ///
     /// The constraints and interceptors passed in these arguments will run in same order as passed in these arrays.
@@ -58,13 +55,11 @@ struct SwiftyInterceptors {
     public init(session: URLSession,
                 constraints: [Constraint] = [],
                 requestInterceptors: [RequestInterceptor] = [],
-                responseInterceptors: [ResponseInterceptor] = [],
-                lowercasedHTTPHeaders: Bool = false) {
+                responseInterceptors: [ResponseInterceptor] = []) {
         self.session = session
         self.constraints = constraints
         self.requestInterceptors = SwiftyInterceptors.requestInterceptors + requestInterceptors
         self.responseInterceptors = SwiftyInterceptors.responseInteptors + responseInterceptors
-        self.lowercasedHTTPHeaders = lowercasedHTTPHeaders
         super.init()
     }
     
@@ -81,8 +76,7 @@ struct SwiftyInterceptors {
                             constraints: [Constraint] = [],
                             requestInterceptors: [RequestInterceptor] = [],
                             responseInterceptors: [ResponseInterceptor] = [],
-                            sessionMetricsDelegate: URLSessionTaskDelegate? = nil,
-                            lowercasedHTTPHeaders: Bool = false) {
+                            sessionMetricsDelegate: URLSessionTaskDelegate? = nil) {
         
         #if DEBUG
             let session = URLSession(configuration: configuration, delegate: sessionMetricsDelegate ?? SwiftyURLSessionDelegate.shared, delegateQueue: nil)
@@ -90,7 +84,7 @@ struct SwiftyInterceptors {
             let session = URLSession(configuration: configuration, delegate: sessionMetricsDelegate, delegateQueue: nil)
         #endif
         
-        self.init(session: session, constraints: constraints, requestInterceptors: requestInterceptors, responseInterceptors: responseInterceptors, lowercasedHTTPHeaders: lowercasedHTTPHeaders)
+        self.init(session: session, constraints: constraints, requestInterceptors: requestInterceptors, responseInterceptors: responseInterceptors)
     }
     
     /// Adds a network resource to run on the Swifty Queue.
