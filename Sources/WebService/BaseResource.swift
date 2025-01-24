@@ -125,8 +125,9 @@ fileprivate extension URL {
                 return
             }
         }
-        
-        self.appendPathComponent(path, isDirectory: isDirectory)
+        if !path.isEmpty {
+            self.appendPathComponent(path, isDirectory: isDirectory)
+        }
         return
     }
     
