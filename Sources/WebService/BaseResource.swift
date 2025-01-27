@@ -112,7 +112,9 @@ public extension BaseResource {
 fileprivate extension URL {
     
     mutating func appendPathComponentPreservingQuery(path: String, isDirectory: Bool) {
-        
+        guard !path.isEmpty else {
+            return
+        }
         if(path.contains("?")){
             let split = path.split(separator: "?", maxSplits: 1, omittingEmptySubsequences: true)
             if split.count > 1 {
@@ -125,7 +127,7 @@ fileprivate extension URL {
                 return
             }
         }
-        
+
         self.appendPathComponent(path, isDirectory: isDirectory)
         return
     }
